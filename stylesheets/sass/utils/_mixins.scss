@@ -1,0 +1,20 @@
+// MEDIAS QUERIES 
+@mixin responsive($responsive-width) {
+    @media screen and (min-width:$responsive-width) {
+        @content;
+    }
+}
+
+// SAFEZONES
+@mixin safeZone-sidePage {
+    padding-right: $safeZone-sidePage;
+    padding-left: $safeZone-sidePage;
+    @include responsive($desktopPlus) {
+        padding-left: calc((100vw - #{$desktop}) / 2);
+        padding-right: calc((100vw - #{$desktop}) / 2);
+    }
+}
+@mixin safeZone-section {
+    padding-top: $safeZone-topSection;
+    padding-bottom: $safeZone-bottomSection;
+}

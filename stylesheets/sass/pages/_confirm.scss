@@ -1,0 +1,141 @@
+#confirm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    
+    section {
+        @include safeZone-sidePage;
+        @include safeZone-section;
+        width: 100%;
+        border-top: $borderForm;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        // gap: 20px;
+    }
+}
+
+// --------------------------------------------
+// --------------- INTRO ---------------
+.intro {
+    align-items: center;
+    gap: 10px;
+    
+    &__text {
+        max-width: $tablet;
+        line-height: 1.5rem;
+        text-align: justify;
+        @include responsive($tablet) {
+            text-align: center;
+        }
+    }
+}
+
+
+// --------------------------------------------
+// --------------- FORMULAIRE ---------------
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+   
+
+// --------------------------------------------
+// --------------- PRESENCE ---------------
+
+
+
+// --------------------------------------------
+// --------------- LES CONVIVES ---------------
+
+.form__guests {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 25px;   
+    
+    // BOUTONS 
+    &__buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        @include responsive($tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    
+    // CARD INFOS
+    &__infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 10px;
+        // align-items: stretch;
+        
+        .addButton {
+            &::before{
+                all: unset;
+            }
+        }
+    }
+
+    // RECAP GUESTS
+    &__sumUp {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 15px;
+
+        .guest {
+            height: 100%;
+            width: 100%;
+            border: solid 1px red;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: $secondColor-light;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     &__infos {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 25px;
+//         input {
+//             all: unset;
+//             border-bottom: solid 1px $mainColor;
+//             padding-right: 5px;
+//             padding-left: 5px;
+
+//             &::placeholder {
+//                 color: $mainColor;
+//                 font-style: italic;
+//                 font-size: .8rem;
+//             }
+//         }
+//     }
+// }

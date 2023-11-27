@@ -1,4 +1,3 @@
-/* colors */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css");
 *, ::before, ::after {
@@ -7,7 +6,317 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #DFF0FF;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* FONTS */
 body {
   font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #273A7C;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #273A7C;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: #273A7C;
+}
+input::-moz-placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+input::placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.navBar {
+  padding-right: 5vw;
+  padding-left: 5vw;
+  height: 50px;
+  width: 100%;
+  background-color: #273A7C;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+@media screen and (min-width: 1080px) {
+  .navBar {
+    padding-left: calc((100vw - 1024px) / 2);
+    padding-right: calc((100vw - 1024px) / 2);
+  }
+}
+.navBar__logo {
+  height: 75%;
+}
+.navBar .burger-menu {
+  cursor: pointer;
+  width: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+}
+.navBar .burger-menu .line {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 300ms ease-in-out;
+}
+.navBar .burger-menu .line::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #E32D73;
+  transform: translateX(30px);
+  transition: transform 200ms ease-in-out;
+}
+.navBar .burger-menu .line:nth-child(2)::after {
+  transition-delay: 50ms;
+}
+.navBar .burger-menu .line:nth-child(3)::after {
+  transition-delay: 100ms;
+}
+.navBar .burger-menu:hover .line::after {
+  transform: translateX(0);
+}
+.navBar #burger-toggle {
+  display: none;
+}
+.navBar #burger-toggle:checked ~ .burger-menu .line:nth-child(1) {
+  transform: translateY(9px) rotate(-45deg);
+}
+.navBar #burger-toggle:checked ~ .burger-menu .line:nth-child(2) {
+  transform: scaleX(0);
+}
+.navBar #burger-toggle:checked ~ .burger-menu .line:nth-child(3) {
+  transform: translateY(-9px) rotate(45deg);
+}
+
+.hero {
+  padding-right: 5vw;
+  padding-left: 5vw;
+  height: 300px;
+  width: 100%;
+  background-image: url("../../../assets/images/nuage-blanc-fond-ciel-bleu.jpg");
+  background-size: cover;
+  background-position-x: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1080px) {
+  .hero {
+    padding-left: calc((100vw - 1024px) / 2);
+    padding-right: calc((100vw - 1024px) / 2);
+  }
+}
+.hero__image {
+  max-height: 100%;
+  max-width: 90vw;
+}
+
+.cta {
+  all: unset;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 5px #E32D73;
+  border-radius: 15px;
+  padding: 5px 20px;
+  text-transform: uppercase;
+}
+
+.addButton {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  max-width: 100%;
+  height: 40px;
+  border-radius: 25px;
+  background: #273A7C;
+  color: white;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px gray;
+  font-weight: 600;
+  transition: all 200ms ease-in-out;
+}
+@media screen and (min-width: 768px) {
+  .addButton {
+    width: 100%;
+  }
+}
+.addButton::before {
+  content: "+";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: white;
+  color: #273A7C;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.6rem;
+  font-weight: 900;
+  transition: all 200ms ease-in-out;
+}
+.addButton:hover {
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.8);
+  transform: scale(1.01);
+}
+.addButton:hover::before {
+  transform: rotate(90deg);
+}
+.addButton:active {
+  box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.8);
+  background: #E32D73;
+  transform: scale(1);
+}
+.addButton:active::before {
+  transform: rotate(90deg);
+  color: #E32D73;
+}
+
+input {
+  height: 40px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: none;
+  border-bottom: solid 1px #273A7C;
+}
+
+.card {
+  width: 100%;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 0 0.6rem rgba(39, 58, 124, 0.2);
+}
+
+#confirm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+#confirm section {
+  padding-right: 5vw;
+  padding-left: 5vw;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  border-top: #273A7C solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 1080px) {
+  #confirm section {
+    padding-left: calc((100vw - 1024px) / 2);
+    padding-right: calc((100vw - 1024px) / 2);
+  }
+}
+
+.intro {
+  align-items: center;
+  gap: 10px;
+}
+.intro__text {
+  max-width: 768px;
+  line-height: 1.5rem;
+  text-align: justify;
+}
+@media screen and (min-width: 768px) {
+  .intro__text {
+    text-align: center;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__guests {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 25px;
+}
+.form__guests__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+@media screen and (min-width: 768px) {
+  .form__guests__buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.form__guests__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.form__guests__infos .addButton::before {
+  all: unset;
+}
+.form__guests__sumUp {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 15px;
+}
+.form__guests__sumUp .guest {
+  height: 100%;
+  width: 100%;
+  border: solid 1px red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFE0F5;
 }

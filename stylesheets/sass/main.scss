@@ -12,10 +12,16 @@
     './layouts/header',
     './layouts/footer';
 
-// @import
-//     './components/';
+@import
+    './components/buttons',
+    './components/inputs',
+    './components/cards';
     
-// @import
-//     './pages/;
+@import
+    './pages/index',
+    './pages/home',
+    './pages/infos',
+    './pages/program',
+    './pages/confirm';
     
 

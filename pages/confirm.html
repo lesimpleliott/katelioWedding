@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="/assets/logos/icon.svg">
+        <title>RSVP - Mariage K&E</title>
+        <link rel="stylesheet" href="../stylesheets/css/main.css">
+        <script src="/JS/main.js" defer></script>
+    </head>
+
+    <body> 
+        <header id="confirmHeader">
+            <nav class="navBar">
+                <img class="navBar__logo" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="Retour Accueil">
+
+                <input type="checkbox" id="burger-toggle">
+                <label for="burger-toggle" class="burger-menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </label>
+                
+                <!-- <div class="navBar__links">
+                    <a href="">Accueil</a>
+                    <a href="">Infos</a>
+                    <a href="">Programme</a>
+                    <a class="page-selected" href="">RSVP</a>
+                </div> -->
+<!--                 
+                <div class="overlay"></div> -->
+            </nav>
+
+            <div class="hero">
+                <img class="hero__image" src="../assets/images/RSVP_Ticket.png" alt="Ticket de réponse">
+            </div>
+        </header>
+
+        <main id="confirm">
+            <section class="intro">
+                <p class="intro__text">Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable !!</p>
+                <p class="intro__text">Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants n'étant pas (encore) considérés comme des animaux, nous les accueillerons avec joie !!!</p>
+            </section>
+
+
+            <form class="form">
+
+                <!-- PRESENCE -->
+                <section class="form__present">
+                    <h2>Serez-vous présent(e) ?</h2>
+                    <!-- inserer input radio OUI / NON -->
+                </section>
+
+                <!-- INFOS INVITES -->
+                <section class="form__guests">
+                    <h2>Le(s) convives(s)</h2>
+                    
+                    <!-- BOUTONS -->
+                    <div class="form__guests__buttons">
+                        <div id="buttonAddAdult" class="addButton">Adulte</div>
+                        <div id="buttonAddChild" class="addButton">Enfant</div>
+                    </div>
+
+                    <!-- INFO NOM PRENOM -->
+                    <div id="guest-infos" class="form__guests__infos">
+                        <!-- <input type="text" id="inputFirstName" placeholder="Prénom" required>
+                            <input type="text" id="inputLastName" placeholder="Nom" required>
+                            <div id="validGuest" class="addButton">Valider</div> -->
+                    </div>
+                        
+                    <!-- RECAP INVITES -->
+                    <div id="guests-list" class="form__guests__sumUp">
+                        <div class="guest item1">
+                            <div class="fullName">
+                                <p id="firstName1">Katherine</p>
+                                <p id="lastName1">Semennikova</p>
+                            </div class="">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- <button class="cta">Envoyer</button> -->
+            </form>
+        </main>
+
+        <footer>
+        </footer>
+    </body>
+
+</html>

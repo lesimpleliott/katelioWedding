@@ -1,6 +1,26 @@
-  /* colors */
-  $mainColor: #273A7C;
-  $secondColor: #E32D73;
-  $mainColor-light: #DFF0FF;
-  $secondColor-light: #FFE0F5;
-  
+// COLORS
+$mainColor: #273A7C;
+$secondColor: #E32D73;
+$mainColor-light: #DFF0FF;
+$secondColor-light: #FFE0F5;
+
+// SPACING
+$safeZone-sidePage: 5vw;
+$safeZone-topSection: 30px; 
+$safeZone-bottomSection: 30px; 
+
+// MEDIA QUERIES
+$tablet: 768px; 
+$desktop: 1024px;
+$desktopPlus: 1080px;
+
+
+
+
+
+// HEADER 
+$navBar-height : 50px;
+$burgerWidth: 30px;
+
+// FORM
+$borderForm : $mainColor solid 1px;
