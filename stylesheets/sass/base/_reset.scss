@@ -2,10 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none; // A GARDER OU PAS ... A VOIR 
 }
 
 body {
     background: $mainColor-light;
+}
+
+ul {
+    list-style: none;
 }
 
 a {
