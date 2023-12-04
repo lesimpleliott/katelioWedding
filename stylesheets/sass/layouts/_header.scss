@@ -2,7 +2,6 @@ header {
     width: 100vw;
     height: calc($navbar-height + $banner-height);
     max-height: 50vh;
-    margin-bottom: -40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,26 +223,37 @@ header {
     max-height: 50vh;
     max-width: $desktop;
     position: fixed;
-    z-index: -1;
     top: $navbar-height;
-    overflow: hidden;
+    z-index: -1;
     
     &__image {
         width: 100%;
         height: calc($navbar-height + $banner-height);
+        max-height: 50vh;
         object-fit: cover;
     }
     
     &__title {
-        min-width: 60%;
+        min-width: 50%;
         padding: 0 30px;
         text-align: center;
         position: absolute;
-        top: calc(50% - 40px);
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: solid 2px #fff;
         background: rgba(#000000, .4);
+        border: solid 2px #fff;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 10px);
+            height: calc(100% + 10px);
+            border: solid 1px #fff;
+        }
     }
 }
 
