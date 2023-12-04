@@ -2,11 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: none; // A GARDER OU PAS ... A VOIR 
+    // outline: none; 
 }
 
 body {
     background: $mainColor-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
@@ -16,4 +19,10 @@ ul {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }

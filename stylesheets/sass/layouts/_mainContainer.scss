@@ -1,0 +1,17 @@
+main {
+    width: 100%;
+    max-width: $desktop;
+
+    margin-top: calc($navbar-height + $banner-height);
+    @include safeZone-section; 
+    @include safeZone-sidePage; 
+    
+    background: #fff;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    
+    // ToDelette // TESTING 
+    height: 1500px;
+    // opacity: .8;
+}
+

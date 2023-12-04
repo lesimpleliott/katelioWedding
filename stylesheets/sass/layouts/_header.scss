@@ -1,144 +1,229 @@
-// NAVBAR
-.navbar {
+header {
+    width: 100vw;
+    margin-bottom: -40px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: $navbar-height;
-    background-color: $mainColor;
-    @include safeZone-sidePage;
-    position: relative;
-    z-index: 10;
-    box-shadow: 
-    rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
-    &__logo {
-        width: 50px;
-    }
-
-    &__links {
-        display: flex;
-        gap: 35px;
-    }
 }
 
-// NAVBAR // MOBILE DEVICE
-@media screen and (max-width: calc($tablet - 1px)) {
-    .navbar__links {
-        display: flex;
-        flex-direction: column;
-        padding-top: 25px;
-        text-align: right;
-        width: 0%;
-        height: calc(100vh - $navbar-height);
-        position: absolute;
-        top: $navbar-height;
-        right: 0;
-        background-color: $mainColor;
-        transition: width 200ms ease-in-out;
-        overflow: hidden;
+// NAVBAR 
+.navbar {        
+    height: $navbar-height;
+    width: 100%;
+    @include safeZone-sidePage;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    
+    box-shadow:
+    0px 1px 10px rgba(#000, 0.2),
+    0px 5px 20px rgba(#000, 0.4);
 
-        &__item {
-            transform: translateX(100%);
-        }
+    &__logo {
+        width: 60px;
+    }
+    &__links {
+        color: #fff;
+    }
+    
+    // GESTION DE LA NAVBAR TABLET & DESKTOP 
+    &.tablet {
+        background: $mainColor;
         
-        &__item > a {
-            display: block;
-            @include safeZone-sidePage;
-            transition: all 100ms ease-in-out;
-            &:hover {
-                font-weight: 500;
-                color: $secondColor;
-                letter-spacing: 2px;
+        .navbar__links {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 20px;
+    
+            &__link {
+                & > a::after {
+                    content: "";
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    border-radius: 2px;
+                    background-color: $secondColor;
+                    transition: width 200ms ease-in-out;
+                }
+            
+                &:hover {
+                    & > a::after {
+                        width: 100%;
+                    }
+                }
             }
         }
-    }
-
-    // DISPLAY de la navbar 
-    .openNav .navbar__links{
-        width: 100%;
-    }
-
-    // ANIMATION DES LINKS 
-    .openNav .navbar__links__item {
-        transform: translateX(0);
-        transition: transform 300ms ease-out;
-    }
-    .openNav {
-        $transition-delay-step: 100ms; 
-        @for $i from 1 through 4 { 
-            .navbar__links__item:nth-child(#{$i}) {
-                transition-delay: #{($i - 1) * $transition-delay-step};
-            }
+    
+        .burger {
+            display: none;
         }
     }
     
-    // MENU BURGER 
-    .navbar__burger {
-        width: 40px;
-        height: 40px;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        position: relative;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        transform: rotate(0turn);
-        transition: transform 200ms ease-in-out;
-
-        .line {
-            display: block;
-            width: 100%;
-            height: 3px;
-            border-radius: 20px;
-            background-color: white;
-            transition: all 200ms ease-in-out;
+    // GESTION DE LA NAVBAR MOBILE 
+    &.mobile {
+        background: $mainColor;
+       
+        // BURGER 
+        .burger {
+            width: 40px;
+            height: $burger-height;
+            position: relative;
+    
+            .lines {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: all $burger-timing ease-in-out;
+            }
+    
+            .bar {
+                width: 100%;
+                height: $burgerLine-thickness;
+                border-radius: 20px;
+                background: #fff;
+                pointer-events: none;
+                position: absolute;
+                
+                &:nth-child(1) {
+                    top: $burgerLine1-top;
+                    transform: rotate(0);
+                    transition: 
+                    transform $burger-timing ease-in-out,
+                    top $burger-timing $burger-timing ease-in-out;    
+                }
+                &:nth-child(2) {
+                    top: $burgerLine2-top;
+                    transition: all 100ms $burger-timing ease-in-out;
+                }
+                &:nth-child(3) {
+                    top: $burgerLine3-top;
+                    transform: rotate(0);
+                    transition: 
+                    transform $burger-timing ease-in-out,
+                    top $burger-timing $burger-timing ease-in-out;    
+                }
+            }
+            .lines {
+                transition: transform $burger-timing ease-in-out;
+            }
         }
-    }  
-    // ANIMATION DU BURGER AU CLIC 
-    .lineEffect {
-        transform: rotate(.5turn);
-        
-        & .line:nth-child(1) {
-            transform: translateY(12px) rotate(45deg);
-        }
-        & .line:nth-child(2) {
-            opacity: 0;
-        }
-        & .line:nth-child(3) {
-            transform: translateY(-12px) rotate(-45deg);
-        }
-    } 
-}
-
-
-// NAVBAR // TABLET, DESKTOP DEVICES
-@include responsive($tablet) {
-    .navbar__burger {
-        display: none;
-    }
-
-    .navbar__links {
-        display: flex;
-        gap: 35px;
-    }
-    .navbar__links__item {
-        & > a::after {
-            content: "";
-            display: block;
+        // BURGER OUVERT 
+        .burger.openNav {
+            .bar{
+                &:nth-child(1) {
+                    top: $burgerLine2-top;
+                    transform: rotate(45deg);
+                    transition: 
+                    top $burger-timing ease-in-out,      
+                    transform $burger-timing $burger-timing ease-in-out;
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    top: $burgerLine2-top;
+                    transform: rotate(-45deg);
+                    transition: 
+                    top $burger-timing ease-in-out,      
+                    transform $burger-timing $burger-timing ease-in-out;
+                }
+            }
+            .lines {
+                transition: transform $burger-timing $burger-timing ease-in-out;
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        } 
+        // LINKS
+        .navbar__links {
             width: 0%;
-            height: 2px;
-            border-radius: 2px;
-            background-color: $secondColor;
-            transition: width 200ms ease-in-out;
+            height: calc(100vh - $navbar-height);
+            position: absolute;
+            top: $navbar-height;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;        
+            padding-top: 20px;
+            background: $mainColor;
+            overflow: hidden;
+            box-shadow: 
+            rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            
+            transition: width $burger-timing ease-in-out;
+            
+            &__link {
+                width: 100%;
+                text-align: right;
+                font-size: 1.5rem;
+                transform: translateX(101%);
+    
+                a {
+                    width: 100%;
+                    display: block;
+                    text-align: right;
+                    font-size: 1.5rem;
+                    padding: 5px;
+                    font-size: 2rem;
+                    @include safeZone-sidePage;
+    
+                    transition: 
+                    letter-spacing 200ms ease-in-out,
+                    font-weight 200ms ease-in-out;
+                    
+                    &:hover, 
+                    &:active {
+                        letter-spacing: .1rem;
+                        font-weight: 600;
+                        background: lighten($color: $mainColor, $amount: 10);
+                    }
+                }
+            }
         }
-
-        &:hover > a::after {
+        // LINKS OPEN
+        .navbar__links.openNav {
             width: 100%;
+            transition: width $burger-timing ease-in-out;
+    
+            .navbar__links__link {
+                transform: translateX(0);
+                transition: transform $burger-timing $burger-timing ease-in-out;
+            }
+    
+            @for $i from 1 through 4 { 
+                .navbar__links__link:nth-child(#{$i}) {
+                    transition-delay: #{($i) * calc($burger-timing/4)};
+                }
+            }
         }
     }
 }
+
+// BANNER
+.banner {
+    width: 100%;
+    height: fit-content;
+    max-width: $desktop;
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+    top: $navbar-height;
+
+    &__image {
+        height: $banner-height;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+

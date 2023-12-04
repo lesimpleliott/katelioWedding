@@ -9,20 +9,17 @@
     './base/typography';
 
 @import
-    './layouts/header',
-    './layouts/footer',
-    './layouts/ctaBanner';
+    // './layouts',
+    './layouts/mainContainer',
+    './layouts/header';
 
-@import
-    './components/buttons',
-    './components/inputs',
-    './components/cards';
+// @import
+//     './components',
+//     './components';
     
 @import
-    './pages/index',
+    // './pages',
     './pages/home',
     './pages/infos',
     './pages/program',
     './pages/confirm';
-    
-
