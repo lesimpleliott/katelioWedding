@@ -5,16 +5,17 @@
     }
 }
 
-// SAFEZONES
-@mixin safeZone-sidePage {
+// HEADER + FOOTER
+@mixin headerHeight {
+    height: calc($navbar-height + $banner-height);
+    max-height: 50vh;
+}
+
+@mixin paddingRL-FullPage {
     padding-right: $safeZone-sidePage;
     padding-left: $safeZone-sidePage;
-    @include responsive($desktopPlus) {
-        padding-left: calc((100vw - #{$desktop}) / 2);
-        padding-right: calc((100vw - #{$desktop}) / 2);
+    @include responsive($desktop) {
+        padding-left: calc((100vw - #{$desktop}) / 2 + 50px);
+        padding-right: calc((100vw - #{$desktop}) / 2 + 50px);
     }
-}
-@mixin safeZone-section {
-    padding-top: $safeZone-topSection;
-    padding-bottom: $safeZone-bottomSection;
 }

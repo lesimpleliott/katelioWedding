@@ -4,9 +4,31 @@
     }
 }
 
-.main__title {
-    text-align: center;
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    section {
+        width: 100%;
+        margin: $safeZone-element 0;
+    }
+
+    textarea {
+        min-width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        border: solid 1px $mainColor;
+        padding: 10px;
+    }
+
+
+    &__title {
+    }
+
+
 }
-.main__subtitle {
-    text-align: justify;
-}
+
+

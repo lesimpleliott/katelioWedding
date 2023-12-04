@@ -36,50 +36,67 @@
     </header>   
 
     <main id="confirmMain">
-
-        <!-- <section class="form"> -->
-
-            <h2 class="main__title">Confirmez votre présence</h2>
-            <p class="main__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, sunt debitis iure explicabo officiis enim eligendi molestias consectetur non soluta error quos numquam fugiat aut exercitationem in incidunt? <br> Eveniet molestias aut voluptatibus obcaecati perspiciatis laudantium adipisci omnis placeat asperiores aliquam.</p>
+        <h2 class="main__title">Confirmez votre présence</h2>
+        <p class="main__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, sunt debitis iure explicabo officiis enim eligendi molestias consectetur non soluta error quos numquam fugiat aut exercitationem in incidunt? <br> Eveniet molestias aut voluptatibus obcaecati perspiciatis laudantium adipisci omnis placeat asperiores aliquam.</p>
+        
+        <form class="form">
+            <!-- IDENTIFICATION -->
+            <section class="form__identification">
+                test identification
+            </section>
             
-            <form class="form__container">
-                <section class="form__container__presence">
-                    <h3>Serez-vous présent ?</h3>
-                    <div class="radioForm" id="presence">
-                        <label for="presenceYes" class="radioForm__label "><p>Oui</p></label>
-                        <input type="radio" name="presence" value="1" id="presenceYes"/>
-                        <label for="presenceNo" class="radioForm__label selection"><p>Non</p></label>
-                        <input type="radio" name="presence" value="2" id="presenceNo"/>
-                        <div class="radioForm__toggle tab-2"></div>
-                    </div>
-                    <div class="radioForm" id="test">
-                        <label for="testOUI" class="radioForm__label "><p>Oui</p></label>
-                        <input type="radio" name="test" value="1" id="testOUI"/>
-                        <label for="testNON" class="radioForm__label selection"><p>Non</p></label>
-                        <input type="radio" name="test" value="2" id="testNON"/>
-                        <div class="radioForm__toggle tab-2"></div>
-                    </div>
-                </section>
-                <section class="form__container__guest">
-                    <h3>Serez-vous présent ?</h3>
-                    
-                </section>
-                <section class="form__container__nigh">
-                    <h3>Serez-vous présent ?</h3>
-                    
-                </section>
-                <section class="form__container__meal">
-                    <h3>Serez-vous présent ?</h3>
-                    
-                </section>
-                <section class="form__container__message">
-                    <h3>Serez-vous présent ?</h3>
-                </section>
-            </form>
+            <!-- PRESENCE -->
+            <section class="form__presence">
+                <h3 class="form__title">Serez-vous présent ?</h3>
+                <div class="radioForm" id="presence">
+                    <label for="presenceYes" class="radioForm__label "><p>Oui</p></label>
+                    <input type="radio" name="presence" value="1" id="presenceYes" checked/>
+                    <label for="presenceNo" class="radioForm__label selection"><p>Non</p></label>
+                    <input type="radio" name="presence" value="2" id="presenceNo"/>
+                    <div class="radioForm__toggle tab-2"></div>
+                </div>
+            </section>
             
-        <!-- </section> -->
+            <!-- AJOUTER INVITES -->
+            <section class="form__guest">
+                <h3 class="form__title">Ajouter des invités</h3>
+            </section>
             
+            <!-- GITES -->
+            <section class="form__nigh">
+                <h3 class="form__title">Gîtes</h3>
+            </section>
+            
+            <!-- REPAS -->
+            <section class="form__meal">
+                <h3 class="form__title">Repas</h3>
+            </section>
+            
+            <!-- MESSAGE -->
+            <section class="form__message">
+                <h3 class="form__title">Message</h3>
+                <p class="form__subtitle">
+                    Des questions ? Un petit mot ? <br> 
+                    Profitez en pour nous indiquer d’éventuelles allergies alimentaires ou votre souhait de prolonger votre séjour.
+                </p>
+                <textarea name="form__message" id="formMessage" cols="50" rows="10" placeholder="Message..."></textarea>
+            </section>
+            
+            <!-- VALIDATION -->
+            <button class="form_button cta">Envoyer</button>
+        </form>           
     </main>
+
+    <footer>
+        <section class="credits">
+            <p class="credits__text">Mariage Katherine & Eliott</p>
+            <p class="credits__text">Contact : <a href="mailto:contact@Katelio.fr">contact@katelio.fr</a></p>
+            <p class="credits__text">Crédits images : Freepik.com</p>
+        </section>
+    </footer>
+
+
+
 </body>
 
 </html>

@@ -11,11 +11,12 @@
 @import
     // './layouts',
     './layouts/mainContainer',
-    './layouts/header';
+    './layouts/header',
+    './layouts/footer';
 
-// @import
+@import
 //     './components',
-//     './components';
+    './components/cta';
     
 @import
     // './pages',

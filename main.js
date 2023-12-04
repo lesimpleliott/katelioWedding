@@ -2,7 +2,7 @@
 // MENU BURGER ET NAVBAR ********************************
 // VARIABLES GLOBALES
 const tablet = 768; 
-const desktop = 1024;
+// const desktop = 1024;
 
 // Gestion de la Navbar
 function navbarDisplay() {

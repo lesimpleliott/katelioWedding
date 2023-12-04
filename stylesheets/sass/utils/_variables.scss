@@ -1,21 +1,24 @@
 // COLORS
 $mainColor: #273A7C;
 $secondColor: #E32D73;
-$mainColor-light: #DFF0FF;
+$mainColor-light: #e1eefa; //#DFF0FF
 $secondColor-light: #FFE0F5;
 // $shadowDark : -5px -5px 8px #acd1f4;
 // $shadowLight : 5px 5px 8px #c6d8e9;
 
 // SPACING
 $safeZone-sidePage: 5vw;
-$safeZone-topSection: 30px; 
-$safeZone-bottomSection: 30px; 
+
+$safeZone-mainTop: 40px; 
+$safeZone-mainBottom: 40px;
+$safeZone-mainRight: 5vw;  
+$safeZone-mainLeft: 5vw;  
+
 $safeZone-element: 20px; 
 
 // NAVBAR + BURGER
 $navbar-height: 50px; 
 $banner-height: 60vw;
-// $banner-height: 350px;
 $burgerLine-thickness: 4px;
 $burger-height: 26px; // paire obligatoirement ! 
 $burgerLine3-top: calc($burger-height - $burgerLine-thickness); // bar du bas 
@@ -25,5 +28,4 @@ $burger-timing: 300ms;
 
 // MEDIA QUERIES
 $tablet: 768px; 
-$desktop: 1024px;
-$desktopPlus: 1080px;
+$desktop: 1280px;

@@ -1,7 +1,6 @@
 header {
     width: 100vw;
-    height: calc($navbar-height + $banner-height);
-    max-height: 50vh;
+    @include headerHeight();
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +10,8 @@ header {
 .navbar {        
     height: $navbar-height;
     width: 100%;
-    @include safeZone-sidePage;
-    
+    @include paddingRL-FullPage;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,9 +32,6 @@ header {
         &__image {
             height: 80%;
         }
-    }
-    &__links {
-        color: #fff;
     }
     
     // GESTION DE LA NAVBAR TABLET & DESKTOP 
@@ -172,17 +168,14 @@ header {
             &__link {
                 width: 100%;
                 text-align: right;
-                font-size: 1.5rem;
                 transform: translateX(101%);
     
                 a {
                     width: 100%;
                     display: block;
                     text-align: right;
-                    font-size: 1.5rem;
                     padding: 5px;
-                    font-size: 2rem;
-                    @include safeZone-sidePage;
+                    padding-right: $safeZone-sidePage;
     
                     transition: 
                     letter-spacing 200ms ease-in-out,
@@ -190,8 +183,6 @@ header {
                     
                     &:hover, 
                     &:active {
-                        letter-spacing: .1rem;
-                        font-weight: 600;
                         background: lighten($color: $mainColor, $amount: 10);
                     }
                 }
@@ -219,8 +210,7 @@ header {
 // BANNER
 .banner {
     width: 100%;
-    height: calc($navbar-height + $banner-height);
-    max-height: 50vh;
+    @include headerHeight();
     max-width: $desktop;
     position: fixed;
     top: $navbar-height;
@@ -228,8 +218,7 @@ header {
     
     &__image {
         width: 100%;
-        height: calc($navbar-height + $banner-height);
-        max-height: 50vh;
+        @include headerHeight();
         object-fit: cover;
     }
     
@@ -238,7 +227,7 @@ header {
         padding: 0 30px;
         text-align: center;
         position: absolute;
-        top: 40%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(#000000, .4);
