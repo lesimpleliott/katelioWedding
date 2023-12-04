@@ -1,5 +1,7 @@
 header {
     width: 100vw;
+    height: calc($navbar-height + $banner-height);
+    max-height: 50vh;
     margin-bottom: -40px;
     display: flex;
     flex-direction: column;
@@ -24,9 +26,14 @@ header {
     box-shadow:
     0px 1px 10px rgba(#000, 0.2),
     0px 5px 20px rgba(#000, 0.4);
-
+    
     &__logo {
-        width: 60px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &__image {
+            height: 80%;
+        }
     }
     &__links {
         color: #fff;
@@ -213,17 +220,30 @@ header {
 // BANNER
 .banner {
     width: 100%;
-    height: fit-content;
+    height: calc($navbar-height + $banner-height);
+    max-height: 50vh;
     max-width: $desktop;
-    overflow: hidden;
     position: fixed;
     z-index: -1;
     top: $navbar-height;
-
+    overflow: hidden;
+    
     &__image {
-        height: $banner-height;
         width: 100%;
+        height: calc($navbar-height + $banner-height);
         object-fit: cover;
+    }
+    
+    &__title {
+        min-width: 60%;
+        padding: 0 30px;
+        text-align: center;
+        position: absolute;
+        top: calc(50% - 40px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: solid 2px #fff;
+        background: rgba(#000000, .4);
     }
 }
 
