@@ -1,5 +1,40 @@
 .cta {
-    border: solid 1px red;
     padding: 10px 30px;
-    
+    border: solid 5px $secondColor;
+    border-radius: 10px;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $secondColor;
+    position: relative;
+    user-select: none;
+
+    z-index: 1;
+
+    &::before {
+        content: "# ";
+    }
+
+    &::after {
+        content: "";
+        width: 0%;
+        height: 100%;
+        background: $secondColor;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: width 300ms ease-in-out;
+    }
+
+    &:hover {
+        color: #fff;
+
+        &::after {
+            width: 100%;
+        }
+    }
+
 }
