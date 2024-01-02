@@ -1,47 +1,22 @@
-// @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css');
-
-// GOOGLE FONT - TITLE - font-family: 'Prata', serif;
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Prata&display=swap');
-
-// GOOGLE FONT - TEXT - font-family: 'Poppins', sans-serif;
+// FONT POPPINS 
+// font-family: 'Poppins', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+// FONT POPPINS 
+// font-family: 'GFS Didot', serif;
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
 
-body {
+// FONT AWESOME
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css');
+
+// ************************************************************************************************************************
+// ************************************************************************************************************************
+
+* {
     font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-    text-transform: uppercase;
-    font-size: 9vw;
-    font-weight: 700;
-    color: #fff;
-    @include responsive($tablet) {
-        font-size: 7vw;
-    }
-    @include responsive($desktop) {
-        font-size: 5rem;
-    }
-}
-
-h2 {
-    font-family: 'Prata', serif;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: .05rem;
-    color: $secondColor;
-    margin-bottom: $safeZone-element;
-}
-
-h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: $mainColor;
-}
-
-.navbar { //links
+.navbar { 
     .navbar__links__link a {
         color: #fff;
     }
@@ -63,11 +38,16 @@ h3 {
     }
 }
 
-textarea, input {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    color: $mainColor;
-    &::placeholder {
-        font-style: italic;
+h1 {
+    font-family: 'GFS Didot', serif;
+    text-transform: uppercase;
+    font-size: 9vw;
+    font-weight: 700;
+    color: #fff;
+    @include responsive($tablet) {
+        font-size: 7vw;
+    }
+    @include responsive($desktop) {
+        font-size: 5rem;
     }
 }

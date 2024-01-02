@@ -1,21 +1,14 @@
+// // MODELE CARD 
+// @mixin backCards($width: 100%) {
+//     background-color: white;
+//     border-radius: 15px;
+//     box-shadow: $shadow-card-light;
+//     width: $width;
+// }
+
 // MEDIAS QUERIES 
 @mixin responsive($responsive-width) {
     @media screen and (min-width:$responsive-width) {
         @content;
-    }
-}
-
-// HEADER + FOOTER
-@mixin headerHeight {
-    height: calc($navbar-height + $banner-height);
-    max-height: 50vh;
-}
-
-@mixin paddingRL-FullPage {
-    padding-right: $safeZone-sidePage;
-    padding-left: $safeZone-sidePage;
-    @include responsive($desktop) {
-        padding-left: calc((100vw - #{$desktop}) / 2 + 50px);
-        padding-right: calc((100vw - #{$desktop}) / 2 + 50px);
     }
 }

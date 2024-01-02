@@ -1,104 +1,49 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katherine & Eliott - Confirmation</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/logos/love-icon.svg">
-    <link rel="stylesheet" href="../stylesheets/css/main.css">
-    <script src="../main.js" defer></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="./assets/icons/love-icon.svg">
+        <title>Katherine & Eliott - RSVP</title>
+        <link rel="stylesheet" href="../stylesheets/styles.css">
+        <script src="../scripts/header.js" defer></script>
+        <script src="../scripts/script.js" defer></script>
+    </head>
 
-<body>
-    <header id="confirmHeader">
-        <nav class="navbar mobile">
-            <a href="../index.html" class="navbar__logo">
-                <img class="navbar__logo__image" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="Retour index">
-            </a>    
-            <ul class="navbar__links">
-                <li class="navbar__links__link"><a href="./home.html">Accueil</a></li>
-                <li class="navbar__links__link"><a href="./infos.html">Infos</a></li>
-                <li class="navbar__links__link"><a href="./program.html">Programme</a></li>
-                <li class="navbar__links__link"><a href="./confirm.html">RSVP</a></li>
-            </ul>   
-            <button class="burger">
-                <div class="lines">
-                    <div class="bar"></div>  
-                    <div class="bar"></div>  
-                    <div class="bar"></div>  
-                </div>
-            </button>   
-        </nav>
-        <section class="banner">
-            <h1 class="banner__title">RSVP</h1>
-            <img class="banner__image" src="../assets/images/table-decoree.jpg" alt="">
-        </section>
-    </header>   
+    <body> 
+        <header>
+            <nav id="navBar" class="navbar mobile">
+                <div class="navbar__logo">
+                    <a href="./home.html">
+                        <img class="navbar__logo__image" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="logo KatElio Wedding">
+                    </a>
+                </div>    
+                <ul class="navbar__links" id="navLinks">
+                    <li class="navbar__links__link"><a href="./home.html">Accueil</a></li>
+                    <li class="navbar__links__link"><a href="./infos.html">Infos</a></li>
+                    <li class="navbar__links__link"><a href="./program.html">Programme</a></li>
+                    <li class="navbar__links__link"><a href="./confirm.html">RSVP</a></li>
+                </ul>   
+                <button class="burger" id="burgerBtn">
+                    <div class="lines">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </button>   
+            </nav>
+            <section class="banner">
+                <h1 class="banner__title">RSVP</h1>
+                <img class="banner__image" src="../assets/images/bluesky.jpg" alt="">
+            </section>
+        </header>
 
-    <main id="confirmMain">
-        <h2 class="main__title">Confirmez votre présence</h2>
-        <p class="main__subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, sunt debitis iure explicabo officiis enim eligendi molestias consectetur non soluta error quos numquam fugiat aut exercitationem in incidunt? <br> Eveniet molestias aut voluptatibus obcaecati perspiciatis laudantium adipisci omnis placeat asperiores aliquam.</p>
-        
-        <form class="form">
-            <!-- IDENTIFICATION -->
-            <section class="form__identification card">
-                <input type="text" placeholder="Nom*">
-                <input type="text" placeholder="Prénom*">
-                <input type="text" placeholder="email*">
-            </section>
-            
-            <!-- PRESENCE -->
-            <section class="form__presence">
-                <h3 class="form__title">Serez-vous présent ?</h3>
-                <div class="radioForm" id="presence">
-                    <label for="presenceYes" class="radioForm__label "><p>Oui</p></label>
-                    <input type="radio" name="presence" value="1" id="presenceYes" checked/>
-                    <label for="presenceNo" class="radioForm__label selection"><p>Non</p></label>
-                    <input type="radio" name="presence" value="2" id="presenceNo"/>
-                    <div class="radioForm__toggle tab-2"></div>
-                </div>
-            </section>
-            
-            <!-- AJOUTER INVITES -->
-            <section class="form__guest">
-                <h3 class="form__title">Ajouter des invités</h3>
-            </section>
-            
-            <!-- GITES -->
-            <section class="form__nigh">
-                <h3 class="form__title">Gîtes</h3>
-            </section>
-            
-            <!-- REPAS -->
-            <section class="form__meal">
-                <h3 class="form__title">Repas</h3>
-            </section>
-            
-            <!-- MESSAGE -->
-            <section class="form__message">
-                <h3 class="form__title">Message</h3>
-                <p class="form__subtitle">
-                    Des questions ? Un petit mot ? <br> 
-                    Profitez en pour nous indiquer d’éventuelles allergies alimentaires ou votre souhait de prolonger votre séjour.
-                </p>
-                <textarea name="form__message" id="formMessage" cols="50" rows="10" placeholder="Message..."></textarea>
-            </section>
-            
-            <!-- VALIDATION -->
-            <button class="form_button cta">Envoyer</button>
-        </form>           
-    </main>
+        <main>
+        </main>
 
-    <footer>
-        <section class="credits">
-            <p class="credits__text">Mariage Katherine & Eliott</p>
-            <p class="credits__text">Contact : <a href="mailto:contact@Katelio.fr">contact@katelio.fr</a></p>
-            <p class="credits__text">Crédits images : Freepik.com</p>
-        </section>
-    </footer>
-
-
-
-</body>
+        <footer>
+        </footer>
+    </body>
 
 </html>

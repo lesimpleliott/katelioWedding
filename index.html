@@ -1,45 +1,28 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katherine & Eliott</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/logos/love-icon.svg">
-    <link rel="stylesheet" href="./stylesheets/css/main.css">
-    <script src="./main.js" defer></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="./assets/icons/love-icon.svg">
+        <title>Katherine & Eliott</title>
+        <link rel="stylesheet" href="./stylesheets/styles.css">
+        <script src="./scripts/login.js" defer></script>
+    </head>
 
-<body>
-    <header>
-        <nav class="navbar mobile">
-            <div class="navbar__logo">
-                <a href="./index.html">
-                    <img class="navbar__logo__image" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="logo KatElio Wedding">
-                </a>
-            </div>    
-            <ul class="navbar__links">
-                <li class="navbar__links__link"><a href="./pages/home.html">Accueil</a></li>
-                <li class="navbar__links__link"><a href="./pages/infos.html">Infos</a></li>
-                <li class="navbar__links__link"><a href="./pages/program.html">Programme</a></li>
-                <li class="navbar__links__link"><a href="./pages/confirm.html">RSVP</a></li>
-            </ul>   
-            <button class="burger">
-                <div class="lines">
-                    <div class="bar"></div>  
-                    <div class="bar"></div>  
-                    <div class="bar"></div>  
-                </div>
-            </button>   
-        </nav>
-        <section class="banner">
-            <img class="banner__image" src="./assets/images/bluesky.jpg" alt="">
+    <body> 
+        <section class="login">
+            <img src="./assets/images/bluesky.jpg" alt="background bluesky" class="login__background">
+            <img src="./assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="" class="logo">
+            <form id="loginForm" class="loginForm">
+                <input type="password" id="passwordInput" class="loginForm__input" placeholder="Mot de passe"/>
+                <button type="submit" id="passwordSubmit" class="loginForm__submit">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </button>
+            </form>
+            <p class="logError"></p>
         </section>
-    </header>   
 
-    <main>
-            <h2>PAGE INDEX <br> À CONSTRUIRE AVEC PWD</h2>
-    </main>
-    
-</body>
+    </body>
 
 </html>

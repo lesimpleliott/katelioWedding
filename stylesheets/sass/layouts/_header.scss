@@ -1,3 +1,20 @@
+// VARIABLES & MIXINS
+$navbar-height: 50px;
+$banner-height: 600px;
+$burgerLine-thickness: 3px;
+$burger-height: 22px; // paire obligatoirement !
+$burgerLine3-top: calc($burger-height - $burgerLine-thickness); // bar du bas
+$burgerLine2-top: $burgerLine3-top / 2; // bar du milieu
+$burgerLine1-top: 0; // bar du haut
+$burger-timing: 300ms;
+
+@mixin headerHeight {
+    height: calc($navbar-height + $banner-height);
+    max-height: 50vh;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
 header {
     width: 100vw;
     @include headerHeight();
@@ -6,44 +23,39 @@ header {
     align-items: center;
 }
 
-// NAVBAR 
-.navbar {        
-    height: $navbar-height;
+.navbar {
     width: 100%;
-    @include paddingRL-FullPage;
+    height: $navbar-height;
+    padding-inline: 5vw;
+    @include responsive($desktop) {
+        padding-left: calc((100vw - #{$desktop}) / 2 + 20px);
+        padding-right: calc((100vw - #{$desktop}) / 2 + 20px);
+    }
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    
+    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 100;
-    
-    box-shadow:
-    0px 1px 10px rgba(#000, 0.2),
-    0px 5px 20px rgba(#000, 0.4);
-    
+
+    background: $mainColor;
+    box-shadow: 0px 1px 10px rgba(#000, 0.2), 0px 5px 20px rgba(#000, 0.4);
+
     &__logo {
         height: 100%;
-        display: flex;
-        align-items: center;
         &__image {
-            height: 80%;
+            height: 100%;
+            padding-block: 8px;
+            object-fit: contain;
         }
     }
-    
-    // GESTION DE LA NAVBAR TABLET & DESKTOP 
-    &.tablet {
-        background: $mainColor;
-        
+
+    &.desktop {
         .navbar__links {
             display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
             gap: 20px;
-    
+
             &__link {
                 & > a::after {
                     content: "";
@@ -54,7 +66,7 @@ header {
                     background-color: $secondColor;
                     transition: width 200ms ease-in-out;
                 }
-            
+
                 &:hover {
                     & > a::after {
                         width: 100%;
@@ -62,22 +74,21 @@ header {
                 }
             }
         }
-    
+
         .burger {
             display: none;
         }
     }
-    
-    // GESTION DE LA NAVBAR MOBILE 
+
     &.mobile {
         background: $mainColor;
-       
-        // BURGER 
+
+        // BURGER
         .burger {
-            width: 40px;
+            width: 35px;
             height: $burger-height;
             position: relative;
-    
+
             .lines {
                 height: 100%;
                 width: 100%;
@@ -87,7 +98,7 @@ header {
                 transform: translate(-50%, -50%);
                 transition: all $burger-timing ease-in-out;
             }
-    
+
             .bar {
                 width: 100%;
                 height: $burgerLine-thickness;
@@ -95,13 +106,12 @@ header {
                 background: #fff;
                 pointer-events: none;
                 position: absolute;
-                
+
                 &:nth-child(1) {
                     top: $burgerLine1-top;
                     transform: rotate(0);
-                    transition: 
-                    transform $burger-timing ease-in-out,
-                    top $burger-timing $burger-timing ease-in-out;    
+                    transition: transform $burger-timing ease-in-out,
+                        top $burger-timing $burger-timing ease-in-out;
                 }
                 &:nth-child(2) {
                     top: $burgerLine2-top;
@@ -110,24 +120,22 @@ header {
                 &:nth-child(3) {
                     top: $burgerLine3-top;
                     transform: rotate(0);
-                    transition: 
-                    transform $burger-timing ease-in-out,
-                    top $burger-timing $burger-timing ease-in-out;    
+                    transition: transform $burger-timing ease-in-out,
+                        top $burger-timing $burger-timing ease-in-out;
                 }
             }
             .lines {
                 transition: transform $burger-timing ease-in-out;
             }
         }
-        // BURGER OUVERT 
+        // BURGER OUVERT
         .burger.openNav {
-            .bar{
+            .bar {
                 &:nth-child(1) {
                     top: $burgerLine2-top;
                     transform: rotate(45deg);
-                    transition: 
-                    top $burger-timing ease-in-out,      
-                    transform $burger-timing $burger-timing ease-in-out;
+                    transition: top $burger-timing ease-in-out,
+                        transform $burger-timing $burger-timing ease-in-out;
                 }
                 &:nth-child(2) {
                     opacity: 0;
@@ -135,16 +143,15 @@ header {
                 &:nth-child(3) {
                     top: $burgerLine2-top;
                     transform: rotate(-45deg);
-                    transition: 
-                    top $burger-timing ease-in-out,      
-                    transform $burger-timing $burger-timing ease-in-out;
+                    transition: top $burger-timing ease-in-out,
+                        transform $burger-timing $burger-timing ease-in-out;
                 }
             }
             .lines {
                 transition: transform $burger-timing $burger-timing ease-in-out;
                 transform: translate(-50%, -50%) rotate(360deg);
             }
-        } 
+        }
         // LINKS
         .navbar__links {
             width: 0%;
@@ -155,33 +162,31 @@ header {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 15px;        
+            gap: 15px;
             padding-top: 20px;
             background: $mainColor;
             overflow: hidden;
-            box-shadow: 
-            rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
-            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-            
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
             transition: width $burger-timing ease-in-out;
-            
+
             &__link {
                 width: 100%;
                 text-align: right;
                 transform: translateX(101%);
-    
+
                 a {
                     width: 100%;
                     display: block;
                     text-align: right;
                     padding: 5px;
                     padding-right: $safeZone-sidePage;
-    
-                    transition: 
-                    letter-spacing 200ms ease-in-out,
-                    font-weight 200ms ease-in-out;
-                    
-                    &:hover, 
+
+                    transition: letter-spacing 200ms ease-in-out,
+                        font-weight 200ms ease-in-out;
+
+                    &:hover,
                     &:active {
                         background: lighten($color: $mainColor, $amount: 10);
                     }
@@ -192,13 +197,13 @@ header {
         .navbar__links.openNav {
             width: 100%;
             transition: width $burger-timing ease-in-out;
-    
+
             .navbar__links__link {
                 transform: translateX(0);
                 transition: transform $burger-timing $burger-timing ease-in-out;
             }
-    
-            @for $i from 1 through 4 { 
+
+            @for $i from 1 through 4 {
                 .navbar__links__link:nth-child(#{$i}) {
                     transition-delay: #{($i) * calc($burger-timing/4)};
                 }
@@ -210,18 +215,21 @@ header {
 // BANNER
 .banner {
     width: 100%;
-    @include headerHeight();
     max-width: $desktop;
+    @include headerHeight();
+    // height: 50vh;
+    // // height: $banner-height;
     position: fixed;
     top: $navbar-height;
     z-index: -1;
-    
+    overflow: hidden;
+
     &__image {
-        width: 100%;
         @include headerHeight();
+        width: 100%;
         object-fit: cover;
     }
-    
+
     &__title {
         min-width: 50%;
         padding: 0 30px;
@@ -230,11 +238,11 @@ header {
         top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(#000000, .4);
+        background: rgba(#000000, 0.3);
         border: solid 2px #fff;
-        
+
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             left: 50%;
@@ -245,4 +253,3 @@ header {
         }
     }
 }
-
