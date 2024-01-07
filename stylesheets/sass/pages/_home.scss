@@ -1,0 +1,19 @@
+.homeBanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__draw {
+        width: 100%;
+        max-width: 500px;
+        max-height: 70vh;
+        margin-inline: $safeZone-sidePage;
+        object-fit: cover;
+        object-position: bottom;
+    }
+
+    .countdown {
+        flex: 1;
+    }
+}

@@ -1,49 +1,121 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="./assets/icons/love-icon.svg">
-        <title>Katherine & Eliott - RSVP</title>
-        <link rel="stylesheet" href="../stylesheets/styles.css">
-        <script src="../scripts/header.js" defer></script>
-        <script src="../scripts/script.js" defer></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
+    <title>Katherine & Eliott</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <script src="../scripts/confirm.js" defer></script>
+    <script src="../scripts/navbar.js" defer></script>
+</head>
 
-    <body> 
-        <header>
-            <nav id="navBar" class="navbar mobile">
-                <div class="navbar__logo">
-                    <a href="./home.html">
-                        <img class="navbar__logo__image" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="logo KatElio Wedding">
-                    </a>
-                </div>    
-                <ul class="navbar__links" id="navLinks">
-                    <li class="navbar__links__link"><a href="./home.html">Accueil</a></li>
-                    <li class="navbar__links__link"><a href="./infos.html">Infos</a></li>
-                    <li class="navbar__links__link"><a href="./program.html">Programme</a></li>
-                    <li class="navbar__links__link"><a href="./confirm.html">RSVP</a></li>
-                </ul>   
-                <button class="burger" id="burgerBtn">
-                    <div class="lines">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
+<body>
+    <header>
+        <nav class="navbar mobile">
+            <div class="navbar__logo">
+                <a href="./home.html">
+                    <img class="navbar__logo__image" src="../assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="logo KatElio Wedding">
+                </a>
+            </div>    
+            <ul class="navbar__links" id="navLinks">
+                <li class="navbar__links__link"><a href="./home.html">Accueil</a></li>
+                <li class="navbar__links__link"><a href="./program.html">Programme</a></li>
+                <li class="navbar__links__link"><a href="./infos.html">Infos</a></li>
+                <li class="navbar__links__link"><a href="./dresscode.html">Dress code</a></li>
+                <li class="navbar__links__link"><a href="./confirm.html" class="active">RSVP</a></li>
+            </ul>   
+            <button class="burger" id="burgerBtn">
+                <div class="lines">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </button>   
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <img class="banner__image" src="../assets/images/table-decoree.jpg" alt="table repas de mariage">   
+            <h1 class="banner__title">RSVP</h1>
+        </section>
+
+        <section class="mainContainer">
+
+            <form id="confirmForm">
+                <section class="intro">
+                    <h2>Confirmer votre présence</h2>
+                    <p>Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable !!
+                    Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants n'étant pas (encore) considérés comme des animaux, nous les accueillerons avec joie !!!
+                    </p>
+                </section>
+
+                <section class="presence">
+                    <h3>Serez-vous présent ?</h3>
+                    <div class="radio radioPresence">
+                            <label>
+                                <input type="radio" name="presence" id="presenceYes" value="presenceYes">
+                                <span>Oui</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="presence" id="presenceNo" value="presenceNo">
+                                <span>Non</span>
+                            </label>
                     </div>
-                </button>   
-            </nav>
-            <section class="banner">
-                <h1 class="banner__title">RSVP</h1>
-                <img class="banner__image" src="../assets/images/bluesky.jpg" alt="">
-            </section>
-        </header>
 
-        <main>
-        </main>
+                    <div class="mainGuestContainer" style="display: none;">
+                        <input type="text" class="inputConfirm" id="inputMainFirstname" placeholder="Prénom">
+                        <input type="text" class="inputConfirm" id="inputMainLastname" placeholder="Nom">
+                        <input type="text" class="inputConfirm" id="inputMainEmail" placeholder="email">
+                        <button class="formBtn unable" id="mainGuestBtn">Valider</button>
+                        <!-- <p class="errorDisplay"></p> -->
+                    </div>
 
-        <footer>
-        </footer>
-    </body>
+
+                    <div class="guests" id="guests" style="display: none;">
+                        <div class="cardFormSection guest" id="mainGuest">
+                            <p class="guest__name" id="mainGuestName"></p>
+                            <p class="guest__mail" id="mainGuestEmail"></p>
+                        </div>
+                        <!-- <div class="cardFormSection guest">
+                            <p class="guest__name">John Doe</p>
+                            <button class="guest__deleteBtn">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                        <div class="cardFormSection guest">
+                            <p class="guest__name">John Doe</p>
+                            <button class="guest__deleteBtn">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div> -->
+                    </div>
+
+                    <!-- ICI LE BOUTON D'AJOUT LES INVITES + ASIDE'MODALE' A DEV -->
+
+
+                </section>
+                
+
+
+
+
+            </form>
+
+
+
+
+
+        </section>
+
+
+    </main>
+
+
+
+
+</body>
+
 
 </html>

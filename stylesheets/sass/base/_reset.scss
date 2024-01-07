@@ -4,16 +4,16 @@
     box-sizing: border-box;
 }
 
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
+body {
+    background: $bodyBgColor;
 }
 
 button {
-    background: none;
-    border: none;
+    all: unset;
     cursor: pointer;
 }
+
+li {
+    list-style: none;
+}
+

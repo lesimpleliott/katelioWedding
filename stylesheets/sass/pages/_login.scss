@@ -14,7 +14,6 @@
         z-index: -10;
         object-fit: cover;
         object-position: top;
-        
     }
 
     .logo {
@@ -38,10 +37,10 @@
         border: none;
         text-align: center;
         color: $secondColor;
-        
+
         &::placeholder {
             font-style: italic;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             font-weight: 300;
         }
     }
@@ -56,7 +55,7 @@
 .logError {
     margin-top: 10px;
     color: $mainColor-light;
-    font-size: .9rem;
+    font-size: 0.9rem;
     font-style: italic;
     font-weight: 300;
 
@@ -65,30 +64,4 @@
     z-index: -1;
 
     transition: 300ms ease-in-out;
-}
-
-
-.shake {
-    animation: errorSubmit 300ms ease-in-out;
-}
-
-@keyframes errorSubmit {
-0% {
-    transform: translateX(0px);
-}
-20% {
-    transform: translateX(10px);
-}
-40% {
-    transform: translateX(-10px);
-}
-60% {
-    transform: translateX(10px);
-}
-80% {
-    transform: translateX(-10px);
-}
-100% {
-    transform: translateX(0px);
-}
 }

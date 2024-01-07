@@ -1,11 +1,21 @@
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.mainContainer {
     width: 100%;
-    max-width: $desktop;
-    height: 100%;
-    // height: 1500px; ///////////////////////// TO TEST ////// TO DELETE
-    padding-block: $safeZone-block;
+    max-width: $tablet;
+    height: 500vh; ////////////////////////// ToDelete
+    padding-block: 30px;
+    // padding-inline: $safeZone-sidePage;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     background: #fff;
-    border-top-right-radius: 40px;
-    border-top-left-radius: 40px;  
+    border-radius: 30px 30px 0 0;
 }

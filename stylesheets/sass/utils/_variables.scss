@@ -1,21 +1,15 @@
-// COULEURS 
-$mainColor: #273A7C;
-$secondColor: #E32D73;
+// COULEURS
+$mainColor: #273a7c;
+$secondColor: #e32d73;
 $mainColor-light: #e1eefa; //#DFF0FF
-$secondColor-light: #FFE0F5;
-$shadowLight : -5px -5px 8px #efefef;
-$shadowDark : 5px 5px 8px #bfbfbf;
+$secondColor-light: #ffa8e3;
+$bodyBgColor: $mainColor-light; 
+$mainBgColor: #fff;
 
 // SPACES
 $safeZone-sidePage: 5vw;
-
-$safeZone-block: 40px; 
-$safeZone-inline: 5vw;  
-
+$cardSpace: 25px; 
 
 // RESPONSIVE
 $tablet: 768px; 
 $desktop: 1080px;
-
-
-

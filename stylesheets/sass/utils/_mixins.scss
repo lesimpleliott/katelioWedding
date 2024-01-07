@@ -1,14 +1,61 @@
-// // MODELE CARD 
-// @mixin backCards($width: 100%) {
-//     background-color: white;
-//     border-radius: 15px;
-//     box-shadow: $shadow-card-light;
-//     width: $width;
-// }
+// @mixin myMixin { }
+// @include myMixin;
 
-// MEDIAS QUERIES 
+// ******************************************************
+
+@mixin whiteBtn($size: 85px, $font-size: 2rem) {
+    height: $size;
+    width: $size;
+    border-radius: 75px;
+    background: rgba(#fff, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    font-size: $font-size;
+    font-weight: 700;
+
+    &::before {
+        content: "";
+        height: calc($size - 10px);
+        width: calc($size - 10px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(#fff, 0.3);
+        border-radius: 75px;
+    }
+
+    &::after {
+        content: "";
+        height: calc($size - 20px);
+        width: calc($size - 20px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: solid 1px #fff;
+        border-radius: 75px;
+    }
+}
+
+@mixin card($width: 100%) {
+    width: $width;    
+    border-radius: 15px;
+    font-size: 1.1rem;
+
+    box-shadow:
+    0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115),
+    0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165),
+    1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215),
+    4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+
+}
+
 @mixin responsive($responsive-width) {
-    @media screen and (min-width:$responsive-width) {
+    @media screen and (min-width: $responsive-width) {
         @content;
     }
 }

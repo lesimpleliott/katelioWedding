@@ -1,4 +1,4 @@
-// VARIABLES & MIXINS
+// VARIABLES
 $navbar-height: 50px;
 $banner-height: 600px;
 $burgerLine-thickness: 3px;
@@ -8,16 +8,10 @@ $burgerLine2-top: $burgerLine3-top / 2; // bar du milieu
 $burgerLine1-top: 0; // bar du haut
 $burger-timing: 300ms;
 
-@mixin headerHeight {
-    height: calc($navbar-height + $banner-height);
-    max-height: 50vh;
-}
-
 //////////////////////////////////////////////////////////////////////////////////
 
 header {
     width: 100vw;
-    @include headerHeight();
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,11 +20,7 @@ header {
 .navbar {
     width: 100%;
     height: $navbar-height;
-    padding-inline: 5vw;
-    @include responsive($desktop) {
-        padding-left: calc((100vw - #{$desktop}) / 2 + 20px);
-        padding-right: calc((100vw - #{$desktop}) / 2 + 20px);
-    }
+    padding-inline: $safeZone-sidePage;
 
     display: flex;
     align-items: center;
@@ -41,6 +31,15 @@ header {
 
     background: $mainColor;
     box-shadow: 0px 1px 10px rgba(#000, 0.2), 0px 5px 20px rgba(#000, 0.4);
+
+    .navbar__links__link {
+        a {
+            color: #fff;
+        }
+        .active {
+            color: $secondColor;
+        }
+    }
 
     &__logo {
         height: 100%;
@@ -57,14 +56,17 @@ header {
             gap: 20px;
 
             &__link {
-                & > a::after {
-                    content: "";
-                    display: block;
-                    width: 0%;
-                    height: 2px;
-                    border-radius: 2px;
-                    background-color: $secondColor;
-                    transition: width 200ms ease-in-out;
+                a {
+                    font-size: 1rem;
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 0%;
+                        height: 2px;
+                        border-radius: 2px;
+                        background-color: $secondColor;
+                        transition: width 200ms ease-in-out;
+                    }
                 }
 
                 &:hover {
@@ -100,6 +102,7 @@ header {
             }
 
             .bar {
+                display: block;
                 width: 100%;
                 height: $burgerLine-thickness;
                 border-radius: 20px;
@@ -183,6 +186,14 @@ header {
                     padding: 5px;
                     padding-right: $safeZone-sidePage;
 
+                    font-size: 2rem;
+                    font-weight: 400;
+                    &:hover,
+                    &:active {
+                        letter-spacing: 0.1rem;
+                        font-weight: 600;
+                    }
+
                     transition: letter-spacing 200ms ease-in-out,
                         font-weight 200ms ease-in-out;
 
@@ -208,48 +219,6 @@ header {
                     transition-delay: #{($i) * calc($burger-timing/4)};
                 }
             }
-        }
-    }
-}
-
-// BANNER
-.banner {
-    width: 100%;
-    max-width: $desktop;
-    @include headerHeight();
-    // height: 50vh;
-    // // height: $banner-height;
-    position: fixed;
-    top: $navbar-height;
-    z-index: -1;
-    overflow: hidden;
-
-    &__image {
-        @include headerHeight();
-        width: 100%;
-        object-fit: cover;
-    }
-
-    &__title {
-        min-width: 50%;
-        padding: 0 30px;
-        text-align: center;
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(#000000, 0.3);
-        border: solid 2px #fff;
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% + 10px);
-            height: calc(100% + 10px);
-            border: solid 1px #fff;
         }
     }
 }

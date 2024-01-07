@@ -1,15 +1,24 @@
-@import './utils/_variables';
-@import './utils/_mixins';
-@import './utils/_placeholders'; 
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/placeholders";
+@import "./utils/animations";
 
-@import './base/_reset';
-@import './base/_typography';
-@import './base/_body';
+// @import "./base";
+@import "./base/reset"; 
+@import "./base/typography";
 
-@import './layouts/main';
-@import './layouts/header';
+// @import "./layouts";
+@import "./layouts/main";
+@import "./layouts/header";
 
-// @import './components/';
-    
-@import './pages/login';
+// @import "./components";
+@import "./components/banner";
+@import "./components/scrollButton";
+@import "./components/countdown";
+
+// @import "./pages";
+@import "./pages/login";
+@import "./pages/home";
+@import "./pages/confirm";
+@import "./pages/dresscode";
 

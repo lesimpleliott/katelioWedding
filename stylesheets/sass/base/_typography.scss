@@ -1,13 +1,17 @@
-// FONT POPPINS 
+// FONT POPPINS
 // font-family: 'Poppins', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-// FONT POPPINS 
+// FONT PRATA
+// font-family: 'Prata', serif;
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
+// FONT DIDOT
 // font-family: 'GFS Didot', serif;
-@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
 
 // FONT AWESOME
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css");
 
 // ************************************************************************************************************************
 // ************************************************************************************************************************
@@ -16,33 +20,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.navbar { 
-    .navbar__links__link a {
-        color: #fff;
-    }
-    &.tablet {
-        .navbar__links__link a {
-            font-size: 1rem;
-        }
-    }
-    &.mobile {
-        .navbar__links__link a {
-            font-size: 2rem;
-            font-weight: 400;
-            &:hover, 
-            &:active {
-                letter-spacing: .1rem;
-                font-weight: 600;
-            }
-        }
-    }
-}
 
 h1 {
-    font-family: 'GFS Didot', serif;
     text-transform: uppercase;
     font-size: 9vw;
-    font-weight: 700;
+    font-weight: 600;
     color: #fff;
     @include responsive($tablet) {
         font-size: 7vw;
@@ -50,4 +32,31 @@ h1 {
     @include responsive($desktop) {
         font-size: 5rem;
     }
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    color: $secondColor;
+    margin-bottom: 20px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $mainColor;
+    // margin-bottom: 15px;
+}
+
+
+p {
+    color: $mainColor;
+}
+
+
+
+a {
+    text-decoration: none;
 }
