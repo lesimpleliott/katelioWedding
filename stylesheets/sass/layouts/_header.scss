@@ -36,9 +36,17 @@ header {
         a {
             color: #fff;
         }
-        .active {
-            color: $secondColor;
-        }
+        // .active {
+        //     color: $secondColor;
+        //     &::after {
+        //         content: "";
+        //         display: block;
+        //         width: 100%;
+        //         height: 2px;
+        //         border-radius: 2px;
+        //         background-color: $secondColor;
+        //     }
+        // }
     }
 
     &__logo {
@@ -53,7 +61,7 @@ header {
     &.desktop {
         .navbar__links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
 
             &__link {
                 a {
@@ -66,6 +74,16 @@ header {
                         border-radius: 2px;
                         background-color: $secondColor;
                         transition: width 200ms ease-in-out;
+                    }
+                    &.active {
+                        &::after {
+                            content: "";
+                            display: block;
+                            width: 100%;
+                            height: 2px;
+                            border-radius: 2px;
+                            background-color: $secondColor;
+                        }
                     }
                 }
 

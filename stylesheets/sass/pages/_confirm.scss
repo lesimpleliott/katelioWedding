@@ -1,20 +1,70 @@
 // VARIABLES CONFIRM
 $paddingFormCard: 30px;
 
+// ******************************************************************************
+// ******************************************************************************
+// ******************************************************************************
+
+.mainContent {
+    // &__title{}
+    &__subtitle {
+        padding-bottom: 20px;
+        border-bottom: solid 1px $mainColor;
+    }
+}
+
 #confirmForm {
     width: 100%;
 
-    // ***** GLOBAL
-    section {
+    .formSection {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        border-bottom: solid 1px $mainColor;
         padding-inline: $safeZone-sidePage;
         padding-top: 20px;
         padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: solid 1px $mainColor;
+
+        // &__title {}
+        &__subtitle {
+            margin-bottom: 20px;
+            p {
+                margin-bottom: 10px;
+            }
+        }
+        &__content {
+            width: 100%;
+        }
+    }
+
+    .cardConfirm {
+        @include card(100%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__section {
+            width: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+
+            padding-inline: $paddingFormCard;
+            padding-block: 10px;
+            border-top: solid 1px $mainColor-light;
+
+            &:first-child {
+                margin-top: 2px;
+                border: none;
+            }
+            &:last-child {
+                margin-bottom: 2px;
+            }
+        }
     }
 
     .radio {
@@ -31,6 +81,7 @@ $paddingFormCard: 30px;
                 color: #fff;
                 z-index: 1;
                 position: relative;
+                user-select: none;
             }
         }
 
@@ -59,10 +110,27 @@ $paddingFormCard: 30px;
         }
     }
 
-    .cardFormSection {
+    .inputContainer {
+        // border: solid 1px red;
+        width: 100%;
         padding-inline: $paddingFormCard;
-        padding-block: 10px;
-        border-top: solid 1px $mainColor-light;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .inputText {
+            all: unset;
+            width: 100%;
+            border-bottom: solid 1px $mainColor;
+            padding: 3px 10px 3px 10px;
+            color: $mainColor;
+
+            &::placeholder {
+                color: lightgrey;
+                font-style: italic;
+            }
+        }
     }
 
     .formBtn {
@@ -76,89 +144,141 @@ $paddingFormCard: 30px;
         color: #fff;
         user-select: none;
 
+        &:hover {
+            background: darken($secondColor, 10);
+        }
+
         &.unable {
             background: lightgrey;
         }
     }
 
-    input[type="text"] {
-        all: unset;
-        width: 100%;
-        border-bottom: solid 1px $mainColor;
-        padding: 3px 10px 3px 10px;
-        color: $mainColor;
+    .checkboxContainer {
+        position: relative;
 
-        &::placeholder {
-            color: lightgrey;
-            font-style: italic;
+        .heart-full,
+        .heart-empty {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 1.5rem;
+        }
+        .heart-empty {
+            color: $secondColor;
+            transform: translate(-50%, -50%);
+        }
+        .heart-full {
+            background: $secondColor;
+            background-clip: text;
+            color: transparent;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkHeart {
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked + .checkHeart {
+            .heart-full {
+                animation: checkboxHeart 300ms ease-in-out forwards;
+            }
         }
     }
 
-    .errorDisplay {
-        font-size: 0.8rem;
-        font-style: italic;
-        color: rgb(200, 0, 0);
-        line-height: 0rem;
-    }
+    // .errorDisplay {
+    //     font-size: 0.8rem;
+    //     font-style: italic;
+    //     color: rgb(200, 0, 0);
+    //     line-height: 0rem;
+    // }
+}
 
-    // ***** SPECIFIQUE
-    .radioPresence {
-        // margin-bottom: 30px; ////************************************
-    }
-
-    .mainGuestContainer {
-        @include card(100%);
-        padding-inline: $paddingFormCard;
-        padding-top: 25px;
-        padding-bottom: 30px;
+#attendance {
+    .formSection__content {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        gap: 30px;
+    }
 
-        button {
-            // margin-top: 15px; ////************************************
+    #mainGuestBox {
+        padding-block: 20px;
+        display: flex;
+        gap: 20px;
+    }
+
+    #mainGuest {
+        #mainGuestEmail {
+            font-style: italic;
+            font-weight: 100;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
     .guests {
-        @include card(100%);
-        // margin-block: $cardSpace; ////************************************
-
-        .guest {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            &:nth-child(1) {
-                border-top: none;
-                justify-content: flex-start;
-                gap: 10px;
-            }
-
-            &__name {
-                // flex: 1;
-                display: flex;
-                align-items: center;
-            }
-            &__mail {
-                // font-size: .8rem;
-                font-style: italic;
-                font-weight: 200;
-            }
-            &__deleteBtn {
-                height: 30px;
-                width: 30px;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                font-size: 1rem;
-                color: $mainColor-light;
-                transition: 200ms ease-in-out;
-                &:hover,
-                &:active {
-                    color: $secondColor;
-                }
-            }
+        justify-content: space-between;
+        .deleteBtn {
+            padding-left: 8px;
+            color: $mainColor-light;
         }
+    }
+}
+
+#meal {
+
+    .checkboxText { /////////// FAIRE MIEUX ????????? GAP ???? OU ??? 
+        margin-left: 15px;
+    }
+}
+
+#message {
+    .messageForm {
+        @include card();
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100px;
+
+        padding: 10px;
+        border-radius: 10px;
+        border: solid 1px $mainColor;
+    }
+}
+
+// ******************************************************************************
+// ******************************************************************************
+// ******************************************************************************
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(#000, 0.8);
+
+    &__wrapper {
+        // height: 200px;
+        width: 80vw;
+        max-width: 600px;
+        padding: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111),
+            1.3px 1.3px 10px rgba(0, 0, 0, 0.16),
+            3px 3px 24.1px rgba(0, 0, 0, 0.209),
+            10px 10px 80px rgba(0, 0, 0, 0.32);
     }
 }

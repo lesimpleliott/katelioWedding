@@ -41,74 +41,187 @@
             <h1 class="banner__title">RSVP</h1>
         </section>
 
-        <section class="mainContainer">
+        <section class="mainContent">
+            <h2 class="mainContent__title">Confirmer votre présence</h2>
+            <p class="mainContent__subtitle">Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable !!
+            Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants n'étant pas (encore) considérés comme des animaux, nous les accueillerons avec joie !!!
+            </p>
 
             <form id="confirmForm">
-                <section class="intro">
-                    <h2>Confirmer votre présence</h2>
-                    <p>Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable !!
-                    Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants n'étant pas (encore) considérés comme des animaux, nous les accueillerons avec joie !!!
-                    </p>
-                </section>
+                <section class="formSection" id="attendance">
+                    <h3 class="formSection__title">Serez-vous présent ?</h3 class="formSection__title">
+                    <!-- <p class="formSection__subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ratione incidunt ipsa sed veritatis beatae laboriosam obcaecati esse! Possimus consequuntur quas omnis praesentium, assumenda temporibus a quaerat repudiandae rerum unde.</p> -->
 
-                <section class="presence">
-                    <h3>Serez-vous présent ?</h3>
-                    <div class="radio radioPresence">
+                    <div class="formSection__content">
+                        <!-- Radio OUI/NON -->
+                        <div class="radio">
                             <label>
-                                <input type="radio" name="presence" id="presenceYes" value="presenceYes">
+                                <input type="radio" name="attendance" id="attendanceYes" value="attendanceYes">
                                 <span>Oui</span>
                             </label>
                             <label>
-                                <input type="radio" name="presence" id="presenceNo" value="presenceNo">
+                                <input type="radio" name="attendance" id="attendanceNo" value="attendanceNo">
                                 <span>Non</span>
                             </label>
-                    </div>
-
-                    <div class="mainGuestContainer" style="display: none;">
-                        <input type="text" class="inputConfirm" id="inputMainFirstname" placeholder="Prénom">
-                        <input type="text" class="inputConfirm" id="inputMainLastname" placeholder="Nom">
-                        <input type="text" class="inputConfirm" id="inputMainEmail" placeholder="email">
-                        <button class="formBtn unable" id="mainGuestBtn">Valider</button>
-                        <!-- <p class="errorDisplay"></p> -->
-                    </div>
-
-
-                    <div class="guests" id="guests" style="display: none;">
-                        <div class="cardFormSection guest" id="mainGuest">
-                            <p class="guest__name" id="mainGuestName"></p>
-                            <p class="guest__mail" id="mainGuestEmail"></p>
                         </div>
-                        <!-- <div class="cardFormSection guest">
-                            <p class="guest__name">John Doe</p>
-                            <button class="guest__deleteBtn">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
+                        
+                        <!-- INPUT MAIN GUEST -->
+                        <div class="cardConfirm" id="mainGuestBox"> 
+                            <div class="inputContainer">
+                                <input type="text" class="inputText" id="inputMainFirstname" placeholder="Prénom">
+                                <input type="text" class="inputText" id="inputMainLastname" placeholder="Nom">
+                                <input type="text" class="inputText" id="inputMainEmail" placeholder="email">
+                            </div>
+                            <button class="formBtn unable" id="mainGuestBtn">Valider</button>
                         </div>
-                        <div class="cardFormSection guest">
-                            <p class="guest__name">John Doe</p>
-                            <button class="guest__deleteBtn">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </div> -->
+                        
+                        <!-- Guests List -->
+                        <div class="cardConfirm" id="guestsListBox">
+                            <div class="cardConfirm__section" id="mainGuest">
+                                <p id="mainGuestName">Eliott</p>
+                                <p id="mainGuestEmail">Lesimpleliott@gmail.com</p>
+                            </div>
+                            <div class="cardConfirm__section guests">
+                                <p>John Doe</p>
+                                <button class="deleteBtn js-deleteGuest">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <div class="cardConfirm__section guests">
+                                <p>John Doe</p>
+                                <button class="deleteBtn js-deleteGuest">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Ajouter des inviter -->
+                        <button class="formBtn addGuestBtn">Ajouter des invités</button>
+                    </div>
+                </section>
+                    
+                <section class="formSection" id="host">
+                    <h3 class="formSection__title">Hébérgements</h3 class="formSection__title">
+                    <p class="formSection__subtitle">Pour le confort de tous, nous avons tout prévu et les gîtes se situent sur le domaine. <br> Ils comprennent tous une cuisine équipée, un salon, une ou plusieurs salle de bains et plusieurs chambres. <br> Il possible que vous partagiez votre logement avec d’autres personnes. Nous nous efforcerons de faire un plan de logement cohérent ! <br> Une <strong>participation de 100€ par personne vous est demandée</strong> pour l’ensemble du weekend*.</p>
+                    <div class="formSection__content">
+                        <!-- CONTENT SECTION -->
+                    </div>
+                </section>
+
+                <section class="formSection" id="meal">
+                    <h3 class="formSection__title">Repas</h3 class="formSection__title">
+                    <div class="formSection__subtitle">
+                        <p>Comme promis, on s’occupe de tout !</p>
+                        <p> Pour ceux qui arrivent vendredi, nous prévoyons un moment convivial sans chichi au Château.</p>
+                        <p>Pour samedi, nous nous occupons de tout à partir du vin d’honneur jusqu’au bout de la nuit !</p>
+                        <p>Dimanche, nous vous attendrons pour un moment de détente autour d’un brunch avant de vous retrouver pour clôturer les festivités en fin de journée.</p>    
                     </div>
 
-                    <!-- ICI LE BOUTON D'AJOUT LES INVITES + ASIDE'MODALE' A DEV -->
+
+                    <div class="formSection__content">
+                        <div class="cardConfirm" id="mealBox">
+                            <div class="cardConfirm__section">
+                                 <div class="checkboxContainer">
+                                    <input type="checkbox" id="fridayDinner">
+                                    <label class="checkHeart" for="fridayDinner">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Vendredi soir</p>
+                            </div>
+
+                            <div class="cardConfirm__section">
+                                <div class="checkboxContainer">
+                                    <input type="checkbox" id="saturdayDinner" checked>
+                                    <label class="checkHeart" for="saturdayDinner">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Samedi - Cocktail + Diner</p>
+                            </div>
+
+                            <div class="cardConfirm__section">
+                                 <div class="checkboxContainer">
+                                    <input type="checkbox" id="sundayBrunch">
+                                    <label class="checkHeart" for="sundayBrunch">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Dimanche - Brunch</p>
+                            </div>
+
+                            <div class="cardConfirm__section">
+                                <div class="checkboxContainer">
+                                    <input type="checkbox" id="sundayDinner">
+                                    <label class="checkHeart" for="sundayDinner">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Dimanche - Surprise Party</p>
+                            </div>
+
+
+                           
+                            
+                           
+                            
+                            
+                            <!-- <div class="content__icon favoriteIcon">
+                                <input type="checkbox" id="favorite-click-one">
+                                <label class="favorite-checkbox" for="favorite-click-one">
+                                    <i class="fa-regular fa-heart heart-empty"></i>
+                                    <i class="fa-solid fa-heart heart-full"></i>                            
+                                </label>
+                            </div> -->
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
 
 
                 </section>
+
+                <section class="formSection" id="message">
+                    <h3 class="formSection__title">Message</h3 class="formSection__title">
+                    <p class="formSection__subtitle" id="messageSubtitle">Lorem, ipsum</p>
                 
-
-
-
-
+                    <div class="formSection__content">
+                        <textarea class="messageForm" id="messageForm" cols="30" rows="5" placeholder="Votre message..."></textarea>
+                    </div>
+                </section>
             </form>
-
-
-
-
-
         </section>
 
+        <!-- <aside class="modal" style="display: none;">            
+            <div class="modal__wrapper">
+                <span class="closeBtn"></span>
+                <div class="radio radioAge">
+                    <label>
+                        <input type="radio" name="age" id="adult" value="adult">
+                        <span>Adulte</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="age" id="child" value="child">
+                        <span>Enfant</span>
+                    </label>
+                </div>
+
+                <input type="text" class="inputText" id="inputMainFirstname" placeholder="Prénom">
+                <input type="text" class="inputText" id="inputMainLastname" placeholder="Nom">
+
+                <button class="formBtn unable" id="addGuests">Ajouter</button>  
+            </div>
+        </aside> -->
 
     </main>
 

@@ -88,6 +88,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -122,14 +126,17 @@ h3 {
   font-size: 1.3rem;
   font-weight: 700;
   color: #273a7c;
+  margin-bottom: 20px;
 }
 
 p {
   color: #273a7c;
+  font-weight: 400;
 }
 
-a {
-  text-decoration: none;
+strong {
+  color: #e32d73;
+  font-weight: 400;
 }
 
 main {
@@ -139,16 +146,22 @@ main {
   width: 100vw;
 }
 
-.mainContainer {
+.mainContent {
   width: 100%;
   max-width: 768px;
-  height: 500vh;
-  padding-block: 30px;
+  padding-top: 25px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #fff;
   border-radius: 30px 30px 0 0;
+}
+.mainContent__title {
+  padding-inline: 5vw;
+}
+.mainContent__subtitle {
+  padding-inline: 5vw;
 }
 
 header {
@@ -174,9 +187,6 @@ header {
 .navbar .navbar__links__link a {
   color: #fff;
 }
-.navbar .navbar__links__link .active {
-  color: #e32d73;
-}
 .navbar__logo {
   height: 100%;
 }
@@ -188,7 +198,7 @@ header {
 }
 .navbar.desktop .navbar__links {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 .navbar.desktop .navbar__links__link a {
   font-size: 1rem;
@@ -201,6 +211,14 @@ header {
   border-radius: 2px;
   background-color: #e32d73;
   transition: width 200ms ease-in-out;
+}
+.navbar.desktop .navbar__links__link a.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #e32d73;
 }
 .navbar.desktop .navbar__links__link:hover > a::after {
   width: 100%;
@@ -598,19 +616,58 @@ header {
   flex: 1;
 }
 
+.mainContent__subtitle {
+  padding-bottom: 20px;
+  border-bottom: solid 1px #273a7c;
+}
+
 #confirmForm {
   width: 100%;
 }
-#confirmForm section {
+#confirmForm .formSection {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  border-bottom: solid 1px #273a7c;
   padding-inline: 5vw;
   padding-top: 20px;
   padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid 1px #273a7c;
+}
+#confirmForm .formSection__subtitle {
+  margin-bottom: 20px;
+}
+#confirmForm .formSection__subtitle p {
+  margin-bottom: 10px;
+}
+#confirmForm .formSection__content {
+  width: 100%;
+}
+#confirmForm .cardConfirm {
+  width: 100%;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#confirmForm .cardConfirm__section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 30px;
+  padding-block: 10px;
+  border-top: solid 1px #e1eefa;
+}
+#confirmForm .cardConfirm__section:first-child {
+  margin-top: 2px;
+  border: none;
+}
+#confirmForm .cardConfirm__section:last-child {
+  margin-bottom: 2px;
 }
 #confirmForm .radio {
   display: flex;
@@ -626,6 +683,9 @@ header {
   color: #fff;
   z-index: 1;
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 #confirmForm .radio label span {
   display: block;
@@ -648,10 +708,28 @@ header {
 #confirmForm .radio label:last-child span {
   border-radius: 0 8px 8px 0;
 }
-#confirmForm .cardFormSection {
+#confirmForm .inputContainer {
+  width: 100%;
   padding-inline: 30px;
-  padding-block: 10px;
-  border-top: solid 1px #e1eefa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#confirmForm .inputContainer .inputText {
+  all: unset;
+  width: 100%;
+  border-bottom: solid 1px #273a7c;
+  padding: 3px 10px 3px 10px;
+  color: #273a7c;
+}
+#confirmForm .inputContainer .inputText::-moz-placeholder {
+  color: lightgrey;
+  font-style: italic;
+}
+#confirmForm .inputContainer .inputText::placeholder {
+  color: lightgrey;
+  font-style: italic;
 }
 #confirmForm .formBtn {
   height: 40px;
@@ -666,79 +744,123 @@ header {
      -moz-user-select: none;
           user-select: none;
 }
+#confirmForm .formBtn:hover {
+  background: #c31a5b;
+}
 #confirmForm .formBtn.unable {
   background: lightgrey;
 }
-#confirmForm input[type=text] {
-  all: unset;
-  width: 100%;
-  border-bottom: solid 1px #273a7c;
-  padding: 3px 10px 3px 10px;
-  color: #273a7c;
+#confirmForm .checkboxContainer {
+  position: relative;
 }
-#confirmForm input[type=text]::-moz-placeholder {
-  color: lightgrey;
-  font-style: italic;
+#confirmForm .checkboxContainer .heart-full,
+#confirmForm .checkboxContainer .heart-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
 }
-#confirmForm input[type=text]::placeholder {
-  color: lightgrey;
-  font-style: italic;
+#confirmForm .checkboxContainer .heart-empty {
+  color: #e32d73;
+  transform: translate(-50%, -50%);
 }
-#confirmForm .errorDisplay {
-  font-size: 0.8rem;
-  font-style: italic;
-  color: rgb(200, 0, 0);
-  line-height: 0rem;
+#confirmForm .checkboxContainer .heart-full {
+  background: #e32d73;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
 }
-#confirmForm .mainGuestContainer {
-  width: 100%;
-  border-radius: 15px;
-  font-size: 1.1rem;
-  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
-  padding-inline: 30px;
-  padding-top: 25px;
-  padding-bottom: 30px;
+#confirmForm .checkboxContainer input[type=checkbox] {
+  display: none;
+}
+#confirmForm .checkboxContainer .checkHeart {
+  cursor: pointer;
+}
+#confirmForm .checkboxContainer input[type=checkbox]:checked + .checkHeart .heart-full {
+  animation: favoriteAnimation 300ms ease-in-out forwards;
+}
+@keyframes favoriteAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  60%, 80% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  70%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+#attendance .formSection__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 30px;
+}
+#attendance #mainGuestBox {
+  padding-block: 20px;
+  display: flex;
   gap: 20px;
 }
-#confirmForm .guests {
+#attendance #mainGuest #mainGuestEmail {
+  font-style: italic;
+  font-weight: 100;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#attendance .guests {
+  justify-content: space-between;
+}
+#attendance .guests .deleteBtn {
+  padding-left: 8px;
+  color: #e1eefa;
+}
+
+#meal .checkboxText {
+  margin-left: 15px;
+}
+
+#message .messageForm {
   width: 100%;
   border-radius: 15px;
   font-size: 1.1rem;
   box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 1px #273a7c;
 }
-#confirmForm .guests .guest {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
 }
-#confirmForm .guests .guest:nth-child(1) {
-  border-top: none;
-  justify-content: flex-start;
-  gap: 10px;
-}
-#confirmForm .guests .guest__name {
-  display: flex;
-  align-items: center;
-}
-#confirmForm .guests .guest__mail {
-  font-style: italic;
-  font-weight: 200;
-}
-#confirmForm .guests .guest__deleteBtn {
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1rem;
-  color: #e1eefa;
-  transition: 200ms ease-in-out;
-}
-#confirmForm .guests .guest__deleteBtn:hover, #confirmForm .guests .guest__deleteBtn:active {
-  color: #e32d73;
+.modal__wrapper {
+  width: 80vw;
+  max-width: 600px;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111), 1.3px 1.3px 10px rgba(0, 0, 0, 0.16), 3px 3px 24.1px rgba(0, 0, 0, 0.209), 10px 10px 80px rgba(0, 0, 0, 0.32);
 }
 
 .pinkTouchBanner {

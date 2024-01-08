@@ -22,8 +22,6 @@
     }
 }
 
-
-
 .jumpButton {
     animation-name: jumpButton;
     animation-duration: 1000ms;
@@ -68,4 +66,21 @@
     }
 }
 
-
+@keyframes checkboxHeart {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    60%,
+    80% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    70%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
