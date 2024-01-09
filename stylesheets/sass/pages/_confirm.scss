@@ -2,157 +2,182 @@
 $paddingFormCard: 30px;
 
 // ******************************************************************************
-// ******************************************************************************
-// ******************************************************************************
 
 .mainContent {
     // &__title{}
     &__subtitle {
         padding-bottom: 20px;
-        border-bottom: solid 1px $mainColor;
-    }
-}
-
-#confirmForm {
-    width: 100%;
-
-    .formSection {
-        width: 100%;
-        padding-inline: $safeZone-sidePage;
-        padding-top: 20px;
-        padding-bottom: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-bottom: solid 1px $mainColor;
-
-        // &__title {}
-        &__subtitle {
-            margin-bottom: 20px;
-            p {
+        p {
+            &:not(:last-of-type) {
                 margin-bottom: 10px;
             }
         }
-        &__content {
-            width: 100%;
-        }
+    }
+}
+
+.formSection {
+    width: 100%;
+    padding-inline: $safeZone-sidePage;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: solid 1px $mainColor;
+
+    transition: 250ms ease-in-out;
+
+    &:first-of-type {
+        border-top: solid 1px $mainColor;
+    }
+    &:last-of-type {
+        border: none;
     }
 
-    .cardConfirm {
-        @include card(100%);
+    // &__title {}
+    &__text {
+        margin-bottom: 10px;
+        padding-inline: 10px;
+        // text-align: center;
+        &:not(:first-of-type) {
+            margin-top: 50px;
+        }
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &__section {
-            width: 100%;
-
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 10px;
-
-            padding-inline: $paddingFormCard;
-            padding-block: 10px;
-            border-top: solid 1px $mainColor-light;
-
-            &:first-child {
-                margin-top: 2px;
-                border: none;
-            }
-            &:last-child {
-                margin-bottom: 2px;
-            }
+        p {
+            margin-bottom: 5px;
         }
     }
-
-    .radio {
-        $radio-thickness: 2px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-
-        input[type="radio"] {
-            display: none;
-            &:checked + span {
-                box-shadow: 0 0 0 $radio-thickness $secondColor;
-                background-color: $secondColor;
-                color: #fff;
-                z-index: 1;
-                position: relative;
-                user-select: none;
-            }
-        }
-
-        label span {
-            display: block;
-            height: 50px;
-            width: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: $secondColor;
-            text-align: center;
-            box-shadow: 0 0 0 $radio-thickness $secondColor;
-            transition: background-color 500ms ease-out;
-        }
-
-        label:first-child span {
-            border-radius: 8px 0 0 8px;
-        }
-
-        label:last-child span {
-            border-radius: 0 8px 8px 0;
-        }
-    }
-
-    .inputContainer {
-        // border: solid 1px red;
+    &__content {
         width: 100%;
-        padding-inline: $paddingFormCard;
+    }
+}
+
+.cardConfirm {
+    @include card(100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section {
+        width: 100%;
+
         display: flex;
-        flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
 
-        .inputText {
-            all: unset;
-            width: 100%;
-            border-bottom: solid 1px $mainColor;
-            padding: 3px 10px 3px 10px;
-            color: $mainColor;
+        padding-inline: $paddingFormCard;
+        padding-block: 10px;
+        border-top: solid 1px $mainColor-light;
 
-            &::placeholder {
-                color: lightgrey;
-                font-style: italic;
-            }
+        &:first-child {
+            margin-top: 2px;
+            border: none;
+        }
+        &:last-child {
+            margin-bottom: 2px;
+        }
+    }
+}
+
+.cardConfirmText {
+    margin-top: 15px;
+    padding-inline: 20px;
+}
+
+.radio {
+    $radio-thickness: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    input[type="radio"] {
+        display: none;
+
+        &:checked + span {
+            background-color: $secondColor;
+            color: #fff;
+            box-shadow: 0 0 0 $radio-thickness $secondColor;
+        }
+        &:not(:checked) + span {
+            background-color: #fff;
+            color: $secondColor;
+            box-shadow: 0 0 0 $radio-thickness $secondColor;
         }
     }
 
-    .formBtn {
-        height: 40px;
-        padding-inline: 50px;
+    label span {
+        user-select: none;
+        display: block;
+        height: 50px;
+        width: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 40px;
-        background: $secondColor;
-        color: #fff;
-        user-select: none;
-
-        &:hover {
-            background: darken($secondColor, 10);
-        }
-
-        &.unable {
-            background: lightgrey;
-        }
+        background-color: #fff;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $secondColor;
+        text-align: center;
+        box-shadow: 0 0 0 $radio-thickness #fff;
+        transition: background-color 500ms ease-out;
     }
 
+    label:first-child span {
+        border-radius: 8px 0 0 8px;
+    }
+
+    label:last-child span {
+        border-radius: 0 8px 8px 0;
+        border-left: 2px solid $secondColor;
+    }
+}
+
+.inputContainer {
+    // border: solid 1px red;
+    width: 100%;
+    padding-inline: $paddingFormCard;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .inputText {
+        all: unset;
+        width: 100%;
+        border-bottom: solid 1px $mainColor;
+        padding: 3px 10px 3px 10px;
+        color: $mainColor;
+
+        &::placeholder {
+            color: lightgrey;
+            font-style: italic;
+        }
+    }
+}
+
+.formBtn {
+    height: 40px;
+    padding-inline: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background: $secondColor;
+    color: #fff;
+    user-select: none;
+
+    &:hover {
+        background: darken($secondColor, 10);
+    }
+
+    &.unable {
+        background: lightgrey;
+    }
+}
+
+.checkbox {
     .checkboxContainer {
         position: relative;
 
@@ -190,71 +215,130 @@ $paddingFormCard: 30px;
         }
     }
 
-    // .errorDisplay {
-    //     font-size: 0.8rem;
-    //     font-style: italic;
-    //     color: rgb(200, 0, 0);
-    //     line-height: 0rem;
-    // }
+    .checkboxText {
+        /////////// FAIRE MIEUX ????????? GAP ???? OU ???
+        margin-left: 15px;
+        flex: 1;
+    }
+
+    .quantity {
+        display: flex;
+
+        &__button {
+            height: 20px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            color: darken($mainColor-light, 10);
+            border: solid 2px darken($mainColor-light, 10);
+            transition: 250ms ease-in-out;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $secondColor;
+                border: solid 2px $secondColor;
+            }
+        }
+
+        &__value {
+            height: 25px;
+            width: 40px;
+            text-align: center;
+        }
+    }
+}
+
+.asterisk {
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.displayError {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgb(200, 0, 0);
+}
+
+#confirmForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #attendance {
     .formSection__content {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 30px;
     }
 
     #mainGuestBox {
         padding-block: 20px;
-        display: flex;
-        gap: 20px;
+
+        .formBtn {
+            margin-top: 25px;
+        }
+
+        .inputContainer {
+            display: flex;
+            gap: 20px;
+        }
     }
 
-    #mainGuest {
-        #mainGuestEmail {
-            font-style: italic;
-            font-weight: 100;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    #mainGuestEmail {
+        font-style: italic;
+        font-weight: 100;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .guests {
         justify-content: space-between;
         .deleteBtn {
             padding-left: 8px;
-            color: $mainColor-light;
+            color: darken($mainColor-light, 10);
+            transition: 250ms ease-in-out;
+            &:hover,
+            &:active,
+            &:focus {
+                color: $warningColor;
+            }
         }
     }
 }
 
-#meal {
-
-    .checkboxText { /////////// FAIRE MIEUX ????????? GAP ???? OU ??? 
-        margin-left: 15px;
-    }
-}
-
 #message {
+    .formSection__text {
+        text-align: center;
+    }
+
     .messageForm {
         @include card();
-
         width: 100%;
         max-width: 100%;
         min-width: 100%;
-        min-height: 100px;
-
-        padding: 10px;
+        min-height: 150px;
+        margin-top: 10px;
+        padding: 15px;
         border-radius: 10px;
-        border: solid 1px $mainColor;
+        // border: solid 1px $mainColor;
+        border: none;
+        font-size: 0.9rem;
+        color: $mainColor;
+
+        &::placeholder {
+            font-style: italic;
+            color: lightgrey;
+        }
     }
 }
-
-// ******************************************************************************
-// ******************************************************************************
-// ******************************************************************************
 
 .modal {
     height: 100vh;
@@ -264,21 +348,61 @@ $paddingFormCard: 30px;
     left: 0;
     z-index: 100;
     background: rgba(#000, 0.8);
+    animation: modalFadeIn 300ms ease-in-out; // si modification du temps => modifier le JS
 
     &__wrapper {
-        // height: 200px;
         width: 80vw;
         max-width: 600px;
         padding: 30px;
+        padding-top: 40px;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
         background: #fff;
         border-radius: 20px;
         box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111),
             1.3px 1.3px 10px rgba(0, 0, 0, 0.16),
             3px 3px 24.1px rgba(0, 0, 0, 0.209),
             10px 10px 80px rgba(0, 0, 0, 0.32);
+
+        animation: modalScaleIn 300ms ease-in-out; // si modification du temps => modifier le JS
+
+        .closeBtn {
+            height: 25px;
+            width: 25px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: solid 2px lightgrey;
+            border-radius: 100%;
+            color: lightgrey;
+            transition: 150ms ease-in-out;
+            &:hover,
+            &:active,
+            &:focus {
+                border-color: $secondColor;
+                color: $secondColor;
+            }
+        }
+
+        .inputContainer {
+            gap: 30px;
+        }
+
+        .guestsBtnContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }

@@ -1,162 +1,347 @@
-// // ******************************************************************************
-// //  ******************************* IMPROVE *******************************
-// // ******************************************************************************
-// /*
-   
-// */
+// ******************************************************************************
+//  ******************************* IMPROVE *******************************
+// ******************************************************************************
+/*
+   - radio Attendance // Ajouter un bouton Reset Formulaire
+   - attendance : lorsque je clique sur l'input attendance cela affiche le mainGuestBox et scroll pour afficher celui-ci en haut de la page
+   - input text : revoir le style (color bg ...) quand input value !== ""
+*/
 
-// // ******************************************************************************
-// //  ******************************* VARIABLES *******************************
-// // ******************************************************************************
-// const presenceYes = document.querySelector("#presenceYes");
-// const presenceNo = document.querySelector("#presenceNo");
+// ******************************************************************************
+//  ******************************* TEXTES *******************************
+// ******************************************************************************
+const messageYes = [
+    "Des questions ? Un petit mot ?",
+    "Profitez en pour nous indiquer d’éventuelles allergies alimentaires ou besoins.",
+];
 
-// // ******************************************************************************
-// //  ******************************* MAIN GUEST *******************************
-// // ******************************************************************************
-// const mainGuestContainer = document.getElementById('mainGuestContainer');
-// const addGuestsBtn = document.getElementById('addGuests');
-// // let guestsList = []; // <============================== gestion variable invités ??
+const messageNo = [
+    "Nous sommes désolés de ne pas pouvoir vous compter avec nous pour ce moment.",
+    "Nous penserons bien à vous et espérons vous voir bientôt !",
+    "Si vous souhaitez nous laisser un petit mot, nous le lirons avec joie.",
+    "On vous embrasse fort !",
+    "Katherine & Eliott",
+];
+// ******************************************************************************
+//  ******************************* VARIABLES *******************************
+// ******************************************************************************
+const attendanceRadio = document.getElementById("attendanceRadio");
+const addGuestBtn = document.getElementById("addGuestBtn");
+const guestsListBox = document.getElementById("guestsListBox");
+const host = document.getElementById("host");
+const meal = document.getElementById("meal");
+const message = document.getElementById("message");
+const submitForm = document.getElementById("submitForm");
 
-// const mainGuestAdd = () => {
-//     const mainGuestContainer = document.querySelector(".mainGuestContainer");
-//     const guests = document.getElementById("guests");
-//     const inputMainFirstname = document.getElementById("inputMainFirstname");
-//     const inputMainLastname = document.getElementById("inputMainLastname");
-//     const inputMainEmail = document.getElementById("inputMainEmail");
-//     const mainGuestBtn = document.getElementById("mainGuestBtn");
-//     const regMail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
-//     let mainGuestValid = false;
-//     let errordisplay = null;
+let response = null; // Stock la reponse attendance true / false
+let dataGuests = []; // stock la guestsList
+// let validDataGuests = null;
 
-//     // Save mainGuest
-//     const addMainGuest = () => {        
-//         // affiche guests container et masque inputMainGuest
-//         mainGuestContainer.style.display = "none";
-//         guests.style.display = "";
+// ******************************************************************************
+//  **************************** FONCTION USEFULL ****************************
+const shakeButton = (btn) => {
+    btn.classList.add("shake");
+    setTimeout(() => btn.classList.remove("shake"), 300);
+};
 
-//         // stocke les datas
-//         const firstName = inputMainFirstname.value;
-//         const lastName = inputMainLastname.value;
-//         const email = inputMainEmail.value;
-//         const fullname = `${firstName} ${lastName}`;
-        
-//         // ajoute data MainGuest à guests
-//         const mainGuestName = document.getElementById("mainGuestName");
-//         mainGuestName.textContent = fullname;
-//         const mainGuestEmail = document.getElementById("mainGuestEmail");
-//         mainGuestEmail.textContent = email;
-//         // guestsList.push(fullname) // <============================== gestion variable invités ??
-//         addGuestsBtn.style.display = "block"; 
+// ******************************************************************************
+//  ****************************** FONCTION GUESTS ******************************
+const attendanceSelection = (e) => {
+    if (e.target.tagName === "INPUT") {
+        // change style de la section et titre
+        const attendance = document.getElementById("attendance");
+        attendance.style = "none";
+        const attendanceTitle = document.querySelector(
+            "#attendance .formSection__title"
+        );
+        attendanceTitle.style = "none";
 
-//         // reinit du formulaire mainGuest
-//         inputMainFirstname.value = "";
-//         inputMainLastname.value = "";
-//         inputMainEmail.value = "";
-//     };
+        // Désactive l'écouteur d'événement
+        attendanceRadio.removeEventListener("click", attendanceSelection);
+        // on lance la function correspondante au choix
+        const selectID = e.target.id;
+        if (selectID === "attendanceYes") {
+            response = true;
+            const attendanceNo = document.getElementById("attendanceNo");
+            attendanceNo.disabled = "true";
+            mainGuest();
+        } else {
+            const attendanceYes = document.getElementById("attendanceYes");
+            attendanceYes.disabled = "true";
+            mainGuest();
+        }
+    }
+};
 
-//     // verifie les input MainGuest
-//     const validInput = () => {
-//         if (errordisplay !== null) {
-//             errordisplay.remove();
-//             errordisplay = null;
-//         }
-//         if (
-//             inputMainFirstname.value !== "" &&
-//             inputMainLastname.value !== "" &&
-//             regMail.test(inputMainEmail.value)
-//         ) {
-//             mainGuestBtn.classList.remove("unable");
-//             mainGuestValid = true;
-//         } else {
-//             mainGuestBtn.classList.add("unable");
-//             mainGuestValid = false;
-//         }
-//     };
+const mainGuest = () => {
+    const mainGuestBox = document.getElementById("mainGuestBox");
+    const inputMainFirstname = document.getElementById("inputMainFirstname");
+    const inputMainLastname = document.getElementById("inputMainLastname");
+    const inputMainEmail = document.getElementById("inputMainEmail");
+    const mainGuestBtn = document.getElementById("mainGuestBtn");
+    const displayError = document.querySelector("#mainGuestBox .displayError");
+    const regMail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
 
-//     // affichage message d'erreur sur input MainGuest
-//     const displayError = () => {
-//         mainGuestBtn.classList.add("shake");
-//         setTimeout(() => mainGuestBtn.classList.remove("shake"), 300);
-//         if (errordisplay === null) {
-//             const error = document.createElement("p");
-//             error.classList.add("errorDisplay");
-//             error.textContent = "Informations manquantes";
-//             mainGuestContainer.appendChild(error);
-//             errordisplay = mainGuestContainer.querySelector(".errorDisplay");
-//         }
-//     };
+    // affiche mainGuestBox
+    mainGuestBox.style = "none";
 
-//     // Ecoute des inputs
-//     inputMainFirstname.addEventListener("input", validInput);
-//     inputMainLastname.addEventListener("input", validInput);
-//     inputMainEmail.addEventListener("input", validInput);
+    // vérifie le formulaire mainGuest
+    let validDataMainGuest = false;
+    const validMainGuestData = () => {
+        displayError.textContent = "";
+        if (
+            inputMainFirstname.value !== "" &&
+            inputMainLastname.value !== "" &&
+            regMail.test(inputMainEmail.value)
+        ) {
+            mainGuestBtn.classList.remove("unable");
+            validDataMainGuest = true;
+        } else {
+            mainGuestBtn.classList.add("unable");
+            validDataMainGuest = false;
+        }
+    };
+    inputMainFirstname.addEventListener("input", validMainGuestData);
+    inputMainLastname.addEventListener("input", validMainGuestData);
+    inputMainEmail.addEventListener("input", validMainGuestData);
 
-//     // Submit du mainGuest
-//     mainGuestBtn.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         mainGuestValid ? addMainGuest() : displayError();
-//     });
-// };
+    // submit mainGuest
+    mainGuestBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-// const addGuests = () => {
+        if (validDataMainGuest) {
+            // stock le le mainGuest dans variable mainGuest
+            const firstname = inputMainFirstname.value;
+            const lastname = inputMainLastname.value;
+            const email = inputMainEmail.value;
+            const mainGuestData = {
+                firstname: firstname,
+                lastname: lastname,
+                mainguest: true,
+                email: email,
+                age: "adult",
+            };
+            dataGuests.push(mainGuestData);
+            console.log(dataGuests);
 
-//     const modal = document.querySelector('.modal');
+            // affiche le mainGuest
+            const mainGuestName = document.getElementById("mainGuestName");
+            const mainGuestEmail = document.getElementById("mainGuestEmail");
+            guestsListBox.style = "";
+            mainGuestBox.style.display = "none";
+            mainGuestName.textContent = `${firstname} ${lastname}`;
+            mainGuestEmail.textContent = email;
 
-//     addGuestsBtn.addEventListener('click', (e) => {
-//         e.preventDefault()
+            // affiche la suite !
+            displayFormYesNo();
+        } else {
+            displayError.textContent = "Information(s) manquante(s)";
+            shakeButton(mainGuestBtn);
+        }
+    });
+};
 
-//         // affiche la modale
-//         modal.style.display = "block"
-//         document.body.style.overflowY = "hidden";        
-//     })
+const displayFormYesNo = () => {
+    const messageSubtitle = document.getElementById("messageSubtitle");
 
-// }
+    if (response === true) {
+        // affiche le bouton addGuest
+        addGuestBtn.style = "none";
+
+        addGuestBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal();
+        });
+
+        // affiche hebergement
+        host.style = "none";
+        // affiche repas
+        meal.style = "none";
+        // affiche la section Message
+        message.style = "";
+        messageYes.forEach((text) => {
+            const newText = document.createElement("p");
+            newText.textContent = text;
+            messageSubtitle.appendChild(newText);
+        });
+        // affiche le bouton de submit du formulaire
+        submitForm.style = "none";
+    }
+
+    if (response === false) {
+        // affiche la section Message
+        message.style = "";
+        messageNo.forEach((text) => {
+            const newText = document.createElement("p");
+            newText.textContent = text;
+            messageSubtitle.appendChild(newText);
+        });
+
+        // affiche le bouton de submit du formulaire
+        submitForm.style = "none";
+    }
+};
+
+const modal = () => {
+    const addGuestsModal = document.getElementById("addGuestsModal");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const adultRadio = document.getElementById("adult");
+    const childRadio = document.getElementById("child");
+    const inputGuestFirstname = document.getElementById("inputGuestFirstname");
+    const inputGuestLastname = document.getElementById("inputGuestLastname");
+    const saveGuestBtn = document.getElementById("saveGuestBtn");
+
+    // affiche la modale
+    addGuestsModal.style = "none";
+    document.body.style.overflowY = "hidden";
+    document.querySelector("main").style.filter = "blur(5px)";
+    document.querySelector("header").style.filter = "blur(5px)";
+
+    // ferme la modale
+    closeModalBtn.addEventListener("click", closeModal);
+    window.addEventListener("keydown", eventCloseModal);
+    window.addEventListener("click", eventCloseModal);
+
+    // vérifie les inputs dataGuests
+    adultRadio.addEventListener("input", validGuestsData);
+    childRadio.addEventListener("input", validGuestsData);
+    inputGuestFirstname.addEventListener("input", validGuestsData);
+    inputGuestLastname.addEventListener("input", validGuestsData);
+
+    // enregistre guest et affiche guest
+    saveGuestBtn.addEventListener("click", addGuest);
+};
+
+const eventCloseModal = (e) => {
+    if (e.key === "Escape" || e.key === "Esc") {
+        closeModal();
+    }
+    if (e.target.classList.contains("modal")) {
+        closeModal();
+    }
+};
+
+const closeModal = () => {
+    const addGuestsModal = document.getElementById("addGuestsModal");
+    const adultRadio = document.getElementById("adult");
+    const childRadio = document.getElementById("child");
+    const inputGuestFirstname = document.getElementById("inputGuestFirstname");
+    const inputGuestLastname = document.getElementById("inputGuestLastname");
+    const modalDisplayError = document.querySelector(
+        ".guestsBtnContainer .displayError"
+    );
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const saveGuestBtn = document.getElementById("saveGuestBtn");
+
+    addGuestsModal.style.display = "none";
+    document.body.style.overflowY = "";
+    document.querySelector("main").style = "none";
+    document.querySelector("header").style = "none";
+    adultRadio.checked = false;
+    childRadio.checked = false;
+    inputGuestFirstname.value = "";
+    inputGuestLastname.value = "";
+    modalDisplayError.textContent = "";
+    saveGuestBtn.classList.add("unable");
+
+    // arrete les eventListener de la modal
+    closeModalBtn.removeEventListener("click", closeModal);
+    window.removeEventListener("keydown", eventCloseModal);
+    window.removeEventListener("click", eventCloseModal);
+    adultRadio.removeEventListener("input", validGuestsData);
+    childRadio.removeEventListener("input", validGuestsData);
+    inputGuestFirstname.removeEventListener("input", validGuestsData);
+    inputGuestLastname.removeEventListener("input", validGuestsData);
+};
+
+const validGuestsData = () => {
+    const modalDisplayError = document.querySelector(
+        ".guestsBtnContainer .displayError"
+    );
+    const adultRadio = document.getElementById("adult");
+    const childRadio = document.getElementById("child");
+    const inputGuestFirstname = document.getElementById("inputGuestFirstname");
+    const inputGuestLastname = document.getElementById("inputGuestLastname");
+    const saveGuestBtn = document.getElementById("saveGuestBtn");
+
+    modalDisplayError.textContent = "";
+    if (
+        inputGuestFirstname.value !== "" &&
+        inputGuestLastname.value !== "" &&
+        (adultRadio.checked || childRadio.checked)
+    ) {
+        saveGuestBtn.classList.remove("unable");
+        validDataGuests = true;
+        adultRadio.checked
+            ? (selectedAge = adultRadio.value)
+            : (selectedAge = childRadio.value);
+    } else {
+        saveGuestBtn.classList.add("unable");
+        validDataGuests = false;
+    }
+};
+
+const addGuest = () => {
+    const modalDisplayError = document.querySelector(
+        ".guestsBtnContainer .displayError"
+    );
+
+    if (validDataGuests) {
+        // stock la data dans dataGuests
+        const guestFirstname = inputGuestFirstname.value;
+        const guestLastname = inputGuestLastname.value;
+        const age = selectedAge;
+        const guestData = {
+            firstname: guestFirstname,
+            lastname: guestLastname,
+            age: age,
+        };
+        dataGuests.push(guestData);
+        console.log(dataGuests);
+
+        // Affiche la data dans guestsBox
+        const icon = document.createElement("i");
+        icon.classList.add("fa-solid", "fa-trash-can");
+        const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn", "js-deleteGuest");
+        deleteBtn.appendChild(icon);
+        const guestName = document.createElement("p");
+        guestName.textContent = `${guestFirstname} ${guestLastname}`;
+        const newGuest = document.createElement("div");
+        newGuest.classList.add("cardConfirm__section", "guests");
+        newGuest.appendChild(guestName, deleteBtn);
+        guestsListBox.appendChild(newGuest);
+
+        // ferme la modale
+        closeModal();
+        validDataGuests = null;
+    } else {
+        shakeButton(saveGuestBtn);
+        modalDisplayError.textContent = "Information(s) manquante(s)";
+    }
+};
+
+// ******************************************************************************
+//  ****************************** FONCTION HOSTS ******************************
 
 
-// // ******************************************************************************
-// //  ******************************* EVENTS *******************************
-// // ******************************************************************************
 
-// presenceYes.addEventListener("click", () => {
-//     // desactive la séléction 'Oui' / 'Non'
-//     presenceYes.setAttribute("disabled", "true");
-//     presenceNo.setAttribute("disabled", "true");
-
-//     // ouvre la div Main Guest
-//     mainGuestContainer.style.display = "";
-//     mainGuestAdd();
-//     addGuests()
-// });
-
-// presenceNo.addEventListener("click", () => {
-//     // desactive la séléction 'Oui' / 'Non'
-//     presenceYes.setAttribute("disabled", "true");
-//     presenceNo.setAttribute("disabled", "true");
-
-//     // ouvre la div MainGuest
-//     mainGuestContainer.style.display = "";
-//     mainGuestAdd();
-// });
+// ******************************************************************************
+//  ******************************* EVENTS *******************************
+window.addEventListener("load", () => {
+    let isLogged = false;
+    isLogged = sessionStorage.getItem("isLogged");
+    !isLogged ? (window.location.href = "../index.html") : "";
+});
 
 
-// let guestsList = {}
+attendanceRadio.addEventListener("click", attendanceSelection);
 
-// [
-//     {
-//         "firstname": "Eliott",  
-//         "lastname": "Lesimple",  
-//         "email": "elio@elio.fr",  
-//     }, 
-//     {
-//         "firstname": "Katherine",  
-//         "lastname": "Semennikova", 
-//         "age" : "adult" 
-//     },
-//     {
-//         "firstname": "de la dune de cristal",  
-//         "lastname": "Berlioz", 
-//         "age" : "child" 
-//     }
-// ]
+addGuestBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal();
+});
 
+// ******************************************************************************
+//  ******************************* @ WORK *******************************
+// ******************************************************************************

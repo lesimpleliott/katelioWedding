@@ -1,0 +1,38 @@
+.giftBanner {
+    width: 90%;
+    max-width: $tablet;
+    height: fit-content;
+    padding: 50px;
+    // padding-block: 3vw;
+        // padding-inline: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: rgba(#fff, .8);
+    border-radius: 20px;
+
+    &::after {
+        content: '';
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        position: absolute;
+        border-radius: 20px;
+
+        border: solid 2px $mainColor;
+    }
+
+
+    &__text {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}

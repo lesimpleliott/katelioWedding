@@ -6,6 +6,10 @@
 // font-family: 'Prata', serif;
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 
+// FONT CURSIVE
+// font-family: 'Dancing Script', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 // FONT DIDOT
 // font-family: 'GFS Didot', serif;
 // @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
@@ -19,7 +23,6 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
-
 
 h1 {
     text-transform: uppercase;
@@ -57,8 +60,13 @@ p {
 
 strong {
     color: $secondColor;
-    font-weight: 400;
+    font-weight: 500;
 }
 
+em {
+    font-size: .85rem;
+    font-style: italic;
+    font-weight: 300;
+}
 
 

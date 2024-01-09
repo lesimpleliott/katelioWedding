@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css");
 .shake {
   animation: shake 300ms ease-in-out;
@@ -69,6 +70,44 @@
     transform: translateY(0) scale(1, 1);
   }
 }
+@keyframes checkboxHeart {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  60%, 80% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  70%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modalScaleIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 *, ::before, ::after {
   margin: 0;
   padding: 0;
@@ -136,7 +175,13 @@ p {
 
 strong {
   color: #e32d73;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+em {
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 300;
 }
 
 main {
@@ -149,8 +194,8 @@ main {
 .mainContent {
   width: 100%;
   max-width: 768px;
-  padding-top: 25px;
-  padding-bottom: 50px;
+  padding-top: 35px;
+  padding-bottom: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -527,6 +572,43 @@ header {
   max-width: 80px;
 }
 
+.cta {
+  all: unset;
+  cursor: pointer;
+  padding-inline: 20px;
+  padding-block: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border: solid 2px #e32d73;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 250ms ease-in-out;
+}
+.cta__icon, .cta__text {
+  color: #e32d73;
+}
+.cta__icon {
+  font-size: 1.2rem;
+  position: relative;
+  transition: transform 250ms ease-in;
+}
+.cta__text {
+  font-weight: 600;
+}
+.cta:hover {
+  background: #e32d73;
+}
+.cta:hover .cta__icon,
+.cta:hover .cta__text {
+  color: #fff;
+}
+.cta:hover .cta__icon {
+  top: -2px;
+  transform: rotate(45deg);
+}
+
 .login {
   width: 100vw;
   height: 100vh;
@@ -618,13 +700,12 @@ header {
 
 .mainContent__subtitle {
   padding-bottom: 20px;
-  border-bottom: solid 1px #273a7c;
+}
+.mainContent__subtitle p:not(:last-of-type) {
+  margin-bottom: 10px;
 }
 
-#confirmForm {
-  width: 100%;
-}
-#confirmForm .formSection {
+.formSection {
   width: 100%;
   padding-inline: 5vw;
   padding-top: 20px;
@@ -633,17 +714,29 @@ header {
   flex-direction: column;
   align-items: center;
   border-bottom: solid 1px #273a7c;
+  transition: 250ms ease-in-out;
 }
-#confirmForm .formSection__subtitle {
-  margin-bottom: 20px;
+.formSection:first-of-type {
+  border-top: solid 1px #273a7c;
 }
-#confirmForm .formSection__subtitle p {
+.formSection:last-of-type {
+  border: none;
+}
+.formSection__text {
   margin-bottom: 10px;
+  padding-inline: 10px;
 }
-#confirmForm .formSection__content {
+.formSection__text:not(:first-of-type) {
+  margin-top: 50px;
+}
+.formSection__text p {
+  margin-bottom: 5px;
+}
+.formSection__content {
   width: 100%;
 }
-#confirmForm .cardConfirm {
+
+.cardConfirm {
   width: 100%;
   border-radius: 15px;
   font-size: 1.1rem;
@@ -652,7 +745,7 @@ header {
   flex-direction: column;
   align-items: center;
 }
-#confirmForm .cardConfirm__section {
+.cardConfirm__section {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -662,32 +755,41 @@ header {
   padding-block: 10px;
   border-top: solid 1px #e1eefa;
 }
-#confirmForm .cardConfirm__section:first-child {
+.cardConfirm__section:first-child {
   margin-top: 2px;
   border: none;
 }
-#confirmForm .cardConfirm__section:last-child {
+.cardConfirm__section:last-child {
   margin-bottom: 2px;
 }
-#confirmForm .radio {
+
+.cardConfirmText {
+  margin-top: 15px;
+  padding-inline: 20px;
+}
+
+.radio {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-#confirmForm .radio input[type=radio] {
+.radio input[type=radio] {
   display: none;
 }
-#confirmForm .radio input[type=radio]:checked + span {
-  box-shadow: 0 0 0 2px #e32d73;
+.radio input[type=radio]:checked + span {
   background-color: #e32d73;
   color: #fff;
-  z-index: 1;
-  position: relative;
+  box-shadow: 0 0 0 2px #e32d73;
+}
+.radio input[type=radio]:not(:checked) + span {
+  background-color: #fff;
+  color: #e32d73;
+  box-shadow: 0 0 0 2px #e32d73;
+}
+.radio label span {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-}
-#confirmForm .radio label span {
   display: block;
   height: 50px;
   width: 100px;
@@ -699,16 +801,18 @@ header {
   font-weight: 500;
   color: #e32d73;
   text-align: center;
-  box-shadow: 0 0 0 2px #e32d73;
+  box-shadow: 0 0 0 2px #fff;
   transition: background-color 500ms ease-out;
 }
-#confirmForm .radio label:first-child span {
+.radio label:first-child span {
   border-radius: 8px 0 0 8px;
 }
-#confirmForm .radio label:last-child span {
+.radio label:last-child span {
   border-radius: 0 8px 8px 0;
+  border-left: 2px solid #e32d73;
 }
-#confirmForm .inputContainer {
+
+.inputContainer {
   width: 100%;
   padding-inline: 30px;
   display: flex;
@@ -716,22 +820,23 @@ header {
   align-items: center;
   gap: 20px;
 }
-#confirmForm .inputContainer .inputText {
+.inputContainer .inputText {
   all: unset;
   width: 100%;
   border-bottom: solid 1px #273a7c;
   padding: 3px 10px 3px 10px;
   color: #273a7c;
 }
-#confirmForm .inputContainer .inputText::-moz-placeholder {
+.inputContainer .inputText::-moz-placeholder {
   color: lightgrey;
   font-style: italic;
 }
-#confirmForm .inputContainer .inputText::placeholder {
+.inputContainer .inputText::placeholder {
   color: lightgrey;
   font-style: italic;
 }
-#confirmForm .formBtn {
+
+.formBtn {
   height: 40px;
   padding-inline: 50px;
   display: flex;
@@ -744,27 +849,28 @@ header {
      -moz-user-select: none;
           user-select: none;
 }
-#confirmForm .formBtn:hover {
+.formBtn:hover {
   background: #c31a5b;
 }
-#confirmForm .formBtn.unable {
+.formBtn.unable {
   background: lightgrey;
 }
-#confirmForm .checkboxContainer {
+
+.checkbox .checkboxContainer {
   position: relative;
 }
-#confirmForm .checkboxContainer .heart-full,
-#confirmForm .checkboxContainer .heart-empty {
+.checkbox .checkboxContainer .heart-full,
+.checkbox .checkboxContainer .heart-empty {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 1.5rem;
 }
-#confirmForm .checkboxContainer .heart-empty {
+.checkbox .checkboxContainer .heart-empty {
   color: #e32d73;
   transform: translate(-50%, -50%);
 }
-#confirmForm .checkboxContainer .heart-full {
+.checkbox .checkboxContainer .heart-full {
   background: #e32d73;
   -webkit-background-clip: text;
           background-clip: text;
@@ -772,43 +878,79 @@ header {
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
 }
-#confirmForm .checkboxContainer input[type=checkbox] {
+.checkbox .checkboxContainer input[type=checkbox] {
   display: none;
 }
-#confirmForm .checkboxContainer .checkHeart {
+.checkbox .checkboxContainer .checkHeart {
   cursor: pointer;
 }
-#confirmForm .checkboxContainer input[type=checkbox]:checked + .checkHeart .heart-full {
-  animation: favoriteAnimation 300ms ease-in-out forwards;
+.checkbox .checkboxContainer input[type=checkbox]:checked + .checkHeart .heart-full {
+  animation: checkboxHeart 300ms ease-in-out forwards;
 }
-@keyframes favoriteAnimation {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-  }
-  80% {
-    opacity: 1;
-  }
-  60%, 80% {
-    transform: translate(-50%, -50%) scale(1.2);
-  }
-  70%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
+.checkbox .checkboxText {
+  margin-left: 15px;
+  flex: 1;
+}
+.checkbox .quantity {
+  display: flex;
+}
+.checkbox .quantity__button {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  color: #b5d5f3;
+  border: solid 2px #b5d5f3;
+  transition: 250ms ease-in-out;
+}
+.checkbox .quantity__button:hover, .checkbox .quantity__button:active, .checkbox .quantity__button:focus {
+  color: #e32d73;
+  border: solid 2px #e32d73;
+}
+.checkbox .quantity__value {
+  height: 25px;
+  width: 40px;
+  text-align: center;
+}
+
+.asterisk {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.displayError {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgb(200, 0, 0);
+}
+
+#confirmForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #attendance .formSection__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
 }
 #attendance #mainGuestBox {
   padding-block: 20px;
+}
+#attendance #mainGuestBox .formBtn {
+  margin-top: 25px;
+}
+#attendance #mainGuestBox .inputContainer {
   display: flex;
   gap: 20px;
 }
-#attendance #mainGuest #mainGuestEmail {
+#attendance #mainGuestEmail {
   font-style: italic;
   font-weight: 100;
   white-space: nowrap;
@@ -820,13 +962,16 @@ header {
 }
 #attendance .guests .deleteBtn {
   padding-left: 8px;
-  color: #e1eefa;
+  color: #b5d5f3;
+  transition: 250ms ease-in-out;
+}
+#attendance .guests .deleteBtn:hover, #attendance .guests .deleteBtn:active, #attendance .guests .deleteBtn:focus {
+  color: rgb(200, 0, 0);
 }
 
-#meal .checkboxText {
-  margin-left: 15px;
+#message .formSection__text {
+  text-align: center;
 }
-
 #message .messageForm {
   width: 100%;
   border-radius: 15px;
@@ -835,10 +980,21 @@ header {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
-  min-height: 100px;
-  padding: 10px;
+  min-height: 150px;
+  margin-top: 10px;
+  padding: 15px;
   border-radius: 10px;
-  border: solid 1px #273a7c;
+  border: none;
+  font-size: 0.9rem;
+  color: #273a7c;
+}
+#message .messageForm::-moz-placeholder {
+  font-style: italic;
+  color: lightgrey;
+}
+#message .messageForm::placeholder {
+  font-style: italic;
+  color: lightgrey;
 }
 
 .modal {
@@ -849,18 +1005,51 @@ header {
   left: 0;
   z-index: 100;
   background: rgba(0, 0, 0, 0.8);
+  animation: modalFadeIn 300ms ease-in-out;
 }
 .modal__wrapper {
   width: 80vw;
   max-width: 600px;
   padding: 30px;
+  padding-top: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111), 1.3px 1.3px 10px rgba(0, 0, 0, 0.16), 3px 3px 24.1px rgba(0, 0, 0, 0.209), 10px 10px 80px rgba(0, 0, 0, 0.32);
+  animation: modalScaleIn 300ms ease-in-out;
+}
+.modal__wrapper .closeBtn {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px lightgrey;
+  border-radius: 100%;
+  color: lightgrey;
+  transition: 150ms ease-in-out;
+}
+.modal__wrapper .closeBtn:hover, .modal__wrapper .closeBtn:active, .modal__wrapper .closeBtn:focus {
+  border-color: #e32d73;
+  color: #e32d73;
+}
+.modal__wrapper .inputContainer {
+  gap: 30px;
+}
+.modal__wrapper .guestsBtnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pinkTouchBanner {
@@ -894,4 +1083,36 @@ header {
   text-align: center;
   font-style: italic;
   color: #fff;
+}
+
+.giftBanner {
+  width: 90%;
+  max-width: 768px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+.giftBanner::after {
+  content: "";
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  position: absolute;
+  border-radius: 20px;
+  border: solid 2px #273a7c;
+}
+.giftBanner__text {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  text-align: center;
 }
