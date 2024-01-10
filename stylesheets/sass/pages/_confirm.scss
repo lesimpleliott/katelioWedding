@@ -236,17 +236,18 @@ $paddingFormCard: 30px;
             transition: 250ms ease-in-out;
 
             &:hover,
-            &:active,
-            &:focus {
+            &:active {
                 color: $secondColor;
                 border: solid 2px $secondColor;
             }
         }
 
         &__value {
+            all: unset;
             height: 25px;
             width: 40px;
             text-align: center;
+            color: $mainColor;
         }
     }
 }
@@ -291,7 +292,14 @@ $paddingFormCard: 30px;
         }
     }
 
+    #mainGuestName {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
     #mainGuestEmail {
+        flex: 1;
         font-style: italic;
         font-weight: 100;
         white-space: nowrap;
@@ -306,8 +314,7 @@ $paddingFormCard: 30px;
             color: darken($mainColor-light, 10);
             transition: 250ms ease-in-out;
             &:hover,
-            &:active,
-            &:focus {
+            &:active {
                 color: $warningColor;
             }
         }
@@ -388,8 +395,7 @@ $paddingFormCard: 30px;
             color: lightgrey;
             transition: 150ms ease-in-out;
             &:hover,
-            &:active,
-            &:focus {
+            &:active {
                 border-color: $secondColor;
                 color: $secondColor;
             }

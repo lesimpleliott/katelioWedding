@@ -87,12 +87,14 @@
                         </div>
                         
                         <!-- Ajouter des inviter -->
+                        <button class="formBtn" id="addGuestBtn">Ajouter des invités</button>
                         <button class="formBtn" id="addGuestBtn" style="display: none;">Ajouter des invités</button>
                     </div>
                 </section>
                     
                 <!-- HEBERGEMENTS -->
-                <section class="formSection" id="host" style="display: none;">
+                <!-- <section class="formSection" id="host" style="display: none;"> -->
+                <section class="formSection" id="host">
                     <h3 class="formSection__title">Hébérgements</h3>
                    
                     <!-- night text -->
@@ -161,7 +163,7 @@
                                 <p class="checkboxText">Linge de bain <em>(5€ par personne)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="towelMinus">-</button>
-                                    <p class="quantity__value" id="towelQuantity">0</p>
+                                    <input type="number" id="towelQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
                                     <button class="quantity__button" id="towelPlus">+</button>
 
 
@@ -178,7 +180,7 @@
                                 <p class="checkboxText">Lit parapluie <em>(15€ par lit)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="travelCotMinus">-</button>
-                                    <p class="quantity__value" id="travelCotQuantity">0</p>
+                                    <input type="number" id="travelCotQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
                                     <button class="quantity__button" id="travelCotPlus">+</button>
 
 
@@ -195,7 +197,7 @@
                                 <p class="checkboxText">Chaise bébé <em>(15€ par chaise)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="babyChairMinus">-</button>
-                                    <p class="quantity__value" id="babyChairQuantity">0</p>
+                                    <input type="number" id="babyChairQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
                                     <button class="quantity__button" id="babyChairPlus">+</button>
 
 
@@ -203,7 +205,7 @@
                             </div>
                         </div>
                         <div class="cardConfirmText">
-                            <p class="total">Soit total option : <strong id="totalOptions"><span class="optionPrice">15</span>€</strong></p>
+                            <p class="total">Soit total option : <strong><span id="totalOptions">0</span>€</strong></p>
                             <p class="asterisk">*Les prix des options sont valables pour le weekend complet.</p>
                         </div>
                     </div>

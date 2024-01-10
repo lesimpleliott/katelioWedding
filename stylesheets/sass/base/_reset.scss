@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,3 +22,13 @@ li {
 a {
     text-decoration: none;
 }
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none; /* WebKit (Safari/Chrome) */
+        margin: 0; /* Supprime les marges par défaut */
+    }
+}
+
