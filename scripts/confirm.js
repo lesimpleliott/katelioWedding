@@ -19,6 +19,8 @@ const messageNo = [
     "On vous embrasse fort !",
     "Katherine & Eliott",
 ];
+const emailSentMessage =
+    "Votre réponse à bien était envoyée et un email de confirmation vous a été envoyé. Pensez à vérifier vos spams !";
 
 // ******************************************************************************
 //  **************************** FONCTION USEFULL ****************************
@@ -36,12 +38,12 @@ const submitForm = document.getElementById("submitForm");
 const mainGuestBox = document.getElementById("mainGuestBox");
 let response = null;
 let guestlist = [];
-let hosts = []; 
-let options = [];
-let meals = []; 
-let message = null;
+let hostsData = [];
+let optionsData = [];
+let mealsData = [];
+let messageData = null;
 
-
+// Selection de la réponse : OUI / NON
 const attendanceSelection = (e) => {
     if (e.target.tagName === "INPUT") {
         // change style de la section et titre
@@ -70,7 +72,9 @@ const attendanceSelection = (e) => {
         addMainGuest();
     }
 };
+attendanceRadio.addEventListener("click", attendanceSelection);
 
+// Ajout du mainGuest
 const addMainGuest = () => {
     const inputMainFirstname = document.getElementById("inputMainFirstname");
     const inputMainLastname = document.getElementById("inputMainLastname");
@@ -146,6 +150,7 @@ const addMainGuest = () => {
     mainGuestBtn.addEventListener("click", submitMainGuest);
 };
 
+// affiche le formulaire correspondant à la réponse
 const displayFullForm = (reponse) => {
     const host = document.getElementById("host");
     const meal = document.getElementById("meal");
@@ -160,6 +165,8 @@ const displayFullForm = (reponse) => {
 
         // affiche hebergement
         host.style = "none";
+        hosts();
+        hostOptions();
 
         // affiche repas
         meal.style = "none";
@@ -185,6 +192,7 @@ const displayFullForm = (reponse) => {
     submitForm.style = "none";
 };
 
+// Secondary Guests
 const addGuests = (e) => {
     e.preventDefault();
 
@@ -233,7 +241,6 @@ const addGuests = (e) => {
         }
     });
 };
-
 const submitGuest = (selectedAge) => {
     const inputGuestLastname = document.getElementById("inputGuestLastname");
     const inputGuestFirstname = document.getElementById("inputGuestFirstname");
@@ -270,7 +277,6 @@ const submitGuest = (selectedAge) => {
     // ferme la modale
     closeModal();
 };
-
 const deleteGuest = (guestID) => {
     const deleteBtn = document.querySelector(`button[data-guest="${guestID}"]`);
 
@@ -290,7 +296,9 @@ const deleteGuest = (guestID) => {
         elementToDelete.remove();
     });
 };
+addGuestBtn.addEventListener("click", addGuests);
 
+// MODALE
 const displayGuestModal = () => {
     const addGuestsModal = document.getElementById("addGuestsModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
@@ -348,14 +356,45 @@ const closeModal = () => {
     window.removeEventListener("click", closeModalClickOutside);
 };
 
-// reponse Yes/No + invité 'principal'
-attendanceRadio.addEventListener("click", attendanceSelection);
-// ajouter des invités + suppression invités
-addGuestBtn.addEventListener("click", addGuests);
-
 // ******************************************************************************
 //  ****************************** FONCTION HOSTS ******************************
 
+const hosts = () => {
+    const fridayNight = document.getElementById("fridayNight");
+    const saturdayNight = document.getElementById("saturdayNight");
+    const sundayNight = document.getElementById("sundayNight");
+    const numberOfNights = document.getElementById("numberOfNights");
+    const hostPrice = document.getElementById("hostPrice");
+
+    const addNight = () => {
+        let night = 0;
+        if (fridayNight.checked) {
+            night++;
+        }
+        if (saturdayNight.checked) {
+            night++;
+        }
+        if (sundayNight.checked) {
+            night++;
+        }
+
+        // affiche le résultat
+        numberOfNights.textContent = night;
+        if (
+            fridayNight.checked ||
+            saturdayNight.checked ||
+            sundayNight.checked
+        ) {
+            hostPrice.textContent = guestlist.length * 100;
+        } else {
+            hostPrice.textContent = 0;
+        }
+    };
+
+    fridayNight.addEventListener("change", addNight);
+    saturdayNight.addEventListener("change", addNight);
+    sundayNight.addEventListener("change", addNight);
+};
 
 const hostOptions = () => {
     const towelMinus = document.getElementById("towelMinus");
@@ -367,47 +406,218 @@ const hostOptions = () => {
     const travelCotQuantity = document.getElementById("travelCotQuantity");
     const babyChairQuantity = document.getElementById("babyChairQuantity");
     const babyChairPlus = document.getElementById("babyChairPlus");
+    const towel = document.getElementById("towel");
+    const travelCot = document.getElementById("travelCot");
+    const babyChair = document.getElementById("babyChair");
 
-    // Ajoute les écouteurs d'événements aux boutons personnalisés
-    const quantityOption = (minusBtn, object, plusBtn, updateFunction) => {
+    // gère les inputs checkbox
+    const selectOption = () => {
+        towel.checked ? (towelQuantity.value = 1) : (towelQuantity.value = 0);
+        travelCot.checked
+            ? (travelCotQuantity.value = 1)
+            : (travelCotQuantity.value = 0);
+        babyChair.checked
+            ? (babyChairQuantity.value = 1)
+            : (babyChairQuantity.value = 0);
+        updateOptions();
+    };
+
+    towel.addEventListener("input", selectOption);
+    travelCot.addEventListener("input", selectOption);
+    babyChair.addEventListener("input", selectOption);
+
+    // Ajoute les écouteurs d'événements aux boutons +/- uantité
+    const quantityOption = (input, minusBtn, object, plusBtn, updateFunction) => {
         plusBtn.addEventListener("click", (e) => {
             e.preventDefault();
             object.stepUp();
+            // uncheckd l'input lorsue l'on arrive à 0
+            input.checked = object.value > 0;
             updateFunction();
         });
         minusBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            // Vérifie si la valeur actuelle est déjà à zéro, sinon décrémente
+            // Vérifie si la valeur actuelle est à zéro, sinon décrémente
             object.value = Math.max(0, object.value - 1);
+            // uncheckd l'input lorsue l'on arrive à 0
+            input.checked = object.value > 0;
+
             updateFunction();
         });
     };
     const updateOptions = () => {
         const totalOptions = document.getElementById("totalOptions");
-    
-        // affiche le resultat 
+        // affiche le resultat
         let towelPrice = parseInt(towelQuantity.value) * 5;
         let travelCotPrice = parseInt(travelCotQuantity.value) * 15;
         let babyChairPrice = parseInt(babyChairQuantity.value) * 15;
         let fullPrice = towelPrice + travelCotPrice + babyChairPrice;
-        totalOptions.textContent = fullPrice;     
+        totalOptions.textContent = fullPrice;
     };
-    quantityOption(towelMinus, towelQuantity, towelPlus, updateOptions);
-    quantityOption(travelCotMinus, travelCotQuantity, travelCotPlus, updateOptions);
-    quantityOption(babyChairMinus, babyChairQuantity, babyChairPlus, updateOptions);
+    quantityOption(towel, towelMinus, towelQuantity, towelPlus, updateOptions);
+    quantityOption(travelCot,travelCotMinus,travelCotQuantity,travelCotPlus,updateOptions);
+    quantityOption(babyChair,babyChairMinus,babyChairQuantity,babyChairPlus,updateOptions);
 
-    // Ajoute les écouteurs d'événements pour les changements de valeur des inputs
     towelQuantity.addEventListener("input", updateOptions);
     travelCotQuantity.addEventListener("input", updateOptions);
     babyChairQuantity.addEventListener("input", updateOptions);
 };
-
-
-
 hostOptions();
 
 // ******************************************************************************
-//  ****************************** FONCTION MEALS ******************************
+//  **************************** RECAP AND SUBMIT ****************************
+
+/* SmtpJS.com - v3.0.0 */
+const Email = {
+    send: function (a) {
+        return new Promise(function (n, e) {
+            (a.nocache = Math.floor(1e6 * Math.random() + 1)),
+                (a.Action = "Send");
+            var t = JSON.stringify(a);
+            Email.ajaxPost(
+                "https://smtpjs.com/v3/smtpjs.aspx?",
+                t,
+                function (e) {
+                    n(e);
+                }
+            );
+        });
+    },
+    ajaxPost: function (e, n, t) {
+        var a = Email.createCORSRequest("POST", e);
+        a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"),
+            (a.onload = function () {
+                var e = a.responseText;
+                null != t && t(e);
+            }),
+            a.send(n);
+    },
+    ajax: function (e, n) {
+        var t = Email.createCORSRequest("GET", e);
+        (t.onload = function () {
+            var e = t.responseText;
+            null != n && n(e);
+        }),
+            t.send();
+    },
+    createCORSRequest: function (e, n) {
+        var t = new XMLHttpRequest();
+        return (
+            "withCredentials" in t
+                ? t.open(e, n, !0)
+                : "undefined" != typeof XDomainRequest
+                ? (t = new XDomainRequest()).open(e, n)
+                : (t = null),
+            t
+        );
+    },
+};
+
+const sendEmail = (email, subject, body) => {
+    Email.send({
+        SecureToken: "e13bdadc-8899-4507-ade2-cabd9d7d46f4",
+        To: email,
+        Bcc: "rsvp@katelio.fr",
+        From: "RSVP - Katherine & Eliott <rsvp@katelio.fr>",
+        Subject: subject,
+        Body: body,
+    }).then((message) => {
+        if (message === "OK") {
+            alert(emailSentMessage);
+        }
+    });
+};
+
+submitForm.addEventListener("click", (e) => {
+    e.preventDefault();
+    let subject;
+    let body;
+
+    // récupère l'ensemble des datas
+    const mainGuestFirstname = guestlist[0].firstname;
+    const mainGuestLastname = guestlist[0].lastname;
+    const mainGuestEmail = guestlist[0].email;
+    let guests = "";
+    guestlist.forEach((guest, i) => {
+        if (guest !== null) {
+            guests +=
+                i === 0
+                    ? `Invité ${i + 1} - ${guest.firstname} / ${
+                          guest.lastname
+                      } / ${guest.age}`
+                    : `<br>Invité ${i + 1} - ${guest.firstname} / ${
+                          guest.lastname
+                      } / ${guest.age}`;
+        }
+    });
+    const fridayNight = document.getElementById("fridayNight").checked;
+    const saturdayNight = document.getElementById("saturdayNight").checked;
+    const sundayNight = document.getElementById("sundayNight").checked;
+
+    const towel = document.getElementById("towel").checked;
+    const towelValue = document.getElementById("towelQuantity").value;
+    const travelCot = document.getElementById("travelCot").checked;
+    const travelCotValue = document.getElementById("travelCotQuantity").value;
+    const babyChair = document.getElementById("babyChair").checked;
+    const babyChairValue = document.getElementById("babyChairQuantity").value;
+    const fridayDinner = document.getElementById("fridayDinner").checked;
+    const saturdayDinner = document.getElementById("saturdayDinner").checked;
+    const sundayBrunch = document.getElementById("sundayBrunch").checked;
+    const sundayDinner = document.getElementById("sundayDinner").checked;
+    const messageForm = document.getElementById("messageForm").value;
+
+    // construction de l'objet
+    response
+        ? (subject = `[RSVP - YES] - ${mainGuestFirstname} ${mainGuestLastname}`)
+        : (subject = `[RSVP - NO] - ${mainGuestFirstname} ${mainGuestLastname}`);
+
+    // construction du body
+    if (response) {
+        body = `
+Présence : Oui
+<br>---------------------------
+<br>Prénom : ${mainGuestFirstname}
+<br>Nom : ${mainGuestLastname}
+<br>email : ${mainGuestEmail}
+<br>---------------------------
+<br>${guests}
+<br>---------------------------
+<br>Nuit de vendredi 17 : ${fridayNight}
+<br>Nuit de samedi 18 : ${saturdayNight}
+<br>Nuit de dimanche 19 : ${sundayNight}
+<br>-- 
+<br>Serviette : ${towel} - ${towelValue}
+<br>Lit parapluie : ${travelCot} - ${travelCotValue}
+<br>Chaise bébé : ${babyChair} - ${babyChairValue}
+<br>---------------------------
+<br>Repas vendredi - diner : ${fridayDinner}
+<br>Repas samedi - cocktail + diner : ${saturdayDinner}
+<br>Repas dimanche - brunch : ${sundayBrunch}
+<br>Repas dimanche - surprise party : ${sundayDinner}
+<br>---------------------------
+<br>Message : 
+<br>${messageForm}
+`;
+    } else {
+        body = `
+Présence : Non
+<br>---------------------------
+<br>Prénom : ${mainGuestFirstname}
+<br>Nom : ${mainGuestLastname}
+<br>email : ${mainGuestEmail}
+<br>---------------------------
+<br>Message : 
+<br>${messageForm}
+`;
+    }
+
+    console.log(mainGuestEmail);
+    console.log(subject);
+    console.log(body);
+
+    // envoi de l'email
+    // sendEmail(mainGuestEmail, subject, body);
+});
 
 // ******************************************************************************
 //  ******************************* EVENTS *******************************

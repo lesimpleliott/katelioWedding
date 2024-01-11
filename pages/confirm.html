@@ -87,14 +87,13 @@
                         </div>
                         
                         <!-- Ajouter des inviter -->
-                        <button class="formBtn" id="addGuestBtn">Ajouter des invités</button>
                         <button class="formBtn" id="addGuestBtn" style="display: none;">Ajouter des invités</button>
                     </div>
                 </section>
                     
                 <!-- HEBERGEMENTS -->
-                <!-- <section class="formSection" id="host" style="display: none;"> -->
-                <section class="formSection" id="host">
+                <section class="formSection" id="host" style="display: none;">
+                <!-- <section class="formSection" id="host"> -->
                     <h3 class="formSection__title">Hébérgements</h3>
                    
                     <!-- night text -->
@@ -139,7 +138,7 @@
                             </div>
                         </div>
                         <div class="cardConfirmText">
-                            <p class="total">Soit <strong id="numberOfNights">0</strong> nuits / personne : <span id="hostPrice">100</span>€</p>
+                            <p class="total">Soit <strong id="numberOfNights">0</strong> nuits par personne - Total : <span id="hostPrice">0</span>€</p>
                             <p class="asterisk">*Les nuits de vendredi, samedi et dimanche sont comprises dans le forfait. Nous vous enverrons notre RIB à récéption de votre réponse. </p>
                         </div>
                     </div>
@@ -163,10 +162,8 @@
                                 <p class="checkboxText">Linge de bain <em>(5€ par personne)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="towelMinus">-</button>
-                                    <input type="number" id="towelQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
+                                    <input type="number" id="towelQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
                                     <button class="quantity__button" id="towelPlus">+</button>
-
-
                                 </div>
                             </div>
                             <div class="cardConfirm__section checkbox">
@@ -180,10 +177,8 @@
                                 <p class="checkboxText">Lit parapluie <em>(15€ par lit)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="travelCotMinus">-</button>
-                                    <input type="number" id="travelCotQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
+                                    <input type="number" id="travelCotQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
                                     <button class="quantity__button" id="travelCotPlus">+</button>
-
-
                                 </div>
                             </div>
                             <div class="cardConfirm__section checkbox">
@@ -197,10 +192,8 @@
                                 <p class="checkboxText">Chaise bébé <em>(15€ par chaise)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="babyChairMinus">-</button>
-                                    <input type="number" id="babyChairQuantity" class="quantity__value" min="1" max="100" step="1" value="0">
+                                    <input type="number" id="babyChairQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
                                     <button class="quantity__button" id="babyChairPlus">+</button>
-
-
                                 </div>
                             </div>
                         </div>
@@ -219,6 +212,7 @@
 
                 <!-- REPAS -->
                 <section class="formSection" id="meal" style="display: none;">
+                <!-- <section class="formSection" id="meal"> -->
                     <h3 class="formSection__title">Repas</h3>
                     <div class="formSection__text">
                         <p>Comme promis, on s’occupe de tout !</p>
@@ -297,10 +291,15 @@
                     <i class="fa-regular fa-paper-plane cta__icon"></i>
                     <span class="cta__text">Envoyer</span>
                 </button>
-                <p class="displayError"></p>
             </form>
         </section>
     </main>
+
+    <footer>
+        <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
+        <p class="footerText">Copyright © Katherine & Eliott</p>
+        <p class="footerText">Crédits images : <a href="https://www.freepik.com/">Designed by Freepik</a></p>
+    </footer>
 
     <aside class="modal" id="addGuestsModal" style="display: none;">
         <div class="modal__wrapper">
