@@ -416,8 +416,9 @@ footer {
 footer .footerText {
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 1.5rem;
+  text-align: center;
 }
 footer .footerText a {
   color: #fff;
@@ -1161,4 +1162,14 @@ footer .footerText a:hover {
   font-family: "Dancing Script", cursive;
   font-size: 1.8rem;
   text-align: center;
+}
+
+#infos .banner__image {
+  -o-object-position: center;
+     object-position: center;
+}
+
+#program .banner__image {
+  -o-object-position: bottom;
+     object-position: bottom;
 }

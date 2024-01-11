@@ -462,7 +462,6 @@ const hostOptions = () => {
     travelCotQuantity.addEventListener("input", updateOptions);
     babyChairQuantity.addEventListener("input", updateOptions);
 };
-hostOptions();
 
 // ******************************************************************************
 //  **************************** RECAP AND SUBMIT ****************************
@@ -611,12 +610,14 @@ Présence : Non
 `;
     }
 
-    console.log(mainGuestEmail);
-    console.log(subject);
-    console.log(body);
+    // // pour betaTest -- A Supprimer 
+    // console.log(mainGuestEmail);
+    // console.log(subject);
+    // console.log(body);
+    // alert(emailSentMessage);
 
-    // envoi de l'email
-    // sendEmail(mainGuestEmail, subject, body);
+    // envoi de l'email -- A activer pour deploiement 
+    sendEmail(mainGuestEmail, subject, body);
 });
 
 // ******************************************************************************
