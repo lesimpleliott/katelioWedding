@@ -25,22 +25,30 @@
 
         .homeSection {
             width: 100%;
-            border-bottom: solid 2px $mainColor;
             padding-block: 30px;
+            &:not(:last-child) {
+                border-bottom: solid 2px $mainColor;
+            }
+
+            h3 {
+                margin-bottom: 30px;
+
+                &:not(:first-child) {
+                    margin-top: 50px;
+                }
+            }
 
             .bridesContainer {
                 display: flex;
                 flex-direction: column;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
                 gap: 30px;
 
-                .brides {
-                    border: solid 2px green;
-                    width: 100%;
-                    min-width: 300px;
+                .esperluette {
+                    height: 80px;
+                }
 
+                .brides {
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -59,8 +67,8 @@
                     }
 
                     &__text {
-                        border: solid 1px red;
                         width: 100%;
+                        padding-inline: 10%;
 
                         .firstname {
                             font-family: "Prata", serif;
@@ -78,14 +86,147 @@
                     }
                 }
 
-                img {
-                    height: 80px;
+                @include responsive(650px) {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 0;
+                    position: relative;
+
+                    .esperluette {
+                        position: absolute;
+                        top: 100px;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    .brides {
+                        width: 80%;
+                    }
                 }
             }
 
             .witnessesContainer {
-                // border: solid 1px red;
                 width: 100%;
+                padding-inline: $safeZone-sidePage;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 30px;
+
+                @include responsive(650px) {
+                    flex-direction: row;
+                    gap: 2vw;
+                }
+
+                .witnessCard {
+                    @include card(100%);
+                    flex: 1;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+                    overflow: hidden;
+
+                    &__headline {
+                        width: 70%;
+                        height: 10px;
+                        border-bottom-left-radius: 6px;
+                        border-bottom-right-radius: 6px;
+
+                        &.bride {
+                            background: $secondColor;
+                        }
+                        &.groom {
+                            background: $mainColor;
+                        }
+                        &.gold {
+                            background: linear-gradient(
+                                75deg,
+                                #bf953f,
+                                #fcf6ba,
+                                #b38728,
+                                #f8f1a4,
+                                #aa771c
+                            );
+                        }
+                    }
+                    &__image {
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 100%;
+                        overflow: hidden;
+
+                        img, .public {
+                            width: 150px;
+                            height: 150px;
+                            object-fit: cover;
+                            transition: transform 500ms ease-in-out;
+                        }
+                    }
+                    &__textContent {
+                        width: 100%;
+                        padding-inline: 15px;
+                        padding-bottom: 15px;
+                        text-align: center;
+                        
+                        .firstname {
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                        }
+                        .lastname {
+                            font-size: 1rem;
+                        }
+                        .short {
+                            max-height: 0;
+                            margin-top: 8px;
+                            padding-top: 8px;
+                            font-size: 0.9rem;
+                            font-style: italic;
+                            position: relative;
+                            overflow: hidden;
+                            transition: 500ms ease-in-out;
+
+                            &::before {
+                                content: "";
+                                width: 25px;
+                                height: 1px;
+                                background: $mainColor;
+                                position: absolute;
+                                top: 0%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    &:hover {
+
+                        // .witnessCard__image {
+                        //     transform: scaleX(0);
+                        // }
+
+
+                        .short {
+                            max-height: 500px;
+                        }
+                    }
+                }
+
+                &.MC {
+                    .short {
+                        padding-inline: 20px;
+
+                        @include responsive(400px) {
+                            padding-inline: 8vw;
+                        }
+                    }
+                }
+
+
             }
         }
     }

@@ -858,21 +858,27 @@ footer .footerText a:hover {
 }
 #home .mainContent .homeSection {
   width: 100%;
-  border-bottom: solid 2px #273a7c;
   padding-block: 30px;
+}
+#home .mainContent .homeSection:not(:last-child) {
+  border-bottom: solid 2px #273a7c;
+}
+#home .mainContent .homeSection h3 {
+  margin-bottom: 30px;
+}
+#home .mainContent .homeSection h3:not(:first-child) {
+  margin-top: 50px;
 }
 #home .mainContent .homeSection .bridesContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 30px;
 }
+#home .mainContent .homeSection .bridesContainer .esperluette {
+  height: 80px;
+}
 #home .mainContent .homeSection .bridesContainer .brides {
-  border: solid 2px green;
   width: 100%;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -889,8 +895,8 @@ footer .footerText a:hover {
   box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.04), 3.4px 3.4px 17.9px rgba(0, 0, 0, 0.06), 15px 15px 80px rgba(0, 0, 0, 0.1);
 }
 #home .mainContent .homeSection .bridesContainer .brides__text {
-  border: solid 1px red;
   width: 100%;
+  padding-inline: 10%;
 }
 #home .mainContent .homeSection .bridesContainer .brides__text .firstname {
   font-family: "Prata", serif;
@@ -905,11 +911,123 @@ footer .footerText a:hover {
 #home .mainContent .homeSection .bridesContainer .brides__text .text {
   font-size: 0.9rem;
 }
-#home .mainContent .homeSection .bridesContainer img {
-  height: 80px;
+@media screen and (min-width: 650px) {
+  #home .mainContent .homeSection .bridesContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+  #home .mainContent .homeSection .bridesContainer .esperluette {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #home .mainContent .homeSection .bridesContainer .brides {
+    width: 80%;
+  }
 }
 #home .mainContent .homeSection .witnessesContainer {
   width: 100%;
+  padding-inline: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+@media screen and (min-width: 650px) {
+  #home .mainContent .homeSection .witnessesContainer {
+    flex-direction: row;
+    gap: 2vw;
+  }
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard {
+  width: 100%;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__headline {
+  width: 70%;
+  height: 10px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.bride {
+  background: #e32d73;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.groom {
+  background: #273a7c;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.gold {
+  background: linear-gradient(75deg, #bf953f, #fcf6ba, #b38728, #f8f1a4, #aa771c);
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__image {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__image img, #home .mainContent .homeSection .witnessesContainer .witnessCard__image .public {
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 500ms ease-in-out;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent {
+  width: 100%;
+  padding-inline: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .firstname {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .lastname {
+  font-size: 1rem;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .short {
+  max-height: 0;
+  margin-top: 8px;
+  padding-top: 8px;
+  font-size: 0.9rem;
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+  transition: 500ms ease-in-out;
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .short::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  background: #273a7c;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#home .mainContent .homeSection .witnessesContainer .witnessCard:hover .short {
+  max-height: 500px;
+}
+#home .mainContent .homeSection .witnessesContainer.MC .short {
+  padding-inline: 20px;
+}
+@media screen and (min-width: 400px) {
+  #home .mainContent .homeSection .witnessesContainer.MC .short {
+    padding-inline: 8vw;
+  }
 }
 
 .mainContent__subtitle {
@@ -1361,8 +1479,15 @@ footer .footerText a:hover {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-top: 5vw;
   padding-inline: 5vw;
+}
+#program .mainContent__title, #program .mainContent__subtitle {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#program .mainContent__subtitle {
+  margin-bottom: 20px;
 }
 #program .mainContent .daySection {
   width: 100%;
@@ -1371,7 +1496,8 @@ footer .footerText a:hover {
   overflow: hidden;
   border: solid 2px #e32d73;
   border-radius: 10px;
-  transition: 500ms ease-in-out;
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  transition: 500ms 50ms ease-in-out;
 }
 #program .mainContent .daySection__header {
   width: 100%;
@@ -1410,7 +1536,7 @@ footer .footerText a:hover {
   margin-block: 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 }
 #program .mainContent .daySection__articleContainer .timeScale {
   width: 2px;
@@ -1426,7 +1552,7 @@ footer .footerText a:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 5vw;
+  gap: 30px;
 }
 #program .mainContent .daySection__articleContainer .programmArticle__imgWrapper {
   width: 40%;
