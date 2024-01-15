@@ -6,11 +6,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: $bodyBgColor;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: $bodyBgColor;
 }
 
 button {

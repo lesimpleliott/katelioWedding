@@ -7,8 +7,6 @@
 
 // ******************************************************************************
 //  ******************************* FONCTIONS *******************************
-// ******************************************************************************
-
 const jumpButton = (time) => {
     const scrollButtons = document.querySelectorAll(".scrollBtn");
 
@@ -18,6 +16,7 @@ const jumpButton = (time) => {
         }, time);
     });
 };
+jumpButton(5000);
 
 const countdown = (date) => {
     const targetDate = new Date(date).getTime();
@@ -59,20 +58,8 @@ const countdown = (date) => {
     // Appeler la fonction de mise à jour une première fois pour éviter le délai initial
     updateCountdown();
 };
+countdown("May 18, 2024 14:30:00");
 
 // ******************************************************************************
-//  ******************************* EVENT *******************************
-// ******************************************************************************
+//  ******************************* FONCTIONS *******************************
 
-// VERIFIACTION DU LOG
-window.addEventListener("load", () => {
-    let isLogged = false;
-    isLogged = sessionStorage.getItem("isLogged");
-    !isLogged ? (window.location.href = "../index.html") : "";
-
-    // animation sur le bouton scroll
-    jumpButton(2000);
-
-    // compte à rebour
-    countdown("May 18, 2024 14:30:00");
-});

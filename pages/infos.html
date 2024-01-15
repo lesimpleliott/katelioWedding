@@ -6,8 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
     <title>K&E - Informations</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
-    <script src="../scripts/confirm.js" defer></script>
-    <script src="../scripts/navbar.js" defer></script>
+    <script src="../scripts/init.js" defer></script>
 </head>
 
 <body>
@@ -42,12 +41,52 @@
             <h1 class="banner__title">Informations</h1>
         </section>
 
-        <section class="mainContent rsvp">
+        <section class="mainContent">
             <h2 class="mainContent__title">Lorem, ipsum dolor.</h2>
             <div class="mainContent__subtitle">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quidem facere iusto sequi maxime distinctio?</p>
             </div>
+
+            <section class="infosSection">
+                <h3>Les lieux</h3>
+
+                <div class="infosSection__card">
+                    <img class="infosSection__card__img" src="" alt="">
+                    <div class="infosSection__card__title">
+                        <span class="text">
+                            <p class="title">Le Château</p>
+                            <p class="subtitle">Château Belle Époque</p>
+                        </span>
+                        <i class="fa-solid fa-info"></i>
+                    </div>
+                    <div class="infosSection__card__info">
+                        <p class="info">C’est là que nous allons passer tout le weekend ensemble !</p>
+                        <article class="adress">
+                            <i class="fa-solid fa-location-dot adress__icon"></i>
+                            <p class="adress__street">152 route Belle Époque</p>
+                            <p class="adress__city">40260 Linxe</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+                    <div class="card__content">
+                      <h3 class="card__title">Card Title</h3>
+                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    </div>
+                  </div>
+
+
+            </section>
+
+            <section class="infosSection">
+                <h3>Organiser votre voyage</h3>
+            </section>
+
+
+
         </section>
     </main>
 
@@ -55,6 +94,21 @@
         <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
         <p class="footerText">Copyright © Katherine & Eliott - Crédits images : <a href="https://www.freepik.com/">Designed by Freepik</a></p>
     </footer>
+
+    <aside class="popup" id="popup">
+        <div class="popup__container">
+            <div class="popup__container__text">
+                <h3>Pensez à confirmer votre venue !</h3>
+                <a href="./confirm.html" class="cta">
+                    <i class="fa-regular fa-paper-plane cta__icon"></i>
+                    <span class="cta__text">RSVP</span>
+                </a>
+            </div>
+            <span class="closeBtn" id="closePopup">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+        </div>
+    </aside>
 
 </body>
 

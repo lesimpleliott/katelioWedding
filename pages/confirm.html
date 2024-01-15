@@ -6,8 +6,8 @@
     <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
     <title>K&E - RSVP</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
+    <script src="../scripts/init.js" defer></script>
     <script src="../scripts/confirm.js" defer></script>
-    <script src="../scripts/navbar.js" defer></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </span>
-            </button>   
+            </button>    
         </nav>
     </header>
     
@@ -102,10 +102,21 @@
                         <p>Ils comprennent tous une cuisine équipée, un salon, une ou plusieurs salle de bains et plusieurs chambres.</p>
                         <p>Il est possible que vous partagiez votre logement avec d’autres personnes. Nous nous efforcerons de faire un plan de logement cohérent !</p>
                         <p>Une <strong>participation de 100€ par personne vous est demandée</strong> pour l’ensemble du weekend*.</p>
+                        <p>Il vous est possible de prolonger votre séjour en ajoutant la ou les nuits de <strong>jeudi 16 mai</strong> et <strong>mardi 21 mai</strong> pour 35€ par personne par nuit supplémentaire</p>
                     </div> 
                     <!-- night checkbox -->
                     <div class="formSection__content">
                         <div class="cardConfirm" id="hostBox">
+                            <div class="cardConfirm__section checkbox">
+                                 <div class="checkboxContainer">
+                                    <input type="checkbox" id="thursdayNight">
+                                    <label class="checkHeart" for="thursdayNight">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Jeudi soir</p>
+                            </div>
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="fridayNight">
@@ -135,6 +146,16 @@
                                     </label>
                                 </div>
                                 <p class="checkboxText">Dimanche soir</p>
+                            </div>
+                            <div class="cardConfirm__section checkbox">
+                                 <div class="checkboxContainer">
+                                    <input type="checkbox" id="mondayNight">
+                                    <label class="checkHeart" for="mondayNight">
+                                        <i class="fa-regular fa-heart heart-empty"></i>
+                                        <i class="fa-solid fa-heart heart-full"></i>
+                                    </label>
+                                </div>
+                                <p class="checkboxText">Lundi soir</p>
                             </div>
                         </div>
                         <div class="cardConfirmText">
@@ -201,12 +222,6 @@
                             <p class="total">Soit total option : <strong><span id="totalOptions">0</span>€</strong></p>
                             <p class="asterisk">*Les prix des options sont valables pour le weekend complet.</p>
                         </div>
-                    </div>
-
-                    <!-- prolonger séjour -->
-                    <div class="formSection__text">
-                        <p>Il vous est possible de prolonger votre séjour en ajoutant la ou les nuits de <strong>jeudi 16 mai</strong> et <strong>mardi 21 mai</strong> pour 30€ par personne par nuit supplémentaire</p>
-                        <p>Pour cela, contactez nous directement : <strong>contact@katelio.fr</strong></p>
                     </div>
                 </section>
 
@@ -293,7 +308,7 @@
                 </button>
             </form>
         </section>
-    </main>
+    </main> 
 
     <footer>
         <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>

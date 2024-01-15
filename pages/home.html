@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
     <title>Katherine & Eliott</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
-    <script src="../scripts/navbar.js" defer></script>
+    <script src="../scripts/init.js" defer></script>
     <script src="../scripts/home.js" defer></script>
 
 </head>
@@ -37,8 +37,8 @@
         </nav>
     </header>
     
-    <main>
-        <div class="bannerFullPage">
+    <main id="home">
+        <section class="bannerFullPage">
             <img class="bannerFullPage__background" src="../assets/images/bluesky.jpg" alt="bluesky">
             
             <div class="bannerFullPage__content homeBanner">
@@ -62,19 +62,82 @@
                         <p class="unitText">secondes</p>
                     </div>
                 </div>
-                <div class="scrollbutton">
+                <a class="scrollbutton" href="#mainHome">
                     <button class="scrollBtn">
                         <i class="fa-solid fa-angles-down"></i>
                     </button>
-                </div>
+                </a>
             </div>
-        </div>
-    </main>
+        </section>
+
+        <section class="mainContent" id="mainHome">
+
+            <section class="homeSection">
+                <h2>Les mariés</h2>
+                <div class="bridesContainer">
+                    <div class="brides">
+                        <img class="brides__image" src="../assets/images/katherine.jpg" alt="Photo de Katherine">
+                        <div class="brides__text">
+                            <p class="firstname">Katherine</p>
+                            <p class="lastname">Semennikova</p>
+                            <p class="text">100% russe dans l’âme, déjà un peu Larivierre dans son cœur. <br>
+                                Enfant dans l’âme, un peu casse-cou(ille) sur les bords, bout-en-train de service.</p>
+                        </div>
+                    </div>
+                    <img class="esperluette" src="../assets/icons/esperluette.svg" alt="esperluette">
+                    <div class="brides">
+                        <img class="brides__image" src="../assets/images/eliott.JPG" alt="Photo de Eliott">
+                        <div class="brides__text">
+                            <p class="firstname">Eliott</p>
+                            <p class="lastname">Lesimple</p>
+                            <p class="text">50% Lesimple (surtout dans le garage), 100% Larivierre dans l’âme. <br>
+                                Eternel perfectionniste, parfois kamikaze dans ses passions, maître de la blague à papa.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="homeSection">
+                <h2>Les témoins</h2>
+
+                <div class="witnessesContainer">
+                    <div class="witness">
+                        
+                    </div>
+                </div>
+                        
+
+
+            </section>
+            
+            <section class="homeSection">
+                <h2>Le maître de cérémonie</h2>
+            </section>
+
+        </section>
         
-
-
+    </main>
+    
+    <footer>
+        <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
+        <p class="footerText">Copyright © Katherine & Eliott - Crédits images : <a href="https://fr.freepik.com/" target="_blank">Designed by Freepik</a></p>
+    </footer>
+    
+    <aside class="popup" id="popup">
+        <div class="popup__container">
+            <div class="popup__container__text">
+                <h3>Pensez à confirmer votre venue !</h3>
+                <a href="./confirm.html" class="cta">
+                    <i class="fa-regular fa-paper-plane cta__icon"></i>
+                    <span class="cta__text">RSVP</span>
+                </a>
+            </div>
+            <span class="closeBtn" id="closePopup">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+        </div>
+    </aside>
 
 </body>
-
 
 </html>

@@ -3,13 +3,16 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    min-height: 90vh;
 }
 
 .mainContent {
     width: 100%;
+    height: 100%;
     max-width: $tablet;
     padding-top: 35px;
     padding-bottom: 50px;
+    flex: 1;
 
     display: flex;
     flex-direction: column;

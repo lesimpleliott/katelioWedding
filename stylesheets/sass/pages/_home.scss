@@ -1,19 +1,92 @@
-.homeBanner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#home {
+    .homeBanner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-    &__draw {
-        width: 100%;
-        max-width: 500px;
-        max-height: 70vh;
-        margin-inline: $safeZone-sidePage;
-        object-fit: cover;
-        object-position: bottom;
+        &__draw {
+            width: 100%;
+            max-width: 500px;
+            max-height: 70vh;
+            margin-inline: $safeZone-sidePage;
+            object-fit: cover;
+            object-position: bottom;
+        }
+
+        .countdown {
+            flex: 1;
+        }
     }
 
-    .countdown {
-        flex: 1;
+    .mainContent {
+        padding-top: 40px;
+        border-radius: 0;
+
+        .homeSection {
+            width: 100%;
+            border-bottom: solid 2px $mainColor;
+            padding-block: 30px;
+
+            .bridesContainer {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+
+                .brides {
+                    border: solid 2px green;
+                    width: 100%;
+                    min-width: 300px;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+
+                    &__image {
+                        height: 200px;
+                        width: 200px;
+                        margin-bottom: 20px;
+                        object-fit: cover;
+                        border: solid 5px #fff;
+                        border-radius: 100%;
+                        box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.04),
+                            3.4px 3.4px 17.9px rgba(0, 0, 0, 0.06),
+                            15px 15px 80px rgba(0, 0, 0, 0.1);
+                    }
+
+                    &__text {
+                        border: solid 1px red;
+                        width: 100%;
+
+                        .firstname {
+                            font-family: "Prata", serif;
+                            font-size: 1.8rem;
+                            line-height: 1.8rem;
+                        }
+                        .lastname {
+                            font-family: "Prata", serif;
+                            font-size: 1.2rem;
+                            margin-bottom: 5px;
+                        }
+                        .text {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+
+                img {
+                    height: 80px;
+                }
+            }
+
+            .witnessesContainer {
+                // border: solid 1px red;
+                width: 100%;
+            }
+        }
     }
 }

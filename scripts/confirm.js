@@ -54,21 +54,17 @@ const attendanceSelection = (e) => {
         );
         attendanceTitle.style = "none";
 
-        // // Désactive l'écouteur d'événement
-        // attendanceRadio.removeEventListener("click", attendanceSelection);
-
         // on lance la function correspondante au choix
         const selectID = e.target.id;
         if (selectID === "attendanceYes") {
             response = true;
-            const attendanceNo = document.getElementById("attendanceNo");
         } else {
             response = false;
-            const attendanceYes = document.getElementById("attendanceYes");
         }
 
         // affiche mainGuestBox
         mainGuestBox.style = "none";
+        mainGuestBox.scrollIntoView({ behavior: 'smooth' });
         addMainGuest();
     }
 };
@@ -173,6 +169,7 @@ const displayFullForm = (reponse) => {
 
         // affiche la section Message
         message.style = "";
+        messageSubtitle.innerHTML = ""
         messageYes.forEach((text) => {
             const newText = document.createElement("p");
             newText.textContent = text;
@@ -181,6 +178,7 @@ const displayFullForm = (reponse) => {
     } else {
         // affiche la section Message
         message.style = "";
+        messageSubtitle.innerHTML = ""
         messageNo.forEach((text) => {
             const newText = document.createElement("p");
             newText.textContent = text;
@@ -235,6 +233,8 @@ const addGuests = (e) => {
         e.preventDefault();
         if (!saveGuestBtn.classList.contains("unable")) {
             submitGuest(selectedAge);
+            // mets à jour le tarif des nuits 
+            addNight()
         } else {
             shakeButton(saveGuestBtn);
             modalDisplayError.textContent = "Information(s) manquante(s)";
@@ -294,6 +294,9 @@ const deleteGuest = (guestID) => {
         // supprime l'invité visuellement
         const elementToDelete = document.getElementById(`guest${guestID}`);
         elementToDelete.remove();
+
+        // mets à jour le tarif des nuits 
+        addNight()
     });
 };
 addGuestBtn.addEventListener("click", addGuests);
@@ -358,42 +361,38 @@ const closeModal = () => {
 
 // ******************************************************************************
 //  ****************************** FONCTION HOSTS ******************************
-
-const hosts = () => {
-    const fridayNight = document.getElementById("fridayNight");
-    const saturdayNight = document.getElementById("saturdayNight");
-    const sundayNight = document.getElementById("sundayNight");
+const addNight = () => {
+    const nights = ['thursdayNight', 'fridayNight', 'saturdayNight', 'sundayNight', 'mondayNight'];
     const numberOfNights = document.getElementById("numberOfNights");
     const hostPrice = document.getElementById("hostPrice");
+    let weekendNight = 0;
+    let extraNight = 0;
+    let night = 0;
 
-    const addNight = () => {
-        let night = 0;
-        if (fridayNight.checked) {
+    nights.forEach(day => {
+        const checkbox = document.getElementById(day);
+        if (checkbox.checked) {
             night++;
+            if (['thursdayNight', 'mondayNight'].includes(day)) {
+                extraNight++;
+            } else {
+                weekendNight = 1;
+            }
         }
-        if (saturdayNight.checked) {
-            night++;
-        }
-        if (sundayNight.checked) {
-            night++;
-        }
+    });
 
-        // affiche le résultat
-        numberOfNights.textContent = night;
-        if (
-            fridayNight.checked ||
-            saturdayNight.checked ||
-            sundayNight.checked
-        ) {
-            hostPrice.textContent = guestlist.length * 100;
-        } else {
-            hostPrice.textContent = 0;
-        }
-    };
+    // Affiche le résultat
+    numberOfNights.textContent = night;
+    hostPrice.textContent = (weekendNight * 100 + extraNight * 35) * guestlist.length || 0;
+};
 
-    fridayNight.addEventListener("change", addNight);
-    saturdayNight.addEventListener("change", addNight);
-    sundayNight.addEventListener("change", addNight);
+const hosts = () => {
+    const nights = ['thursdayNight', 'fridayNight', 'saturdayNight', 'sundayNight', 'mondayNight'];
+
+    nights.forEach(day  => {
+        const checkbox = document.getElementById(day);
+        checkbox.addEventListener("change", addNight);
+    })
 };
 
 const hostOptions = () => {
@@ -412,13 +411,9 @@ const hostOptions = () => {
 
     // gère les inputs checkbox
     const selectOption = () => {
-        towel.checked ? (towelQuantity.value = 1) : (towelQuantity.value = 0);
-        travelCot.checked
-            ? (travelCotQuantity.value = 1)
-            : (travelCotQuantity.value = 0);
-        babyChair.checked
-            ? (babyChairQuantity.value = 1)
-            : (babyChairQuantity.value = 0);
+        towel.checked ? (towelQuantity.value = Math.max(1, towelQuantity.value)) : (towelQuantity.value = 0);
+        travelCot.checked ? (travelCotQuantity.value = Math.max(1, travelCotQuantity.value)) : (travelCotQuantity.value = 0);
+        babyChair.checked ? (babyChairQuantity.value = Math.max(1, babyChairQuantity.value)) : (babyChairQuantity.value = 0);
         updateOptions();
     };
 
@@ -620,11 +615,3 @@ Présence : Non
     sendEmail(mainGuestEmail, subject, body);
 });
 
-// ******************************************************************************
-//  ******************************* EVENTS *******************************
-// verifie le log au chargement de la page
-window.addEventListener("load", () => {
-    let isLogged = false;
-    isLogged = sessionStorage.getItem("isLogged");
-    !isLogged ? (window.location.href = "../index.html") : "";
-});

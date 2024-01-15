@@ -2,9 +2,7 @@
     width: 90%;
     max-width: $tablet;
     height: fit-content;
-    padding: 50px;
-    // padding-block: 3vw;
-        // padding-inline: 5vw;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,25 +12,23 @@
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
 
-    background: rgba(#fff, .8);
+    background: rgba(#fff, 0.8);
     border-radius: 20px;
 
     &::after {
-        content: '';
+        content: "";
         height: calc(100% - 20px);
         width: calc(100% - 20px);
         position: absolute;
         border-radius: 20px;
-
         border: solid 2px $mainColor;
     }
 
-
     &__text {
-        font-family: 'Dancing Script', cursive;
-        font-size: 1.8rem;
+        font-family: "Dancing Script", cursive;
+        font-size: 3.5vh;
         text-align: center;
     }
 }
