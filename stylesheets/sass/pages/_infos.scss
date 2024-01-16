@@ -79,7 +79,7 @@
                             cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
                         .closeCard {
-                            @include closeBtn(grey);
+                            @include closeBtn(grey, $secondColor);
                             position: absolute;
                             top: 20px;
                             right: 20px;
@@ -125,7 +125,7 @@
                     }
 
                     &.open {
-                    // &:hover {
+                        // &:hover {
                         transform: scale(1.03);
                         box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 
@@ -138,6 +138,99 @@
                                 transform: rotateX(0deg);
                             }
                         }
+                    }
+                }
+            }
+
+            .travelContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .travelCard {
+                    @include card(100%);
+                    padding: 10px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+
+                    &__content {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 15px;
+
+                        &__image {
+                            width: 15vw;
+                            max-width: 95px;
+                            min-width: 70px;
+                            height: 75px;
+                            object-fit: contain;
+                        }
+                        &__text {
+                            width: 100%;
+                            h3 {
+                                margin: 0;
+                                text-align: left;
+                            }
+                        }
+                        &__icon {
+                            color: $mainColor;
+                            font-size: 1.3rem;
+                            transform: rotate(-90deg);
+                            transition: transform 250ms ease-in-out;
+                        }
+                    }
+
+                    &__description {
+                        overflow: hidden;
+                        position: relative;
+                        max-height: 0;
+                        text-align: justify;
+                        font-size: .9rem;
+                        opacity: 0;
+                        transition: all 400ms ease-in-out;
+                        p {
+                            margin-bottom: 5px;
+                            a {
+                                color: $secondColor;
+                            }
+                        }
+
+                        &::before {
+                            content:''; 
+                            position: absolute;
+                            top: 0px;
+                            height: 2px;
+                            width: 0%;
+                            background: $secondColor;
+                            opacity: 0;
+                            transition: opacity 200ms ease-in-out;
+
+                        }
+
+                    }
+                }
+
+                .travelCard.open {
+                    gap: 10px;
+                    .travelCard__content__icon {
+                        transform: rotate(0deg);
+                        transition: transform 250ms ease-in-out;
+                    }
+                    .travelCard__description {
+                        max-height: 500px;
+                        padding-block: 20px;
+                        opacity: 1;
+                        transition: all 500ms ease-in-out;
+                        
+                        &::before {
+                            width: 100%;
+                            opacity: 1;
+                            transition: all 500ms ease-in-out;
+                        }
+
+
                     }
                 }
             }

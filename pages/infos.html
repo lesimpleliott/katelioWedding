@@ -43,18 +43,17 @@
         </section>
 
         <section class="mainContent">
-            <h2 class="mainContent__title">Lorem, ipsum dolor.</h2>
+            <!-- <h2 class="mainContent__title">Lorem, ipsum dolor.</h2> -->
             <div class="mainContent__subtitle">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quidem facere iusto sequi maxime distinctio?</p>
             </div>
 
             <section class="infoSection">
-                <h3>Les lieux</h3>
+                <h2>Les lieux</h2>
 
-                <section class="cardContainer">
-                    
-                    <!-- CHATEAU -->
+                <div class="cardContainer">
+                    <!-- Château -->
                     <article class="card" id="castle">
                         <img class="card__image" src="../assets/images/belle-epoque.jpg" alt="Château Belle Époque">
                         <i class="fa-solid fa-info card__icon"></i>
@@ -72,10 +71,10 @@
 
                             <div class="card__content__adress">
                                 <i class="fa-solid fa-location-dot position"></i>
-                                <span class="text">
+                                <div class="text">
                                     <p class="text__adress">152 route Belle Époque -&nbsp;</p>
                                     <p class="text__city">40260 Linxe</p>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -93,18 +92,18 @@
 
                             <div class="card__content__description">
                                 <p>Afin de faciliter les hébergements de tous, les gîtes se situent dans le domaine du Château.</p>
-                                <p>L’hébergement du weekend comprend les nuits de vendredi, samedi et dimanche. Pour ceux qui le souhaitent, vous pourrez rallonger votre séjour en arrivant dès le jeudi et en repartant le mardi.
+                                <p>L’hébergement du weekend comprend les nuits de vendredi, samedi et dimanche et pour ceux qui le souhaitent, vous pourrez rallonger votre séjour en arrivant dès le jeudi et en repartant le mardi.
                                 </p>
-                                <p>Pour les familles venant avec leurs chenapans, il est possible de louer pour le weekend complet des chaises bébés ainsi que des lits parapluie.</p>
-                                <p>Les détails de tous les tarifs vous seront fournis dans le formulaire de RSVP.</p>
+                                <p>Pour les familles venant avec leurs chenapans, il est possible de louer des chaises bébés ainsi que des lits parapluie.</p>
+                                <p>Les détails de tous les tarifs vous seront fournis dans le formulaire de <a href="./confirm.html">RSVP</a>.</p>
                             </div>
 
                             <div class="card__content__adress">
                                 <i class="fa-solid fa-location-dot position"></i>
-                                <span class="text">
+                                <div class="text">
                                     <p class="text__adress">152 route Belle Époque -&nbsp;</p>
                                     <p class="text__city">40260 Linxe</p>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -127,10 +126,10 @@
 
                             <div class="card__content__adress">
                                 <i class="fa-solid fa-location-dot position"></i>
-                                <span class="text">
+                                <div class="text">
                                     <p class="text__adress">2 place de l’Eglise -&nbsp;</p>
                                     <p class="text__city">40260 Linxe</p>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -155,22 +154,107 @@
 
                             <div class="card__content__adress">
                                 <i class="fa-solid fa-location-dot position"></i>
-                                <span class="text">
+                                <div class="text">
                                     <p class="text__adress">Palpic</p>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </article>
-
-
-                </section>
-
-
+                </div>
 
             </section>
 
             <section class="infoSection">
-                <h3>Organiser votre voyage</h3>
+                <h2>Organiser votre voyage</h2>
+
+                <div class="travelContainer">
+
+                    <!-- PAR ROUTE -->
+                    <section class="travelCard"> 
+                        <div class="travelCard__content">
+                            <img class="travelCard__content__image" src="../assets/icons/ICONS_watata.png" alt="icone voiture et moto">
+                            <div class="travelCard__content__text">
+                                <h3>Par la route</h3>
+                                <p>Direction : Linxe</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
+                        </div>
+                        <div class="travelCard__description">
+                            <p>Demandez à votre GPS, il vous mènera à bon port&nbsp;!</p>
+                            <p>Parking sécurisé sur place.</p> 
+                            <p>Pour les globe-trotteurs détenteurs de van ou camping-car&nbsp;: le couchage sur place n’est malheureusement pas autorisé&nbsp;! Il vous sera possible de garer votre véhicule à proximité (toujours en sécurité) mais pas dans le parking.</p>
+                        </div>
+                    </section>
+
+                    <!-- EN TRAIN -->
+                    <section class="travelCard"> 
+                        <div class="travelCard__content">
+                            <img class="travelCard__content__image" src="../assets/icons/ICONS_train.png" alt="icone train">
+                            <div class="travelCard__content__text">
+                                <h3>En train</h3>
+                                <p>Direction : Gare de Dax</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
+                        </div>
+                        <div class="travelCard__description">
+                            <p>Le Château se situe à environ 30 minutes de route de la gare.</p>
+                            <p>Il vous est possible de louer une voiture sur place <p>(Avis, Europcar & Rent a Car).</p> </p>
+                            <p>Besoin d’aide ? Contactez-nous par mail&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
+                        </div>
+                    </section>
+
+                    <!-- EN AVION -->
+                    <section class="travelCard"> 
+                        <div class="travelCard__content">
+                            <img class="travelCard__content__image" src="../assets/icons/ICONS_plane.png" alt="icone avion">
+                            <div class="travelCard__content__text">
+                                <h3>En avion</h3>
+                                <p>Aéroport : Bordeaux-Mérignac ou Biarritz</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
+                        </div>
+                        <div class="travelCard__description">
+                            <p>Le Château se situe à environ 1h30 de route de Mérignac et 1h de Biarritz.</p>
+                            <p>Merci de nous prévenir au plus vite&nbsp;: on essaiera de vous organiser un co-voiturage ou trouver une solution pour vous rapatrier jusqu’au lieu des festivités ! Contactez-nous par mail&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
+                        </div>
+                    </section>
+
+                    <!-- EN PARACHUTE -->
+                    <section class="travelCard"> 
+                        <div class="travelCard__content">
+                            <img class="travelCard__content__image" src="../assets/icons/ICONS_skydive.png" alt="icone parachute">
+                            <div class="travelCard__content__text">
+                                <h3>En parachute !</h3>
+                                <p>Drop zone : Mimizan</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
+                        </div>
+                        <div class="travelCard__description">
+                            <p>Compter 20-30 minutes pour rejoindre Linxe. Les éventuels frais de larguage et location d'avion reste à votre charge !!</p>
+                        </div>
+                    </section>
+
+
+
+
+<!-- 
+                    <section class="travelCard" id="skydive">
+                        <img class="travelCard__image" src="../assets/icons/ICONS_skydive.png" alt="icone parachute">
+                        <div class="travelCard__text">
+                            <h3 class="travelCard__text__title">En chute ?</h3>
+                            <p class="travelCard__text__subtitle">Drop zone : Mimizan</p>
+                            <div class="travelCard__text__description">    
+                                <p>Compter 20-30 minutes pour rejoindre Linxe. Les éventuels frais de larguage et location d'avion reste à votre charge !!</p>
+                            </div>
+                        </div>
+                        <span class="travelCard__chevron" data-id="skydive">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </section> -->
+
+
+                </div>
+
             </section>
 
 
@@ -179,8 +263,8 @@
     </main>
 
     <footer>
-        <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
-        <p class="footerText">Copyright © Katherine & Eliott - Crédits images : <a href="https://www.freepik.com/">Designed by Freepik</a></p>
+        <p class="footerText">Une question ? Contactez-nous&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
+        <p class="footerText">Copyright © Katherine & Eliott - Crédits images&nbsp;: <a href="https://www.freepik.com/">Designed by Freepik</a></p>
     </footer>
 
     <aside class="popup" id="popup">

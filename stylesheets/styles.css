@@ -1533,6 +1533,91 @@ footer .footerText a:hover {
 #infos .mainContent .infoSection .cardContainer .card.open .card__content {
   transform: rotateX(0deg);
 }
+#infos .mainContent .infoSection .travelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard {
+  width: 100%;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__content__image {
+  width: 15vw;
+  max-width: 95px;
+  min-width: 70px;
+  height: 75px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__content__text {
+  width: 100%;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__content__text h3 {
+  margin: 0;
+  text-align: left;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__content__icon {
+  color: #273a7c;
+  font-size: 1.3rem;
+  transform: rotate(-90deg);
+  transition: transform 250ms ease-in-out;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__description {
+  overflow: hidden;
+  position: relative;
+  max-height: 0;
+  text-align: justify;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__description p {
+  margin-bottom: 5px;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__description p a {
+  color: #e32d73;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard__description::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 2px;
+  width: 0%;
+  background: #e32d73;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard.open {
+  gap: 10px;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard.open .travelCard__content__icon {
+  transform: rotate(0deg);
+  transition: transform 250ms ease-in-out;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard.open .travelCard__description {
+  max-height: 500px;
+  padding-block: 20px;
+  opacity: 1;
+  transition: all 500ms ease-in-out;
+}
+#infos .mainContent .infoSection .travelContainer .travelCard.open .travelCard__description::before {
+  width: 100%;
+  opacity: 1;
+  transition: all 500ms ease-in-out;
+}
 
 #program .banner__image {
   -o-object-position: bottom;
@@ -1581,6 +1666,10 @@ footer .footerText a:hover {
 #program .mainContent .daySection__header__title {
   width: 100%;
   padding-top: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #fff;
   -webkit-user-select: none;
      -moz-user-select: none;
