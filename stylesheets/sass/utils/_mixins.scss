@@ -2,6 +2,33 @@
 // @include myMixin;
 
 // ******************************************************
+// OK
+
+// @include iconInfo($color);
+@mixin iconInfo($color: rgba(#fff, 0.8)) {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: solid 3px $color;
+    color: $color;
+    font-size: 1.2rem;
+}
+
+// @include card($width);
+@mixin card($width: 100%) {
+    width: $width;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    box-shadow: $boxShadow;
+    overflow: hidden;
+}
+
+
+// ******************************************************
+// A CLEANER
 
 @mixin whiteBtn($size: 85px, $font-size: 2rem) {
     height: $size;
@@ -41,14 +68,9 @@
     }
 }
 
-@mixin card($width: 100%) {
-    width: $width;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    box-shadow: $boxShadow;
-}
 
-@mixin closeBtn($color, $hoverColor : $secondColor) {
+
+@mixin closeBtn($color, $hoverColor: $secondColor) {
     height: 25px;
     width: 25px;
     display: flex;

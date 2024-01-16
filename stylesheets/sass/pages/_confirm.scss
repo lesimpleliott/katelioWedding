@@ -1,89 +1,79 @@
-// VARIABLES CONFIRM
-$paddingFormCard: 30px;
+#confirm {
+    .banner {
+        &__image {
+            object-position: bottom;
+        }
+    }
 
-// ******************************************************************************
+    .mainSection {
+        &__text {
+            margin-bottom: 20px;
+            padding-inline: 10px;
+            &:not(:first-of-type) {
+                margin-top: 50px;
+                &::before {
+                    content: "";
+                    width: 30%;
+                    height: 1px;
+                    background: $secondColor;
+                    display: block;
+                    position: relative;
+                    top: -25px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
 
-.mainContent {
-    // &__title{}
-    &__subtitle {
-        padding-bottom: 20px;
-        p {
-            &:not(:last-of-type) {
-                margin-bottom: 10px;
+            p {
+                margin-bottom: 6px;
             }
         }
     }
 }
 
-.formSection {
+#confirmForm {
     width: 100%;
-    padding-inline: $safeZone-sidePage;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: solid 1px $mainColor;
-
-    transition: 250ms ease-in-out;
-
-    &:first-of-type {
-        border-top: solid 1px $mainColor;
-    }
-    &:last-of-type {
-        border: none;
-    }
-
-    // &__title {}
-    &__text {
-        margin-bottom: 10px;
-        padding-inline: 10px;
-        // text-align: center;
-        &:not(:first-of-type) {
-            margin-top: 50px;
-        }
-
-        p {
-            margin-bottom: 5px;
-        }
-    }
-    &__content {
-        width: 100%;
-    }
 }
 
-.cardConfirm {
-    @include card(100%);
+#mainGuestBox {
+    padding-block: 20px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .formBtn {
+        margin-top: 25px;
+    }
 
-    &__section {
-        width: 100%;
-
+    .inputContainer {
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 10px;
-
-        padding-inline: $paddingFormCard;
-        padding-block: 10px;
-        border-top: solid 1px $mainColor-light;
-
-        &:first-child {
-            margin-top: 2px;
-            border: none;
-        }
-        &:last-child {
-            margin-bottom: 2px;
-        }
+        gap: 20px;
     }
 }
 
-.cardConfirmText {
-    margin-top: 15px;
-    padding-inline: 20px;
+#mainGuestName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#mainGuestEmail {
+    flex: 1;
+    font-style: italic;
+    font-weight: 100;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.guests {
+    justify-content: space-between;
+    .deleteBtn {
+        padding-left: 8px;
+        color: darken($mainColor-light, 10);
+        transition: 250ms ease-in-out;
+        &:hover,
+        &:active {
+            color: $warningColor;
+        }
+    }
 }
 
 .radio {
@@ -131,29 +121,6 @@ $paddingFormCard: 30px;
     label:last-child span {
         border-radius: 0 8px 8px 0;
         border-left: 2px solid $secondColor;
-    }
-}
-
-.inputContainer {
-    // border: solid 1px red;
-    width: 100%;
-    padding-inline: $paddingFormCard;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-
-    .inputText {
-        all: unset;
-        width: 100%;
-        border-bottom: solid 1px $mainColor;
-        padding: 3px 10px 3px 10px;
-        color: $mainColor;
-
-        &::placeholder {
-            color: lightgrey;
-            font-style: italic;
-        }
     }
 }
 
@@ -252,9 +219,58 @@ $paddingFormCard: 30px;
     }
 }
 
-.asterisk {
-    font-size: 0.85rem;
-    font-style: italic;
+.cardConfirm {
+    @include card(100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+
+        padding-inline: 30px;
+        padding-block: 10px;
+        border-top: solid 1px $mainColor-light;
+
+        &:first-child {
+            margin-top: 2px;
+            border: none;
+        }
+        &:last-child {
+            margin-bottom: 2px;
+        }
+    }
+}
+
+.cardConfirmText {
+    margin-top: -10px;
+    padding-inline: 20px;
+}
+
+.inputContainer {
+    width: 100%;
+    padding-inline: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .inputText {
+        all: unset;
+        width: 100%;
+        border-bottom: solid 1px $mainColor;
+        padding: 3px 10px 3px 10px;
+        color: $mainColor;
+
+        &::placeholder {
+            color: lightgrey;
+            font-style: italic;
+        }
+    }
 }
 
 .displayError {
@@ -264,87 +280,28 @@ $paddingFormCard: 30px;
     color: rgb(200, 0, 0);
 }
 
-#confirmForm {
+.messageForm {
+    @include card();
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border-radius: 10px;
+    // border: solid 1px $mainColor;
+    border: none;
+    font-size: 0.9rem;
+    color: $mainColor;
+
+    &::placeholder {
+        font-style: italic;
+        color: lightgrey;
+    }
+}
+
+.submitFormContainer {
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-
-#attendance {
-    .formSection__content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    #mainGuestBox {
-        padding-block: 20px;
-
-        .formBtn {
-            margin-top: 25px;
-        }
-
-        .inputContainer {
-            display: flex;
-            gap: 20px;
-        }
-    }
-
-    #mainGuestName {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    #mainGuestEmail {
-        flex: 1;
-        font-style: italic;
-        font-weight: 100;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .guests {
-        justify-content: space-between;
-        .deleteBtn {
-            padding-left: 8px;
-            color: darken($mainColor-light, 10);
-            transition: 250ms ease-in-out;
-            &:hover,
-            &:active {
-                color: $warningColor;
-            }
-        }
-    }
-}
-
-#message {
-    .formSection__text {
-        text-align: center;
-    }
-
-    .messageForm {
-        @include card();
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        min-height: 150px;
-        margin-top: 10px;
-        padding: 15px;
-        border-radius: 10px;
-        // border: solid 1px $mainColor;
-        border: none;
-        font-size: 0.9rem;
-        color: $mainColor;
-
-        &::placeholder {
-            font-style: italic;
-            color: lightgrey;
-        }
-    }
-}
-
-

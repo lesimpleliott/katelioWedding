@@ -49,18 +49,19 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quidem facere iusto sequi maxime distinctio?</p>
             </div>
 
-            <section class="infoSection">
+            <!-- LES LIEUX -->
+            <section class="mainSection" id="places">
                 <h2>Les lieux</h2>
-
-                <div class="cardContainer">
+                <div class="mainSection__content">
                     <!-- Château -->
                     <article class="card" id="castle">
                         <img class="card__image" src="../assets/images/belle-epoque.jpg" alt="Château Belle Époque">
                         <i class="fa-solid fa-info card__icon"></i>
-                        
                         <div class="card__content">
+
                             <h3 class="card__content__title">Le château Belle Époque</h3>
-                            <span class="closeCard" data-id="castle">
+
+                            <span class="card__content__closeBtn js-closeCard" data-id="castle">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>
 
@@ -83,10 +84,9 @@
                     <article class="card" id="hosts">
                         <img class="card__image" src="../assets/images/hebergements.jpg" alt="Hébérgement du Château Belle Époque">
                         <i class="fa-solid fa-info card__icon"></i>
-
                         <div class="card__content">
                             <h3 class="card__content__title">Les hébérgements du château</h3>
-                            <span class="closeCard" data-id="hosts">
+                            <span class="card__content__closeBtn js-closeCard" data-id="hosts">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>
 
@@ -112,16 +112,15 @@
                     <article class="card" id="cityHall">
                         <img class="card__image" src="../assets/images/mairie.jpg" alt="La mairie de Linxe">
                         <i class="fa-solid fa-info card__icon"></i>
-                        
                         <div class="card__content">
                             <h3 class="card__content__title">La Mairie</h3>
-                            <span class="closeCard" data-id="cityHall">
+                            <span class="card__content__closeBtn js-closeCard" data-id="cityHall">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>
 
                             <div class="card__content__description">
                                 <p>Le mariage civil sera célébré samedi, dans la jolie petite mairie de Linxe.</p>
-                                <p>Elle se situe à quelques pas du Château (distance talons friendly)&nbsp;!</p> 
+                                <p>Elle se situe à quelques pas du Château <em>(distance talons friendly)</em>&nbsp;!</p> 
                             </div>
 
                             <div class="card__content__adress">
@@ -134,18 +133,15 @@
                         </div>
                     </article>
 
-                    
                     <!-- PALPIC -->
                     <article class="card" id="palpic">
                         <img class="card__image" src="../assets/images/palpic2.jpg" alt="La mairie de Linxe">
                         <i class="fa-solid fa-info card__icon"></i>
-                        
                         <div class="card__content">
-                            <span class="closeCard" data-id="palpic">
+                            <span class="card__content__closeBtn js-closeCard" data-id="palpic">
                                 <i class="fa-solid fa-xmark"></i>
                             </span>
                             <h3 class="card__content__title">Suprise party</h3>
-
                             <div class="card__content__description">
                                 <p>Pour finir en beauté, nous vous réservons une petite surprise pour dimanche soir&nbsp;!</p>
                                 <p>Pensez à prendre vos maillots de bains&nbsp;!!</p>
@@ -161,16 +157,14 @@
                         </div>
                     </article>
                 </div>
-
             </section>
 
-            <section class="infoSection">
+            <!-- VOYAGE -->
+            <section class="mainSection" id="travel">
                 <h2>Organiser votre voyage</h2>
-
-                <div class="travelContainer">
-
+                <div class="mainSection__content">
                     <!-- PAR ROUTE -->
-                    <section class="travelCard"> 
+                    <article class="travelCard"> 
                         <div class="travelCard__content">
                             <img class="travelCard__content__image" src="../assets/icons/ICONS_watata.png" alt="icone voiture et moto">
                             <div class="travelCard__content__text">
@@ -184,10 +178,10 @@
                             <p>Parking sécurisé sur place.</p> 
                             <p>Pour les globe-trotteurs détenteurs de van ou camping-car&nbsp;: le couchage sur place n’est malheureusement pas autorisé&nbsp;! Il vous sera possible de garer votre véhicule à proximité (toujours en sécurité) mais pas dans le parking.</p>
                         </div>
-                    </section>
+                    </article>
 
                     <!-- EN TRAIN -->
-                    <section class="travelCard"> 
+                    <article class="travelCard"> 
                         <div class="travelCard__content">
                             <img class="travelCard__content__image" src="../assets/icons/ICONS_train.png" alt="icone train">
                             <div class="travelCard__content__text">
@@ -198,13 +192,13 @@
                         </div>
                         <div class="travelCard__description">
                             <p>Le Château se situe à environ 30 minutes de route de la gare.</p>
-                            <p>Il vous est possible de louer une voiture sur place <p>(Avis, Europcar & Rent a Car).</p> </p>
+                            <p>Il vous est possible de louer une voiture sur place <em>(Avis, Europcar & Rent a Car).</em> </p>
                             <p>Besoin d’aide ? Contactez-nous par mail&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
                         </div>
-                    </section>
+                    </article>
 
                     <!-- EN AVION -->
-                    <section class="travelCard"> 
+                    <article class="travelCard"> 
                         <div class="travelCard__content">
                             <img class="travelCard__content__image" src="../assets/icons/ICONS_plane.png" alt="icone avion">
                             <div class="travelCard__content__text">
@@ -217,10 +211,10 @@
                             <p>Le Château se situe à environ 1h30 de route de Mérignac et 1h de Biarritz.</p>
                             <p>Merci de nous prévenir au plus vite&nbsp;: on essaiera de vous organiser un co-voiturage ou trouver une solution pour vous rapatrier jusqu’au lieu des festivités ! Contactez-nous par mail&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
                         </div>
-                    </section>
+                    </article>
 
                     <!-- EN PARACHUTE -->
-                    <section class="travelCard"> 
+                    <article class="travelCard"> 
                         <div class="travelCard__content">
                             <img class="travelCard__content__image" src="../assets/icons/ICONS_skydive.png" alt="icone parachute">
                             <div class="travelCard__content__text">
@@ -232,33 +226,9 @@
                         <div class="travelCard__description">
                             <p>Compter 20-30 minutes pour rejoindre Linxe. Les éventuels frais de larguage et location d'avion reste à votre charge !!</p>
                         </div>
-                    </section>
-
-
-
-
-<!-- 
-                    <section class="travelCard" id="skydive">
-                        <img class="travelCard__image" src="../assets/icons/ICONS_skydive.png" alt="icone parachute">
-                        <div class="travelCard__text">
-                            <h3 class="travelCard__text__title">En chute ?</h3>
-                            <p class="travelCard__text__subtitle">Drop zone : Mimizan</p>
-                            <div class="travelCard__text__description">    
-                                <p>Compter 20-30 minutes pour rejoindre Linxe. Les éventuels frais de larguage et location d'avion reste à votre charge !!</p>
-                            </div>
-                        </div>
-                        <span class="travelCard__chevron" data-id="skydive">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </span>
-                    </section> -->
-
-
+                    </article>
                 </div>
-
             </section>
-
-
-
         </section>
     </main>
 

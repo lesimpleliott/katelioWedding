@@ -65,7 +65,7 @@ const popupDisplay = () => {
         });
     }
 };
-// popupDisplay(); ///////////// A REACTIVER LORS DU DEPLOIEMENT
+popupDisplay();
 
 // vérifie le log
 window.addEventListener("load", () => {

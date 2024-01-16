@@ -10,10 +10,6 @@
 // font-family: 'Dancing Script', cursive;
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
-// FONT DIDOT
-// font-family: 'GFS Didot', serif;
-// @import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
-
 // FONT AWESOME
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css");
 
@@ -38,7 +34,7 @@ h1 {
 }
 
 h2 {
-    text-align: center;
+    // text-align: center;
     font-size: 2rem;
     line-height: 2.3rem;
     color: $secondColor;

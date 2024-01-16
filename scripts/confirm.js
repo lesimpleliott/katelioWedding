@@ -50,7 +50,7 @@ const attendanceSelection = (e) => {
         const attendance = document.getElementById("attendance");
         attendance.style = "none";
         const attendanceTitle = document.querySelector(
-            "#attendance .formSection__title"
+            "#attendance .mainSection__title"
         );
         attendanceTitle.style = "none";
 

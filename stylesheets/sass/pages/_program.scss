@@ -4,171 +4,132 @@
             object-position: bottom;
         }
     }
+
+    .mainSection {
+        border: none;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
-#program {
-    .mainContent {
+.daySection {
+    width: 100%;
+    max-height: 50px;
+    position: relative;
+    overflow: hidden;
+    border: solid 2px $secondColor;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+
+    transition: 500ms 50ms ease-in-out;
+
+    &__header {
         width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        background: $secondColor;
+
+        input[type="checkbox"] {
+            display: none;
+
+            &:checked {
+                & ~ .daySection__header__chevron {
+                    transform: rotate(0);
+                }
+            }
+        }
+
+        &__title {
+            width: 100%;
+            padding-top: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            user-select: none;
+        }
+
+        &__chevron {
+            color: #fff;
+            font-size: 1.3rem;
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            transform: rotate(-90deg);
+            transition: 250ms ease-in-out;
+        }
+    }
+
+    &__articleContainer {
+        position: relative;
+        margin-inline: 3vw;
+        margin-block: 20px;
         display: flex;
         flex-direction: column;
         gap: 15px;
-        // padding-top: $safeZone-sidePage;
-        padding-inline: $safeZone-sidePage;
 
-        &__title,
-        &__subtitle {
-            width: 100%;
-            padding: 0;
-            margin: 0;
+        .timeScale {
+            width: 2px;
+            height: 100%;
+            background: $mainColor-light;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        &__subtitle {
-            margin-bottom: 20px;
-        }
-
-        .daySection {
-            width: 100%;
-            max-height: 50px;
-            position: relative;
-            overflow: hidden;
-            border: solid 2px $secondColor;
-            border-radius: 10px;
-            box-shadow: $boxShadow;
-
-            transition: 500ms 50ms ease-in-out;
-
-            &__header {
-                width: 100%;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                cursor: pointer;
-                background: $secondColor;
-
-                input[type="checkbox"] {
-                    display: none;
-
-                    &:checked {
-                        & ~ .daySection__header__chevron {
-                            transform: rotate(0);
-                        }
-                    }
+        .programmArticle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+                .programmArticle__imgWrapper img {
+                    object-position: left;
                 }
-
-                &__title {
-                    width: 100%;
-                    padding-top: 8px;
-                    margin-bottom: 20px;
-                    text-align: center;
-                    font-size: 1.3rem;
-                    font-weight: 700;
-                    color: #fff;
-                    user-select: none;
-                }
-
-                &__chevron {
-                    color: #fff;
-                    font-size: 1.3rem;
-                    position: absolute;
-                    top: 12px;
-                    right: 15px;
-                    transform: rotate(-90deg);
-                    transition: 250ms ease-in-out;
+                .programmArticle__text {
+                    text-align: right;
                 }
             }
 
-            &__articleContainer {
-                position: relative;
-                margin-inline: 3vw;
-                margin-block: 20px;
+            &__imgWrapper {
+                width: 40%;
+                height: 200px;
                 display: flex;
-                flex-direction: column;
-                gap: 15px;
-
-                .timeScale {
-                    width: 2px;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 100%;
                     height: 100%;
-                    background: $mainColor-light;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
+                    object-fit: contain;
+                    object-position: right;
                 }
+            }
 
-                .programmArticle {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 30px;
+            &__heart {
+                font-size: 1.5rem;
+                color: $secondColor;
+                position: relative;
+                z-index: 1;
+            }
 
-                    &__imgWrapper {
-                        width: 40%;
-                        height: 200px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                            object-position: right;
-                        }
-                    }
-
-                    &__heart {
-                        font-size: 1.5rem;
-                        color: $secondColor;
-                        position: relative;
-                        z-index: 1;
-                    }
-
-                    &__text {
-                        width: 40%;
-                        &-title {
-                            font-size: 1.3rem;
-                            font-weight: 500;
-                        }
-                        &-timing {
-                            font-size: 1.1rem;
-                        }
-                    }
-
-                    &:nth-child(even) {
-                        flex-direction: row-reverse;
-
-                        .programmArticle__imgWrapper img {
-                            object-position: left;
-                        }
-
-                        .programmArticle__text {
-                            text-align: right;
-                        }
-                    }
+            &__text {
+                width: 40%;
+                &-title {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                }
+                &-timing {
+                    font-size: 1.1rem;
                 }
             }
         }
     }
 }
-
-// <div class="daySection__articleContainer">
-//     <span class="timeScale"></span>
-
-//     <article class="programmArticle">
-//         <img class="programmArticle__image" src="../assets/icons/ICONS_arrival.png" alt="arrivée dépose des valises">
-//         <i class="fa-solid fa-heart programmArticle__heart"></i>
-//         <div class="programmArticle__text">
-//             <p class="programmArticle__text-title">Arrivée</p>
-//             <p class="programmArticle__text-timing">à partir de 16h00</p>
-//         </div>
-//     </article>
-
-//     <article class="programmArticle">
-//         <img class="programmArticle__image" src="../assets/icons/ICONS_casual-time.png" alt="diner à la bonne franquette">
-//         <div class="programmArticle__text">
-//             <p class="programmArticle__text-title">À la bonne franquette</p>
-//             <p class="programmArticle__text-timing">à partir de 20h30</p>
-//         </div>
-//     </article>
-// </div>
