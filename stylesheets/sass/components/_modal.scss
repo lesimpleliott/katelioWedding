@@ -25,10 +25,11 @@
 
         background: #fff;
         border-radius: 20px;
-        box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111),
-            1.3px 1.3px 10px rgba(0, 0, 0, 0.16),
-            3px 3px 24.1px rgba(0, 0, 0, 0.209),
-            10px 10px 80px rgba(0, 0, 0, 0.32);
+        // box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111),
+        //     1.3px 1.3px 10px rgba(0, 0, 0, 0.16),
+        //     3px 3px 24.1px rgba(0, 0, 0, 0.209),
+        //     10px 10px 80px rgba(0, 0, 0, 0.32);
+        box-shadow: $boxShadow;;
 
         animation: modalScaleIn 300ms ease-in-out; // si modification du temps => modifier le JS
 

@@ -61,9 +61,7 @@
                         object-fit: cover;
                         border: solid 5px #fff;
                         border-radius: 100%;
-                        box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.04),
-                            3.4px 3.4px 17.9px rgba(0, 0, 0, 0.06),
-                            15px 15px 80px rgba(0, 0, 0, 0.1);
+                        box-shadow: $boxShadow;
                     }
 
                     &__text {

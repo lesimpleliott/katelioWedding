@@ -681,7 +681,7 @@ footer .footerText a:hover {
   gap: 30px;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0.5px 0.5px 3.6px rgba(0, 0, 0, 0.111), 1.3px 1.3px 10px rgba(0, 0, 0, 0.16), 3px 3px 24.1px rgba(0, 0, 0, 0.209), 10px 10px 80px rgba(0, 0, 0, 0.32);
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
   animation: modalScaleIn 300ms ease-in-out;
 }
 .modal__wrapper .closeBtn {
@@ -892,7 +892,7 @@ footer .footerText a:hover {
      object-fit: cover;
   border: solid 5px #fff;
   border-radius: 100%;
-  box-shadow: 1px 1px 5.3px rgba(0, 0, 0, 0.04), 3.4px 3.4px 17.9px rgba(0, 0, 0, 0.06), 15px 15px 80px rgba(0, 0, 0, 0.1);
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
 }
 #home .mainContent .homeSection .bridesContainer .brides__text {
   width: 100%;
@@ -1406,67 +1406,132 @@ footer .footerText a:hover {
   -o-object-position: center;
      object-position: center;
 }
-
-.card {
+#infos .mainContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#infos .mainContent .infoSection {
+  width: 100%;
+  padding-inline: 5vw;
+  padding-block: 30px;
+  border-top: solid 2px #273a7c;
+}
+#infos .mainContent .infoSection .cardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#infos .mainContent .infoSection .cardContainer .card {
+  width: 100%;
+  height: 300px;
   position: relative;
-  width: 300px;
-  height: 200px;
+  overflow: hidden;
   background-color: #f2f2f2;
   border-radius: 10px;
+  box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#infos .mainContent .infoSection .cardContainer .card__icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: solid 3px rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  perspective: 1000px;
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5019607843);
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: 200ms ease-in-out;
 }
-
-.card svg {
-  width: 48px;
-  fill: #333;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+#infos .mainContent .infoSection .cardContainer .card__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.card__content {
-  position: absolute;
-  top: 0;
-  left: 0;
+#infos .mainContent .infoSection .cardContainer .card__content {
   width: 100%;
   height: 100%;
   padding: 20px;
-  box-sizing: border-box;
-  background-color: #f2f2f2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
   transform: rotateX(-90deg);
   transform-origin: bottom;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 10px;
+  overflow-y: scroll;
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-.card:hover .card__content {
+#infos .mainContent .infoSection .cardContainer .card__content .closeCard {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px grey;
+  border-radius: 100%;
+  color: grey;
+  transition: 150ms ease-in-out;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#infos .mainContent .infoSection .cardContainer .card__content .closeCard:hover, #infos .mainContent .infoSection .cardContainer .card__content .closeCard:active {
+  border-color: #e32d73;
+  color: #e32d73;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #e32d73;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__description {
+  flex: 1;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__description p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__description img {
+  display: block;
+  margin: 0 auto;
+  margin-top: -10px;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__adress {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__adress .position {
+  color: #e32d73;
+  font-size: 1.3rem;
+}
+#infos .mainContent .infoSection .cardContainer .card__content__adress .text {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #fff;
+}
+#infos .mainContent .infoSection .cardContainer .card.open {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+#infos .mainContent .infoSection .cardContainer .card.open .card__icon {
+  opacity: 0;
+}
+#infos .mainContent .infoSection .cardContainer .card.open .card__content {
   transform: rotateX(0deg);
-}
-
-.card__title {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-  font-weight: 700;
-}
-
-.card:hover svg {
-  scale: 0;
-}
-
-.card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #777;
-  line-height: 1.4;
 }
 
 #program .banner__image {

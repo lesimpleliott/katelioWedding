@@ -7,6 +7,7 @@
     <title>K&E - Informations</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
     <script src="../scripts/init.js" defer></script>
+    <script src="../scripts/infos.js" defer></script>
 </head>
 
 <body>
@@ -48,40 +49,127 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quidem facere iusto sequi maxime distinctio?</p>
             </div>
 
-            <section class="infosSection">
+            <section class="infoSection">
                 <h3>Les lieux</h3>
 
-                <div class="infosSection__card">
-                    <img class="infosSection__card__img" src="" alt="">
-                    <div class="infosSection__card__title">
-                        <span class="text">
-                            <p class="title">Le Château</p>
-                            <p class="subtitle">Château Belle Époque</p>
-                        </span>
-                        <i class="fa-solid fa-info"></i>
-                    </div>
-                    <div class="infosSection__card__info">
-                        <p class="info">C’est là que nous allons passer tout le weekend ensemble !</p>
-                        <article class="adress">
-                            <i class="fa-solid fa-location-dot adress__icon"></i>
-                            <p class="adress__street">152 route Belle Époque</p>
-                            <p class="adress__city">40260 Linxe</p>
-                        </article>
-                    </div>
-                </div>
+                <section class="cardContainer">
+                    
+                    <!-- CHATEAU -->
+                    <article class="card" id="castle">
+                        <img class="card__image" src="../assets/images/belle-epoque.jpg" alt="Château Belle Époque">
+                        <i class="fa-solid fa-info card__icon"></i>
+                        
+                        <div class="card__content">
+                            <h3 class="card__content__title">Le château Belle Époque</h3>
+                            <span class="closeCard" data-id="castle">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
 
-                <div class="card">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
-                    <div class="card__content">
-                      <h3 class="card__title">Card Title</h3>
-                      <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                    </div>
-                  </div>
+                            <div class="card__content__description">
+                                <p>C’est là que nous allons passer tout le weekend ensemble&nbsp;!</p>
+                                <p>Vous trouverez également sur le domaine&nbsp;: terrain de tennis, de pétanques et piscine sécurisée.</p>
+                            </div>
+
+                            <div class="card__content__adress">
+                                <i class="fa-solid fa-location-dot position"></i>
+                                <span class="text">
+                                    <p class="text__adress">152 route Belle Époque -&nbsp;</p>
+                                    <p class="text__city">40260 Linxe</p>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- GITES -->
+                    <article class="card" id="hosts">
+                        <img class="card__image" src="../assets/images/hebergements.jpg" alt="Hébérgement du Château Belle Époque">
+                        <i class="fa-solid fa-info card__icon"></i>
+
+                        <div class="card__content">
+                            <h3 class="card__content__title">Les hébérgements du château</h3>
+                            <span class="closeCard" data-id="hosts">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+
+                            <div class="card__content__description">
+                                <p>Afin de faciliter les hébergements de tous, les gîtes se situent dans le domaine du Château.</p>
+                                <p>L’hébergement du weekend comprend les nuits de vendredi, samedi et dimanche. Pour ceux qui le souhaitent, vous pourrez rallonger votre séjour en arrivant dès le jeudi et en repartant le mardi.
+                                </p>
+                                <p>Pour les familles venant avec leurs chenapans, il est possible de louer pour le weekend complet des chaises bébés ainsi que des lits parapluie.</p>
+                                <p>Les détails de tous les tarifs vous seront fournis dans le formulaire de RSVP.</p>
+                            </div>
+
+                            <div class="card__content__adress">
+                                <i class="fa-solid fa-location-dot position"></i>
+                                <span class="text">
+                                    <p class="text__adress">152 route Belle Époque -&nbsp;</p>
+                                    <p class="text__city">40260 Linxe</p>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+         
+                    <!-- MAIRIE -->
+                    <article class="card" id="cityHall">
+                        <img class="card__image" src="../assets/images/mairie.jpg" alt="La mairie de Linxe">
+                        <i class="fa-solid fa-info card__icon"></i>
+                        
+                        <div class="card__content">
+                            <h3 class="card__content__title">La Mairie</h3>
+                            <span class="closeCard" data-id="cityHall">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+
+                            <div class="card__content__description">
+                                <p>Le mariage civil sera célébré samedi, dans la jolie petite mairie de Linxe.</p>
+                                <p>Elle se situe à quelques pas du Château (distance talons friendly)&nbsp;!</p> 
+                            </div>
+
+                            <div class="card__content__adress">
+                                <i class="fa-solid fa-location-dot position"></i>
+                                <span class="text">
+                                    <p class="text__adress">2 place de l’Eglise -&nbsp;</p>
+                                    <p class="text__city">40260 Linxe</p>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+                    
+                    <!-- PALPIC -->
+                    <article class="card" id="palpic">
+                        <img class="card__image" src="../assets/images/palpic2.jpg" alt="La mairie de Linxe">
+                        <i class="fa-solid fa-info card__icon"></i>
+                        
+                        <div class="card__content">
+                            <span class="closeCard" data-id="palpic">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                            <h3 class="card__content__title">Suprise party</h3>
+
+                            <div class="card__content__description">
+                                <p>Pour finir en beauté, nous vous réservons une petite surprise pour dimanche soir&nbsp;!</p>
+                                <p>Pensez à prendre vos maillots de bains&nbsp;!!</p>
+                                <img src="../assets/icons/ICONS_swimmingPool.png" alt="">
+                            </div>
+
+                            <div class="card__content__adress">
+                                <i class="fa-solid fa-location-dot position"></i>
+                                <span class="text">
+                                    <p class="text__adress">Palpic</p>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+
+
+                </section>
+
 
 
             </section>
 
-            <section class="infosSection">
+            <section class="infoSection">
                 <h3>Organiser votre voyage</h3>
             </section>
 
