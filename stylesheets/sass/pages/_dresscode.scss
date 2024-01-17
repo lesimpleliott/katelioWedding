@@ -26,6 +26,7 @@
     
     &__text {
         width: 100%;
+        padding-inline: $safeZone-sidePage;
         text-align: center;
         font-style: italic;
         color: #fff;

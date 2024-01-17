@@ -243,6 +243,12 @@
         &:last-child {
             margin-bottom: 2px;
         }
+
+        &:not(:first-child) {
+            p {
+                flex: 1;
+            }
+        }
     }
 }
 

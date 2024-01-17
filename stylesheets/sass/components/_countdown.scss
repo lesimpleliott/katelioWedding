@@ -26,6 +26,7 @@
     .unit {
         margin-bottom: 5px;
         @include whiteBtn(20vw, 3.8vh);
+        
         min-height: 70px;
         max-height: 100px;
         min-width: 70px;

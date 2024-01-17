@@ -7,7 +7,8 @@
     <title>Katherine & Eliott</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
     <script src="../scripts/init.js" defer></script>
-    <script src="../scripts/home.js" defer></script>
+    <script type="module" src="../scripts/home.js" defer></script>
+    <script type="module" src="../scripts/dataCarousel.js" defer></script>
 
 </head>
 
@@ -41,8 +42,8 @@
         <div class="bannerFullPage">
             <img class="bannerFullPage__background" src="../assets/images/bluesky.jpg" alt="bluesky">
             
-            <div class="bannerFullPage__content homeBanner">
-                <img class="homeBanner__draw" src="../assets/images/DESSIN_FairePart_RGB_V2.png" alt="dessin faire-part Katherine & Eliott">   
+            <div class="bannerFullPage__content">
+                <img class="bannerFullPage__content__draw" src="../assets/images/DESSIN_FairePart_RGB_V2.png" alt="dessin faire-part Katherine & Eliott">   
                 <div class="countdown">
                     <div class="counter">
                         <p class="unit" id="daysUnit">000</p>
@@ -71,8 +72,8 @@
         </div>
 
         <div class="mainContent" id="mainHome">
-            
-            <section class="homeSection">
+            <!-- LES MARIÉS -->
+            <section class="mainSection">
                 <h2>Les mariés</h2>
                 <div class="bridesContainer">
                     <!-- Katherine -->
@@ -99,8 +100,44 @@
                 </div>
             </section>
 
-            <section class="homeSection">
-                <h3>Les témoins de la mariée</h3>
+            <!-- CAROUSSEL -->
+            <section class="mainSection">
+                <h3>Story & Fun Facts</h3>
+
+                <div class="carousel">
+
+                    <div class="carousel__wrapper">
+                        <i class="chevron fa-solid fa-chevron-left" id="arrowPrevious"></i>
+                        <i class="chevron fa-solid fa-chevron-right" id="arrowNext"></i>
+                        <div class="carousel__wrapper__dots" id="dots">
+                            <!-- Injected JS -->                            
+                        </div>
+                        <img class="carousel__wrapper__image" id="imageCarousel" src="" alt="">
+                    </div>
+
+                    <div class="carousel__text">
+                        <p class="carousel__text__title" id="carouselTitle"></p>
+                        <p class="carousel__text__subtitle" id="carouselText"></p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- LES TEMOINS & MC -->
+            <section class="mainSection">
+                <h3>Les témoins</h3>
+
+                <div class="legendContainer">
+                    <div class="legend">
+                        <span class="legend__color bride"></span>
+                        <p class="legend__text">Témoins de Katherine</p>
+                    </div>
+                    <div class="legend">
+                        <span class="legend__color groom"></span>
+                        <p class="legend__text">Témoins d'Eliott</p>
+                    </div>
+                </div>
+
                 <div class="witnessesContainer">
                     <!-- JULIE -->
                     <div class="witnessCard">
@@ -111,9 +148,11 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Julie</p>
                             <p class="lastname">Le Lausque</p>
-                            <!-- <p class="nickname">Aka : Juju</p> -->
-                            <p class="short"><!--Meilleure amie <br>--> Rencontrée pendant nos études, les plaisirs de la vie nous ont liés&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : Juju</p>
+                                <p>Rencontrée pendant nos études, les plaisirs de la vie nous ont liés&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -121,15 +160,17 @@
                     <div class="witnessCard">
                         <span class="witnessCard__headline bride"></span>
                         <div class="witnessCard__image">
-                            <img class="public" src="../assets/images/witnesses/Flavien.jpg" alt="Photo de Flavien">
-                            <img class="hidden" src="../assets/images/witnesses/flavSkydive.jpg" alt="Photo de Flavien">
+                            <img src="../assets/images/witnesses/Flavien.jpg" alt="Photo de Flavien">
                         </div>
                         <div class="witnessCard__textContent">
                             <p class="firstname">Flavien</p>
                             <p class="lastname">Mazzon</p>
-                            <!-- <p class="nickname">Aka : Flav</p> -->
-                            <p class="short"><!--Meilleur ami <br>--> Rencontré via la geekerie, le parachutisme a fait le reste&nbsp;!
-                            </p>
+
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : Flav</p>
+                                <p>Rencontré via la geekerie, le parachutisme a fait le reste&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -142,15 +183,14 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Alice</p>
                             <p class="lastname">Pallier</p>
-                            <!-- <p class="nickname">Aka : ???</p> -->
-                            <p class="short"><!--Meilleure amie <br>--> Rencontrée grâce à l’Internat, nos frasques nous ont unies&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <!-- <p>aka : xxx</p> -->
+                                <p>Rencontrée grâce à l’Internat, nos frasques nous ont unies&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <h3>Les témoins du marié</h3>
-                <div class="witnessesContainer">
+                
                     <!-- ANTOINE -->
                     <div class="witnessCard">
                         <span class="witnessCard__headline groom"></span>
@@ -160,9 +200,11 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Antoine</p>
                             <p class="lastname">Bon</p>
-                            <!-- <p class="nickname">Aka : Juju</p> -->
-                            <p class="short"><!--Ami d’adolescence <br>--> Rencontré au Lycée, nos 400 coups nous ont rendus légendaire&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : Le Bon</p>
+                                <p>Rencontré au Lycée, nos 400 coups nous ont rendus légendaire&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -175,9 +217,11 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Ludivine</p>
                             <p class="lastname">Moreau</p>
-                            <!-- <p class="nickname">Aka : Flav</p> -->
-                            <p class="short"><!--Meilleure amie <br>--> Rencontrée au parachutisme, Limoges a fait de nous une famille&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : Ludi </p>
+                                <p>Rencontrée au parachutisme, Limoges a fait de nous une famille&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -190,9 +234,11 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Louis-Olivier</p>
                             <p class="lastname">Moreau</p>
-                            <!-- <p class="nickname">Aka : ???</p> -->
-                            <p class="short"><!-- Meilleur ami <br> --> Rencontré grâce à Ludi, la passion du bon vin a fait le reste&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : Rico </p>
+                                <p>Rencontré grâce à Ludi, la passion du bon vin a fait le reste&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,9 +254,11 @@
                         <div class="witnessCard__textContent">
                             <p class="firstname">Sylvain</p>
                             <p class="lastname">Marmion</p>
-                            <!-- <p class="nickname">Aka : Marmiflux</p> -->
-                            <p class="short">Sylvain aka MC Marmiflux. <br> C’est notre chef d’orchestre pour le grand jour&nbsp;! <br> Rencontré au parachutisme, ami toujours de bon conseil et d’un calme sans pareil, sa fonction a été une évidence&nbsp;!
-                            </p>
+                            <div class="short">
+                                <span class="line"></span>
+                                <p>aka : MC Marmiflux </p>
+                                <p>C’est notre chef d’orchestre pour le grand jour&nbsp;! <br> Rencontré au parachutisme, ami toujours de bon conseil et d’un calme sans pareil, sa fonction a été une évidence&nbsp;!</p>
+                            </div>
                         </div>
                     </div>
                 </div>

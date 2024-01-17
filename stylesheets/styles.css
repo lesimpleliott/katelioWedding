@@ -172,6 +172,8 @@ h1 {
 }
 
 h2 {
+  width: 100%;
+  text-align: center;
   font-size: 2rem;
   line-height: 2.3rem;
   color: #e32d73;
@@ -857,13 +859,13 @@ footer .footerText a:hover {
   transition: 300ms ease-in-out;
 }
 
-#home .homeBanner {
+#home .bannerFullPage .bannerFullPage__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#home .homeBanner__draw {
+#home .bannerFullPage .bannerFullPage__content__draw {
   width: 100%;
   max-width: 500px;
   max-height: 70vh;
@@ -873,42 +875,47 @@ footer .footerText a:hover {
   -o-object-position: bottom;
      object-position: bottom;
 }
-#home .homeBanner .countdown {
+#home .bannerFullPage .bannerFullPage__content .countdown {
   flex: 1;
 }
-#home .mainContent {
-  padding-top: 40px;
-  border-radius: 0;
+#home .mainSection:first-of-type {
+  border: none;
 }
-#home .mainContent .homeSection {
-  width: 100%;
-  padding-block: 30px;
-}
-#home .mainContent .homeSection:not(:last-child) {
-  border-bottom: solid 2px #273a7c;
-}
-#home .mainContent .homeSection h3 {
-  margin-bottom: 30px;
-}
-#home .mainContent .homeSection h3:not(:first-child) {
-  margin-top: 50px;
-}
-#home .mainContent .homeSection .bridesContainer {
+
+.bridesContainer {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-#home .mainContent .homeSection .bridesContainer .esperluette {
+@media screen and (min-width: 650px) {
+  .bridesContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+  .bridesContainer .esperluette {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .bridesContainer .brides {
+    width: 80%;
+  }
+}
+.bridesContainer .esperluette {
   height: 80px;
 }
-#home .mainContent .homeSection .bridesContainer .brides {
+.bridesContainer .brides {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-#home .mainContent .homeSection .bridesContainer .brides__image {
+.bridesContainer .brides__image {
   height: 200px;
   width: 200px;
   margin-bottom: 20px;
@@ -918,139 +925,245 @@ footer .footerText a:hover {
   border-radius: 100%;
   box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
 }
-#home .mainContent .homeSection .bridesContainer .brides__text {
+.bridesContainer .brides__text {
   width: 100%;
   padding-inline: 10%;
 }
-#home .mainContent .homeSection .bridesContainer .brides__text .firstname {
+.bridesContainer .brides__text .firstname {
   font-family: "Prata", serif;
   font-size: 1.8rem;
   line-height: 1.8rem;
 }
-#home .mainContent .homeSection .bridesContainer .brides__text .lastname {
-  font-family: "Prata", serif;
+.bridesContainer .brides__text .lastname {
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
-#home .mainContent .homeSection .bridesContainer .brides__text .text {
+.bridesContainer .brides__text .text {
   font-size: 0.9rem;
 }
-@media screen and (min-width: 650px) {
-  #home .mainContent .homeSection .bridesContainer {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0;
-    position: relative;
-  }
-  #home .mainContent .homeSection .bridesContainer .esperluette {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #home .mainContent .homeSection .bridesContainer .brides {
-    width: 80%;
-  }
+
+.mainSection:has(.carousel) {
+  padding-inline: 0;
+  border: none;
 }
-#home .mainContent .homeSection .witnessesContainer {
+
+.carousel {
+  width: 100%;
+}
+.carousel__wrapper {
+  width: 100%;
+  height: 50vw;
+  position: relative;
+}
+.carousel__wrapper .chevron {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border: solid 3px rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  transition: 150ms ease-in-out;
+}
+.carousel__wrapper .chevron:hover {
+  transform: translateY(-50%) scale(1.05);
+  color: #fff;
+  border-color: #fff;
+}
+.carousel__wrapper .fa-chevron-left {
+  left: 15px;
+}
+.carousel__wrapper .fa-chevron-right {
+  right: 15px;
+}
+.carousel__wrapper__dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+}
+.carousel__wrapper__dots .fa-heart {
+  font-size: 0.9rem;
+}
+.carousel__wrapper__dots .fa-heart.fa-regular {
+  color: #fff;
+}
+.carousel__wrapper__dots .fa-heart.fa-solid {
+  color: rgba(227, 45, 115, 0.6);
+  -webkit-text-stroke: 1px #fff;
+}
+.carousel__wrapper__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.7;
+}
+.carousel__wrapper__image.fade {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.carousel__text {
+  padding-inline: 5vw;
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+}
+.carousel__text__title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #e32d73;
+}
+.carousel__text__subtitle {
+  font-size: 0.9rem;
+}
+
+.legendContainer {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.legendContainer .legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.legendContainer .legend__color {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+}
+.legendContainer .legend__color.groom {
+  background: #273a7c;
+}
+.legendContainer .legend__color.bride {
+  background: #e32d73;
+}
+
+.witnessesContainer {
+  margin-bottom: 40px;
   width: 100%;
   padding-inline: 5vw;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
-@media screen and (min-width: 650px) {
-  #home .mainContent .homeSection .witnessesContainer {
-    flex-direction: row;
-    gap: 2vw;
-  }
-}
-#home .mainContent .homeSection .witnessesContainer .witnessCard {
+.witnessesContainer .witnessCard {
   width: 100%;
   border-radius: 15px;
   font-size: 1.1rem;
   box-shadow: 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115), 0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165), 1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215), 4px 4px 20px -7px rgba(0, 0, 0, 0.33);
   overflow: hidden;
+  min-width: 250px;
+  max-width: 400px;
   flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   overflow: hidden;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__headline {
+.witnessesContainer .witnessCard__headline {
   width: 70%;
   height: 10px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.bride {
+.witnessesContainer .witnessCard__headline.bride {
   background: #e32d73;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.groom {
+.witnessesContainer .witnessCard__headline.groom {
   background: #273a7c;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__headline.gold {
+.witnessesContainer .witnessCard__headline.gold {
   background: linear-gradient(75deg, #bf953f, #fcf6ba, #b38728, #f8f1a4, #aa771c);
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__image {
+.witnessesContainer .witnessCard__image {
   width: 150px;
   height: 150px;
   border-radius: 100%;
   overflow: hidden;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__image img, #home .mainContent .homeSection .witnessesContainer .witnessCard__image .public {
+.witnessesContainer .witnessCard__image img {
   width: 150px;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
   transition: transform 500ms ease-in-out;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent {
+.witnessesContainer .witnessCard__textContent {
   width: 100%;
   padding-inline: 15px;
   padding-bottom: 15px;
   text-align: center;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .firstname {
+.witnessesContainer .witnessCard__textContent .firstname {
   font-size: 1.2rem;
   font-weight: 600;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .lastname {
+.witnessesContainer .witnessCard__textContent .lastname {
   font-size: 1rem;
+  margin-bottom: 10px;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .short {
+.witnessesContainer .witnessCard__textContent .short {
   max-height: 0;
-  margin-top: 8px;
-  padding-top: 8px;
+  padding-inline: 10px;
   font-size: 0.9rem;
   font-style: italic;
   position: relative;
   overflow: hidden;
+  border-radius: 10px;
+  background: #e1eefa;
   transition: 500ms ease-in-out;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard__textContent .short::before {
-  content: "";
-  width: 25px;
-  height: 1px;
+.witnessesContainer .witnessCard__textContent .short p {
+  max-height: 0;
+  overflow: hidden;
+  transition: 250ms 250ms ease-in-out;
+}
+.witnessesContainer .witnessCard__textContent .short .line {
+  width: 0;
+  height: 2px;
   background: #273a7c;
   position: absolute;
-  top: 0%;
+  top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: width 250ms ease-in-out;
 }
-#home .mainContent .homeSection .witnessesContainer .witnessCard:hover .short {
+.witnessesContainer .witnessCard__textContent .short.open {
+  max-height: 5000px;
+  padding-block: 10px;
+}
+.witnessesContainer .witnessCard__textContent .short.open p {
   max-height: 500px;
 }
-#home .mainContent .homeSection .witnessesContainer.MC .short {
+.witnessesContainer .witnessCard__textContent .short.open .line {
+  width: 100px;
+}
+.witnessesContainer.MC .short {
   padding-inline: 20px;
 }
 @media screen and (min-width: 400px) {
-  #home .mainContent .homeSection .witnessesContainer.MC .short {
+  .witnessesContainer.MC .short {
     padding-inline: 8vw;
   }
 }
@@ -1275,6 +1388,9 @@ footer .footerText a:hover {
 .cardConfirm__section:last-child {
   margin-bottom: 2px;
 }
+.cardConfirm__section:not(:first-child) p {
+  flex: 1;
+}
 
 .cardConfirmText {
   margin-top: -10px;
@@ -1372,6 +1488,7 @@ footer .footerText a:hover {
 }
 .pinkTouchBanner__text {
   width: 100%;
+  padding-inline: 5vw;
   text-align: center;
   font-style: italic;
   color: #fff;
@@ -1475,7 +1592,7 @@ footer .footerText a:hover {
   border-radius: 100%;
   color: grey;
   transition: 150ms ease-in-out;
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
 }
@@ -1489,6 +1606,12 @@ footer .footerText a:hover {
 #places .card__content__description p {
   font-size: 0.9rem;
   margin-bottom: 6px;
+}
+#places .card__content__description p a {
+  color: #e32d73;
+}
+#places .card__content__description p a:hover {
+  text-decoration: underline;
 }
 #places .card__content__description img {
   display: block;
@@ -1597,7 +1720,7 @@ footer .footerText a:hover {
 }
 #travel .travelCard.open .travelCard__description {
   max-height: 500px;
-  padding-block: 20px;
+  padding-top: 15px;
   opacity: 1;
   transition: all 500ms ease-in-out;
 }

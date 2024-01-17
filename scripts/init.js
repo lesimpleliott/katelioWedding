@@ -35,6 +35,54 @@ const navbar = () => {
 };
 navbar();
 
+//  *****************************************************************************
+//  ************************* @ WORK HEADER **********************************
+
+// // Exécute ce script après le chargement du DOM
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Récupère le chemin de l'URL actuelle
+//     var path = window.location.pathname;
+    
+//     // Récupère tous les liens dans la barre de navigation
+//     var navLinks = document.querySelectorAll(".navbar__links__link");
+    
+//     // Parcours tous les liens
+//     navLinks.forEach(function (link) {
+//         // Récupère le chemin de chaque lien
+//         var linkPath = link.querySelector("a").getAttribute("href");
+        
+//         // Vérifie si le chemin de l'URL correspond au chemin du lien
+//         if (path === linkPath) {
+//             // Ajoute la classe "active" au lien correspondant
+//             link.classList.add("active");
+//         }
+//     });
+// });
+
+
+// // Récupère le chemin complet de l'URL
+// const cheminComplet = window.location.pathname;
+
+// // Sépare le chemin en segments en utilisant '/' comme délimiteur
+// const segments = cheminComplet.split('/');
+// console.log(segments[2]);
+
+// const page = document.querySelector("a").getAttribute("href");
+// console.log(page);
+
+// if (page.includes(segments[2])) {
+//     console.log("La variable 'page' contient le texte de 'segments[2]'.");
+//   } else {
+//     console.log("La variable 'page' ne contient pas le texte de 'segments[2]'.");
+//   }
+
+
+
+
+
+//  *****************************************************************************
+//  *****************************************************************************
+
 // POPUP
 const popupDisplay = () => {
     const popup = document.getElementById("popup");
@@ -65,7 +113,7 @@ const popupDisplay = () => {
         });
     }
 };
-popupDisplay();
+// popupDisplay();
 
 // vérifie le log
 window.addEventListener("load", () => {

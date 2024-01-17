@@ -22,7 +22,7 @@
         }
 
         &__icon {
-            @include iconInfo;
+            @include iconInteractive();
             position: absolute;
             bottom: 15px;
             right: 15px;
@@ -51,7 +51,7 @@
 
             &__closeBtn {
                 @include closeBtn(grey, $secondColor);
-                position: absolute;
+                position: fixed;
                 top: 20px;
                 right: 20px;
             }
@@ -61,6 +61,12 @@
                 p {
                     font-size: 0.9rem;
                     margin-bottom: 6px;
+                    a {
+                        color: $secondColor;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
                 }
                 img {
                     display: block;
@@ -183,7 +189,7 @@
 
         .travelCard__description {
             max-height: 500px;
-            padding-block: 20px;
+            padding-top: 15px;
             opacity: 1;
             transition: all 500ms ease-in-out;
 
