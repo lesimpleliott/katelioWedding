@@ -744,6 +744,7 @@ footer .footerText a:hover {
   position: fixed;
   right: 1rem;
   bottom: 2rem;
+  z-index: 10;
   padding-block: 6vh;
   text-align: center;
   background: #273a7c;
@@ -953,6 +954,7 @@ footer .footerText a:hover {
 .carousel__wrapper {
   width: 100%;
   height: 50vw;
+  max-height: 500px;
   position: relative;
 }
 .carousel__wrapper .chevron {
@@ -1236,25 +1238,40 @@ footer .footerText a:hover {
   color: rgb(200, 0, 0);
 }
 
-.radio {
+.radioContainer {
+  position: relative;
+}
+.radioContainer #resetForm {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 125px);
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #e1eefa;
+  transition: 250ms ease-out;
+}
+.radioContainer #resetForm:hover {
+  color: rgb(200, 0, 0);
+}
+.radioContainer .radio {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.radio input[type=radio] {
+.radioContainer .radio input[type=radio] {
   display: none;
 }
-.radio input[type=radio]:checked + span {
+.radioContainer .radio input[type=radio]:checked + span {
   background-color: #e32d73;
   color: #fff;
   box-shadow: 0 0 0 2px #e32d73;
 }
-.radio input[type=radio]:not(:checked) + span {
+.radioContainer .radio input[type=radio]:not(:checked) + span {
   background-color: #fff;
   color: #e32d73;
   box-shadow: 0 0 0 2px #e32d73;
 }
-.radio label span {
+.radioContainer .radio label span {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -1272,10 +1289,10 @@ footer .footerText a:hover {
   box-shadow: 0 0 0 2px #fff;
   transition: background-color 500ms ease-out;
 }
-.radio label:first-child span {
+.radioContainer .radio label:first-child span {
   border-radius: 8px 0 0 8px;
 }
-.radio label:last-child span {
+.radioContainer .radio label:last-child span {
   border-radius: 0 8px 8px 0;
   border-left: 2px solid #e32d73;
 }

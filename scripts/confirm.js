@@ -34,13 +34,11 @@ const shakeButton = (btn) => {
 const attendanceRadio = document.getElementById("attendanceRadio");
 const mainGuestBtn = document.getElementById("mainGuestBtn");
 const addGuestBtn = document.getElementById("addGuestBtn");
+const resetFormBtn = document.getElementById("resetForm");
 const submitForm = document.getElementById("submitForm");
 const mainGuestBox = document.getElementById("mainGuestBox");
 let response = null;
 let guestlist = [];
-let hostsData = [];
-let optionsData = [];
-let mealsData = [];
 let messageData = null;
 
 // Selection de la réponse : OUI / NON
@@ -64,7 +62,7 @@ const attendanceSelection = (e) => {
 
         // affiche mainGuestBox
         mainGuestBox.style = "none";
-        mainGuestBox.scrollIntoView({ behavior: 'smooth' });
+        mainGuestBox.scrollIntoView({ behavior: "smooth" });
         addMainGuest();
     }
 };
@@ -116,6 +114,8 @@ const addMainGuest = () => {
                 age: "adult",
             };
             guestlist.push(mainGuestData);
+            // affiche le bouton reset
+            resetFormBtn.style = null;
 
             // affiche le mainGuest
             const mainGuestName = document.getElementById("mainGuestName");
@@ -169,7 +169,7 @@ const displayFullForm = (reponse) => {
 
         // affiche la section Message
         message.style = "";
-        messageSubtitle.innerHTML = ""
+        messageSubtitle.innerHTML = "";
         messageYes.forEach((text) => {
             const newText = document.createElement("p");
             newText.textContent = text;
@@ -178,7 +178,7 @@ const displayFullForm = (reponse) => {
     } else {
         // affiche la section Message
         message.style = "";
-        messageSubtitle.innerHTML = ""
+        messageSubtitle.innerHTML = "";
         messageNo.forEach((text) => {
             const newText = document.createElement("p");
             newText.textContent = text;
@@ -233,8 +233,8 @@ const addGuests = (e) => {
         e.preventDefault();
         if (!saveGuestBtn.classList.contains("unable")) {
             submitGuest(selectedAge);
-            // mets à jour le tarif des nuits 
-            addNight()
+            // mets à jour le tarif des nuits
+            addNight();
         } else {
             shakeButton(saveGuestBtn);
             modalDisplayError.textContent = "Information(s) manquante(s)";
@@ -295,8 +295,8 @@ const deleteGuest = (guestID) => {
         const elementToDelete = document.getElementById(`guest${guestID}`);
         elementToDelete.remove();
 
-        // mets à jour le tarif des nuits 
-        addNight()
+        // mets à jour le tarif des nuits
+        addNight();
     });
 };
 addGuestBtn.addEventListener("click", addGuests);
@@ -362,18 +362,24 @@ const closeModal = () => {
 // ******************************************************************************
 //  ****************************** FONCTION HOSTS ******************************
 const addNight = () => {
-    const nights = ['thursdayNight', 'fridayNight', 'saturdayNight', 'sundayNight', 'mondayNight'];
+    const nights = [
+        "thursdayNight",
+        "fridayNight",
+        "saturdayNight",
+        "sundayNight",
+        "mondayNight",
+    ];
     const numberOfNights = document.getElementById("numberOfNights");
     const hostPrice = document.getElementById("hostPrice");
     let weekendNight = 0;
     let extraNight = 0;
     let night = 0;
 
-    nights.forEach(day => {
+    nights.forEach((day) => {
         const checkbox = document.getElementById(day);
         if (checkbox.checked) {
             night++;
-            if (['thursdayNight', 'mondayNight'].includes(day)) {
+            if (["thursdayNight", "mondayNight"].includes(day)) {
                 extraNight++;
             } else {
                 weekendNight = 1;
@@ -383,16 +389,23 @@ const addNight = () => {
 
     // Affiche le résultat
     numberOfNights.textContent = night;
-    hostPrice.textContent = (weekendNight * 100 + extraNight * 35) * guestlist.length || 0;
+    hostPrice.textContent =
+        (weekendNight * 100 + extraNight * 35) * guestlist.length || 0;
 };
 
 const hosts = () => {
-    const nights = ['thursdayNight', 'fridayNight', 'saturdayNight', 'sundayNight', 'mondayNight'];
+    const nights = [
+        "thursdayNight",
+        "fridayNight",
+        "saturdayNight",
+        "sundayNight",
+        "mondayNight",
+    ];
 
-    nights.forEach(day  => {
+    nights.forEach((day) => {
         const checkbox = document.getElementById(day);
         checkbox.addEventListener("change", addNight);
-    })
+    });
 };
 
 const hostOptions = () => {
@@ -411,9 +424,15 @@ const hostOptions = () => {
 
     // gère les inputs checkbox
     const selectOption = () => {
-        towel.checked ? (towelQuantity.value = Math.max(1, towelQuantity.value)) : (towelQuantity.value = 0);
-        travelCot.checked ? (travelCotQuantity.value = Math.max(1, travelCotQuantity.value)) : (travelCotQuantity.value = 0);
-        babyChair.checked ? (babyChairQuantity.value = Math.max(1, babyChairQuantity.value)) : (babyChairQuantity.value = 0);
+        towel.checked
+            ? (towelQuantity.value = Math.max(1, towelQuantity.value))
+            : (towelQuantity.value = 0);
+        travelCot.checked
+            ? (travelCotQuantity.value = Math.max(1, travelCotQuantity.value))
+            : (travelCotQuantity.value = 0);
+        babyChair.checked
+            ? (babyChairQuantity.value = Math.max(1, babyChairQuantity.value))
+            : (babyChairQuantity.value = 0);
         updateOptions();
     };
 
@@ -422,7 +441,13 @@ const hostOptions = () => {
     babyChair.addEventListener("input", selectOption);
 
     // Ajoute les écouteurs d'événements aux boutons +/- uantité
-    const quantityOption = (input, minusBtn, object, plusBtn, updateFunction) => {
+    const quantityOption = (
+        input,
+        minusBtn,
+        object,
+        plusBtn,
+        updateFunction
+    ) => {
         plusBtn.addEventListener("click", (e) => {
             e.preventDefault();
             object.stepUp();
@@ -450,13 +475,33 @@ const hostOptions = () => {
         totalOptions.textContent = fullPrice;
     };
     quantityOption(towel, towelMinus, towelQuantity, towelPlus, updateOptions);
-    quantityOption(travelCot,travelCotMinus,travelCotQuantity,travelCotPlus,updateOptions);
-    quantityOption(babyChair,babyChairMinus,babyChairQuantity,babyChairPlus,updateOptions);
+    quantityOption(
+        travelCot,
+        travelCotMinus,
+        travelCotQuantity,
+        travelCotPlus,
+        updateOptions
+    );
+    quantityOption(
+        babyChair,
+        babyChairMinus,
+        babyChairQuantity,
+        babyChairPlus,
+        updateOptions
+    );
 
     towelQuantity.addEventListener("input", updateOptions);
     travelCotQuantity.addEventListener("input", updateOptions);
     babyChairQuantity.addEventListener("input", updateOptions);
 };
+
+// ******************************************************************************
+//  **************************** RESET FORM ****************************
+const resetForm = () => {
+    // refresh de la page .. A voir si mieux à faire
+    window.location.href = "./confirm.html";
+};
+resetFormBtn.addEventListener("click", resetForm);
 
 // ******************************************************************************
 //  **************************** RECAP AND SUBMIT ****************************
@@ -518,6 +563,7 @@ const sendEmail = (email, subject, body) => {
     }).then((message) => {
         if (message === "OK") {
             alert(emailSentMessage);
+            resetForm();
         }
     });
 };
@@ -605,13 +651,54 @@ Présence : Non
 `;
     }
 
-    // // pour betaTest -- A Supprimer 
+    // // pour betaTest -- A Supprimer
     // console.log(mainGuestEmail);
     // console.log(subject);
     // console.log(body);
     // alert(emailSentMessage);
 
-    // envoi de l'email -- A activer pour deploiement 
+    // envoi de l'email -- A activer pour deploiement
     sendEmail(mainGuestEmail, subject, body);
 });
 
+// // ************************ RESET @ WORK ****************************
+// //  **************************** RESET @ WORK ****************************
+
+// const resetForm = () => {
+//     console.log("coucou");
+
+//     response = null;
+//     guestlist = [];
+//     messageData = null;
+
+//     attendance.style = "background: #e32d73; border: none;";
+//     const boutonsRadio = document.getElementsByName("attendance");
+//     boutonsRadio.forEach((bouton) => (bouton.checked = false));
+//     resetFormBtn.style = "display: none";
+//     document.querySelector("#attendance .mainSection__title").style =
+//         "color: #fff";
+//     guestsListBox.style = "display: none";
+//     mainGuestName.textContent = "";
+//     mainGuestEmail.textContent = "";
+//     addGuestBtn.style = "display: none";
+
+//     // const fridayNight = document.getElementById("fridayNight").checked;
+//     // const saturdayNight = document.getElementById("saturdayNight").checked;
+//     // const sundayNight = document.getElementById("sundayNight").checked;
+
+//     // const towel = document.getElementById("towel").checked;
+//     // const towelValue = document.getElementById("towelQuantity").value;
+//     // const travelCot = document.getElementById("travelCot").checked;
+//     // const travelCotValue = document.getElementById("travelCotQuantity").value;
+//     // const babyChair = document.getElementById("babyChair").checked;
+//     // const babyChairValue = document.getElementById("babyChairQuantity").value;
+//     // const fridayDinner = document.getElementById("fridayDinner").checked;
+//     // const saturdayDinner = document.getElementById("saturdayDinner").checked;
+//     // const sundayBrunch = document.getElementById("sundayBrunch").checked;
+//     // const sundayDinner = document.getElementById("sundayDinner").checked;
+
+//     const messageForm = document.getElementById("messageForm");
+//     messageForm.value = "";
+// };
+
+// resetFormBtn.addEventListener("click", resetForm);

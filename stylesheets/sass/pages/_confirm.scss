@@ -76,51 +76,70 @@
     }
 }
 
-.radio {
-    $radio-thickness: 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.radioContainer {
+    position: relative;
 
-    input[type="radio"] {
-        display: none;
+    #resetForm {
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 125px);
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        color: $mainColor-light;
+        transition: 250ms ease-out;
 
-        &:checked + span {
-            background-color: $secondColor;
-            color: #fff;
-            box-shadow: 0 0 0 $radio-thickness $secondColor;
-        }
-        &:not(:checked) + span {
-            background-color: #fff;
-            color: $secondColor;
-            box-shadow: 0 0 0 $radio-thickness $secondColor;
+        &:hover {
+            color: $warningColor;
         }
     }
 
-    label span {
-        user-select: none;
-        display: block;
-        height: 50px;
-        width: 100px;
+    .radio {
+        $radio-thickness: 2px;
         display: flex;
-        align-items: center;
+        flex-direction: row;
         justify-content: center;
-        background-color: #fff;
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: $secondColor;
-        text-align: center;
-        box-shadow: 0 0 0 $radio-thickness #fff;
-        transition: background-color 500ms ease-out;
-    }
 
-    label:first-child span {
-        border-radius: 8px 0 0 8px;
-    }
 
-    label:last-child span {
-        border-radius: 0 8px 8px 0;
-        border-left: 2px solid $secondColor;
+        input[type="radio"] {
+            display: none;
+
+            &:checked + span {
+                background-color: $secondColor;
+                color: #fff;
+                box-shadow: 0 0 0 $radio-thickness $secondColor;
+            }
+            &:not(:checked) + span {
+                background-color: #fff;
+                color: $secondColor;
+                box-shadow: 0 0 0 $radio-thickness $secondColor;
+            }
+        }
+
+        label span {
+            user-select: none;
+            display: block;
+            height: 50px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: $secondColor;
+            text-align: center;
+            box-shadow: 0 0 0 $radio-thickness #fff;
+            transition: background-color 500ms ease-out;
+        }
+
+        label:first-child span {
+            border-radius: 8px 0 0 8px;
+        }
+
+        label:last-child span {
+            border-radius: 0 8px 8px 0;
+            border-left: 2px solid $secondColor;
+        }
     }
 }
 
