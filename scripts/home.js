@@ -14,6 +14,7 @@ const jumpButton = (time) => {
         }, time);
     });
 };
+jumpButton(5000);
 
 const countdown = (date) => {
     const targetDate = new Date(date).getTime();
@@ -22,31 +23,40 @@ const countdown = (date) => {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
 
-        //Jour
-        const daysUnit = document.querySelector("#daysUnit");
-        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        days = days < 10 ? `0${days}` : days;
-        daysUnit.textContent = days;
+        if (timeLeft > 0) {
+            //Jour
+            const daysUnit = document.querySelector("#daysUnit");
+            let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            days = days < 10 ? `0${days}` : days;
+            daysUnit.textContent = days;
 
-        // heure
-        const hoursUnit = document.querySelector("#hoursUnit");
-        let hours = Math.floor(
-            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        hours = hours < 10 ? `0${hours}` : hours;
-        hoursUnit.textContent = hours;
+            // heure
+            const hoursUnit = document.querySelector("#hoursUnit");
+            let hours = Math.floor(
+                (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            hours = hours < 10 ? `0${hours}` : hours;
+            hoursUnit.textContent = hours;
 
-        // minutes
-        const minutesUnit = document.querySelector("#minutesUnit");
-        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        minutes = minutes < 10 ? `0${minutes}` : minutes;
-        minutesUnit.textContent = minutes;
+            // minutes
+            const minutesUnit = document.querySelector("#minutesUnit");
+            let minutes = Math.floor(
+                (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+            );
+            minutes = minutes < 10 ? `0${minutes}` : minutes;
+            minutesUnit.textContent = minutes;
 
-        // seconds
-        const secondsUnit = document.querySelector("#secondsUnit");
-        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-        seconds = seconds < 10 ? `0${seconds}` : seconds;
-        secondsUnit.textContent = seconds;
+            // seconds
+            const secondsUnit = document.querySelector("#secondsUnit");
+            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            seconds = seconds < 10 ? `0${seconds}` : seconds;
+            secondsUnit.textContent = seconds;
+        } else {
+            daysUnit.textContent = "00";
+            hoursUnit.textContent = "00";
+            minutesUnit.textContent = "00";
+            secondsUnit.textContent = "00";
+        }
 
         // Appeler la fonction de mise à jour chaque seconde
         requestAnimationFrame(updateCountdown);
@@ -55,6 +65,7 @@ const countdown = (date) => {
     // Appeler la fonction de mise à jour une première fois pour éviter le délai initial
     updateCountdown();
 };
+countdown("May 18, 2024 14:30:00");
 
 import { carouselData } from "./dataCarousel.js";
 const carousel = () => {
@@ -94,10 +105,14 @@ const carousel = () => {
                 dot.classList.toggle("fa-solid", i === index);
                 dot.classList.toggle("fa-regular", i !== index);
             });
-
             imageCarousel.classList.add("fade");
         }, 50);
     };
+
+    setInterval(() => {
+        index === indexMax - 1 ? (index = 0) : index++;
+        showPhoto();
+    }, 3000);
 
     arrowNext.addEventListener("click", () => {
         index === indexMax - 1 ? (index = 0) : index++;
@@ -122,15 +137,11 @@ const carousel = () => {
     // Affiche la première photo avec la transition
     showPhoto();
 };
+carousel();
 
 const witnessCards = document.querySelectorAll(".witnessCard");
-
 witnessCards.forEach((card) => {
     card.addEventListener("click", () => {
         card.querySelector(".short").classList.toggle("open");
     });
 });
-
-countdown("May 18, 2024 14:30:00");
-jumpButton(5000);
-carousel();

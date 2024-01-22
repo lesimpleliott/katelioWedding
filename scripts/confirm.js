@@ -10,17 +10,17 @@
 //  ******************************* TEXTES *******************************
 const messageYes = [
     "Des questions ? Un petit mot ?",
-    "Profitez en pour nous indiquer d’éventuelles allergies alimentaires ou besoins.",
+    "Profitez en pour nous indiquer des éventuelles allergies alimentaires ou besoins.",
 ];
 const messageNo = [
-    "Nous sommes désolés de ne pas pouvoir vous compter avec nous pour ce moment.",
+    "Nous sommes désolés de ne pouvoir vous compter avec nous pour ce moment.",
     "Nous penserons bien à vous et espérons vous voir bientôt !",
     "Si vous souhaitez nous laisser un petit mot, nous le lirons avec joie.",
     "On vous embrasse fort !",
     "Katherine & Eliott",
 ];
 const emailSentMessage =
-    "Votre réponse à bien était envoyée et un email de confirmation vous a été envoyé. Pensez à vérifier vos spams !";
+    "Votre réponse a bien été envoyée. Nous reviendrons vers vous le plus rapidement possible avec la suite de informations.";
 
 // ******************************************************************************
 //  **************************** FONCTION USEFULL ****************************
@@ -497,11 +497,9 @@ const hostOptions = () => {
 
 // ******************************************************************************
 //  **************************** RESET FORM ****************************
-const resetForm = () => {
-    // refresh de la page .. A voir si mieux à faire
+resetFormBtn.addEventListener("click", () => {
     window.location.href = "./confirm.html";
-};
-resetFormBtn.addEventListener("click", resetForm);
+});
 
 // ******************************************************************************
 //  **************************** RECAP AND SUBMIT ****************************
@@ -555,15 +553,15 @@ const Email = {
 const sendEmail = (email, subject, body) => {
     Email.send({
         SecureToken: "e13bdadc-8899-4507-ade2-cabd9d7d46f4",
-        To: email,
-        Bcc: "rsvp@katelio.fr",
+        To: "rsvp@katelio.fr",
         From: "RSVP - Katherine & Eliott <rsvp@katelio.fr>",
         Subject: subject,
         Body: body,
     }).then((message) => {
         if (message === "OK") {
             alert(emailSentMessage);
-            resetForm();
+            // redirection vers PROGRAMME 
+            window.location.href = "./program.html";
         }
     });
 };
@@ -582,23 +580,25 @@ submitForm.addEventListener("click", (e) => {
         if (guest !== null) {
             guests +=
                 i === 0
-                    ? `Invité ${i + 1} - ${guest.firstname} / ${
+                    ? `Invité ${i + 1}:${guest.firstname} / ${
                           guest.lastname
                       } / ${guest.age}`
-                    : `<br>Invité ${i + 1} - ${guest.firstname} / ${
+                    : `<br>Invité ${i + 1}:${guest.firstname} / ${
                           guest.lastname
                       } / ${guest.age}`;
         }
     });
+    const thursdayNight = document.getElementById("thursdayNight").checked;
     const fridayNight = document.getElementById("fridayNight").checked;
     const saturdayNight = document.getElementById("saturdayNight").checked;
     const sundayNight = document.getElementById("sundayNight").checked;
+    const mondayNight = document.getElementById("mondayNight").checked;
 
-    const towel = document.getElementById("towel").checked;
+    // const towel = document.getElementById("towel").checked;
     const towelValue = document.getElementById("towelQuantity").value;
-    const travelCot = document.getElementById("travelCot").checked;
+    // const travelCot = document.getElementById("travelCot").checked;
     const travelCotValue = document.getElementById("travelCotQuantity").value;
-    const babyChair = document.getElementById("babyChair").checked;
+    // const babyChair = document.getElementById("babyChair").checked;
     const babyChairValue = document.getElementById("babyChairQuantity").value;
     const fridayDinner = document.getElementById("fridayDinner").checked;
     const saturdayDinner = document.getElementById("saturdayDinner").checked;
@@ -614,39 +614,41 @@ submitForm.addEventListener("click", (e) => {
     // construction du body
     if (response) {
         body = `
-Présence : Oui
+Présence:Oui
 <br>---------------------------
-<br>Prénom : ${mainGuestFirstname}
-<br>Nom : ${mainGuestLastname}
-<br>email : ${mainGuestEmail}
+<br>Prénom:${mainGuestFirstname}
+<br>Nom:${mainGuestLastname}
+<br>email:${mainGuestEmail}
 <br>---------------------------
 <br>${guests}
 <br>---------------------------
-<br>Nuit de vendredi 17 : ${fridayNight}
-<br>Nuit de samedi 18 : ${saturdayNight}
-<br>Nuit de dimanche 19 : ${sundayNight}
+<br>Nuit de jeudi 16:${thursdayNight}
+<br>Nuit de vendredi 17:${fridayNight}
+<br>Nuit de samedi 18:${saturdayNight}
+<br>Nuit de dimanche 19:${sundayNight}
+<br>Nuit de lundi 20:${mondayNight}
 <br>-- 
-<br>Serviette : ${towel} - ${towelValue}
-<br>Lit parapluie : ${travelCot} - ${travelCotValue}
-<br>Chaise bébé : ${babyChair} - ${babyChairValue}
+<br>Serviette:${towelValue}
+<br>Lit parapluie:${travelCotValue}
+<br>Chaise bébé:${babyChairValue}
 <br>---------------------------
-<br>Repas vendredi - diner : ${fridayDinner}
-<br>Repas samedi - cocktail + diner : ${saturdayDinner}
-<br>Repas dimanche - brunch : ${sundayBrunch}
-<br>Repas dimanche - surprise party : ${sundayDinner}
+<br>Repas vendredi - diner:${fridayDinner}
+<br>Repas samedi - cocktail + diner:${saturdayDinner}
+<br>Repas dimanche - brunch:${sundayBrunch}
+<br>Repas dimanche - surprise party:${sundayDinner}
 <br>---------------------------
-<br>Message : 
+<br>Message: 
 <br>${messageForm}
 `;
     } else {
         body = `
-Présence : Non
+Présence:Non
 <br>---------------------------
-<br>Prénom : ${mainGuestFirstname}
-<br>Nom : ${mainGuestLastname}
-<br>email : ${mainGuestEmail}
+<br>Prénom:${mainGuestFirstname}
+<br>Nom:${mainGuestLastname}
+<br>email:${mainGuestEmail}
 <br>---------------------------
-<br>Message : 
+<br>Message: 
 <br>${messageForm}
 `;
     }
@@ -661,44 +663,3 @@ Présence : Non
     sendEmail(mainGuestEmail, subject, body);
 });
 
-// // ************************ RESET @ WORK ****************************
-// //  **************************** RESET @ WORK ****************************
-
-// const resetForm = () => {
-//     console.log("coucou");
-
-//     response = null;
-//     guestlist = [];
-//     messageData = null;
-
-//     attendance.style = "background: #e32d73; border: none;";
-//     const boutonsRadio = document.getElementsByName("attendance");
-//     boutonsRadio.forEach((bouton) => (bouton.checked = false));
-//     resetFormBtn.style = "display: none";
-//     document.querySelector("#attendance .mainSection__title").style =
-//         "color: #fff";
-//     guestsListBox.style = "display: none";
-//     mainGuestName.textContent = "";
-//     mainGuestEmail.textContent = "";
-//     addGuestBtn.style = "display: none";
-
-//     // const fridayNight = document.getElementById("fridayNight").checked;
-//     // const saturdayNight = document.getElementById("saturdayNight").checked;
-//     // const sundayNight = document.getElementById("sundayNight").checked;
-
-//     // const towel = document.getElementById("towel").checked;
-//     // const towelValue = document.getElementById("towelQuantity").value;
-//     // const travelCot = document.getElementById("travelCot").checked;
-//     // const travelCotValue = document.getElementById("travelCotQuantity").value;
-//     // const babyChair = document.getElementById("babyChair").checked;
-//     // const babyChairValue = document.getElementById("babyChairQuantity").value;
-//     // const fridayDinner = document.getElementById("fridayDinner").checked;
-//     // const saturdayDinner = document.getElementById("saturdayDinner").checked;
-//     // const sundayBrunch = document.getElementById("sundayBrunch").checked;
-//     // const sundayDinner = document.getElementById("sundayDinner").checked;
-
-//     const messageForm = document.getElementById("messageForm");
-//     messageForm.value = "";
-// };
-
-// resetFormBtn.addEventListener("click", resetForm);

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
     <title>K&E - RSVP</title>
-    <link rel="stylesheet" href="../stylesheets/styles.css?v=1.0.1">
-    <script src="../scripts/index.js?v=1.0.1" defer></script>
+    <link rel="stylesheet" href="../stylesheets/styles.css?v=1.0.3">
+    <script src="../scripts/index.js?v=1.0.3" defer></script>
 </head>
 
 <body>
@@ -22,9 +22,10 @@
 
         <section class="mainContent">
             <h2 class="mainContent__title">Confirmer votre présence</h2>
+            <h3>Date limite : 1<sup>er</sup> avril 2024</h3>
             <div class="mainContent__subtitle">
-                <p>Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable !!</p>
-                <p>Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants n'étant pas (encore) considérés comme des animaux, nous les accueillerons avec joie !!!</p>
+                <p>Merci à tous de compléter ce formulaire, il nous permettra d'organiser au mieux votre venue et nous assurer à tous un moment inoubliable&nbsp;!!</p>
+                <p>Nous sommes au regret de vous annoncer que les animaux ne seront pas acceptés au château. Cependant, vos enfants, n'étant pas (encore) considérés comme des animaux, seront acceuillis avec joie&nbsp;!!!</p>
             </div>
 
             <form id="confirmForm">
@@ -81,74 +82,86 @@
                     <!-- night text -->
                     <div class="mainSection__text">
                         <p>Pour le confort de tous, nous avons tout prévu et les gîtes se situent sur le domaine.</p>
-                        <p>Ils comprennent tous une cuisine équipée, un salon, une ou plusieurs salle de bains et plusieurs chambres.</p>
-                        <p>Il est possible que vous partagiez votre logement avec d’autres personnes. Nous nous efforcerons de faire un plan de logement cohérent !</p>
+                        <p>Ils comprennent tous une cuisine équipée, un salon, une ou plusieurs salles de bains et chambres.</p>
+                        <p>Il est possible que vous partagiez votre logement avec d’autres personnes. Nous nous efforcerons de faire un plan de logement cohérent&nbsp;!</p>
                         <p>Une <strong>participation de 100€ par personne vous est demandée</strong> pour l’ensemble du weekend*.</p>
-                        <p>Il vous est possible de prolonger votre séjour en ajoutant la ou les nuits de <strong>jeudi 16 mai</strong> et <strong>mardi 21 mai</strong> pour 35€ par personne par nuit supplémentaire.</p>
+                        <p>Il vous est possible de prolonger votre séjour en ajoutant la ou les nuits de <strong>jeudi 16 mai</strong> et <strong>lundi 20 mai</strong> pour 35€ par personne par nuit supplémentaire.</p>
+                        <p>Dès récéption de votre réponse, nous vous enverrons une confirmation ainsi que le RIB avec le montant de votre séjour.</p>
+                        <p>Séléctionnez les nuits où vous domirez au Château&nbsp;:</p>
                     </div> 
                     <!-- night checkbox -->
                     <div class="mainSection__content">
                         <div class="cardConfirm" id="hostBox">
                             <!-- JEUDI -->
                             <div class="cardConfirm__section checkbox">
-                                 <div class="checkboxContainer">
+                                <div class="checkboxContainer">
                                     <input type="checkbox" id="thursdayNight">
                                     <label class="checkHeart" for="thursdayNight">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Jeudi soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Jeudi soir</p>
                             </div>
                             <!-- VENDREDI -->
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="fridayNight">
                                     <label class="checkHeart" for="fridayNight">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Vendredi soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Vendredi soir</p>
                             </div>
                             <!-- SAMEDI -->
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="saturdayNight">
                                     <label class="checkHeart" for="saturdayNight">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Samedi soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Samedi soir</p>
                             </div>
                             <!-- DIMANCHE -->
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="sundayNight">
                                     <label class="checkHeart" for="sundayNight">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Dimanche soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Dimanche soir</p>
                             </div>
                             <!-- LUNDI -->
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="mondayNight">
                                     <label class="checkHeart" for="mondayNight">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Lundi soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Lundi soir</p>
                             </div>
                         </div>
 
                         <div class="cardConfirmText">
                             <p class="total">Soit <strong id="numberOfNights">0</strong> nuits par personne - Total : <span id="hostPrice">0</span>€</p>
-                            <p><em>*Les nuits de vendredi, samedi et dimanche sont comprises dans le forfait. Nous vous enverrons notre RIB à récéption de votre réponse.</em></p>
+                            <p><em>*Les nuits de vendredi, samedi et dimanche sont comprises dans le forfait.</em></p>
                         </div>
                     </div>
 
@@ -164,11 +177,13 @@
                                 <div class="checkboxContainer">
                                     <input type="checkbox" id="towel">
                                     <label class="checkHeart" for="towel">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Linge de bain <em>(5€ par personne)</em></p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Linge de bain <em>(5€ par personne)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="towelMinus">-</button>
                                     <input type="number" id="towelQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
@@ -179,11 +194,13 @@
                                 <div class="checkboxContainer">
                                     <input type="checkbox" id="travelCot">
                                     <label class="checkHeart" for="travelCot">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Lit parapluie <em>(15€ par lit)</em></p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Lit parapluie <em>(15€ par lit)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="travelCotMinus">-</button>
                                     <input type="number" id="travelCotQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
@@ -194,11 +211,13 @@
                                 <div class="checkboxContainer">
                                     <input type="checkbox" id="babyChair">
                                     <label class="checkHeart" for="babyChair">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Chaise bébé <em>(15€ par chaise)</em></p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Chaise bébé <em>(15€ par chaise)</em></p>
                                 <div class="quantity">
                                     <button class="quantity__button" id="babyChairMinus">-</button>
                                     <input type="number" id="babyChairQuantity" class="quantity__value" min="0" max="100" step="1" value="0">
@@ -217,10 +236,11 @@
                 <section class="mainSection" id="meal" style="display: none;">
                     <h3 class="mainSection__title">Repas</h3>
                     <div class="mainSection__text">
-                        <p>Comme promis, on s’occupe de tout !</p>
+                        <p>Comme promis, on s’occupe de tout&nbsp;!</p>
                         <p> Pour ceux qui arrivent vendredi, nous prévoyons un moment convivial sans chichi au Château.</p>
-                        <p>Pour samedi, nous nous occupons de tout à partir du vin d’honneur jusqu’au bout de la nuit !</p>
+                        <p>Pour samedi, nous nous occupons de tout à partir du vin d’honneur jusqu’au bout de la nuit&nbsp;!</p>
                         <p>Dimanche, nous vous attendrons pour un moment de détente autour d’un brunch avant de vous retrouver pour clôturer les festivités en fin de journée.</p>    
+                        <p>Séléctionnez les repas auxquels vous serez présents&nbsp;:</p>
                     </div>
                     <div class="mainSection__content">
                         <div class="cardConfirm" id="mealBox">
@@ -228,43 +248,51 @@
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="fridayDinner">
                                     <label class="checkHeart" for="fridayDinner">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Vendredi soir</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Vendredi soir</p>
                             </div>
                             <div class="cardConfirm__section checkbox">
                                 <div class="checkboxContainer">
                                     <input type="checkbox" id="saturdayDinner" checked>
                                     <label class="checkHeart" for="saturdayDinner">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Samedi - Cocktail + Diner</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Samedi - Cocktail + Diner</p>
                             </div>
 
                             <div class="cardConfirm__section checkbox">
                                  <div class="checkboxContainer">
                                     <input type="checkbox" id="sundayBrunch">
                                     <label class="checkHeart" for="sundayBrunch">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Dimanche - Brunch</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Dimanche - Brunch</p>
                             </div>
 
                             <div class="cardConfirm__section checkbox">
                                 <div class="checkboxContainer">
                                     <input type="checkbox" id="sundayDinner">
                                     <label class="checkHeart" for="sundayDinner">
-                                        <i class="fa-regular fa-heart heart-empty"></i>
-                                        <i class="fa-solid fa-heart heart-full"></i>
+                                        <span class="heartBtn">
+                                            <i class="fa-regular fa-heart heart-empty"></i>
+                                            <i class="fa-solid fa-heart heart-full"></i>
+                                        </span>
+                                        <p class="checkboxText">Dimanche - Surprise Party</p>
                                     </label>
                                 </div>
-                                <p class="checkboxText">Dimanche - Surprise Party</p>
                             </div>
                         </div>
                     </div>
@@ -302,15 +330,18 @@
             <span class="closeBtn" id="closeModalBtn">
                 <i class="fa-solid fa-xmark"></i>
             </span>
-            <div class="radio radioAge">
-                <label>
-                    <input type="radio" name="age" id="adult" value="adult">
-                    <span>Adulte</span>
-                </label>
-                <label>
-                    <input type="radio" name="age" id="child" value="child">
-                    <span>Enfant</span>
-                </label>
+
+            <div class="radioContainer">
+                <div class="radio radioAge">
+                    <label>
+                        <input type="radio" name="age" id="adult" value="adult">
+                        <span>Adulte</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="age" id="child" value="child">
+                        <span>Enfant</span>
+                    </label>
+                </div>
             </div>
 
             <div class="inputContainer">

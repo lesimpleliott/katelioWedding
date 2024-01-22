@@ -841,11 +841,20 @@ footer .footerText a:hover {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
-.loginForm__submit {
-  color: #e32d73;
-  font-size: 1.2rem;
+.loginForm .visibility,
+.loginForm .submit {
   position: absolute;
-  right: 15px;
+}
+.loginForm .visibility {
+  color: #e1eefa;
+  left: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.loginForm .submit {
+  color: #e32d73;
+  right: 10px;
 }
 
 .logError {
@@ -1039,6 +1048,8 @@ footer .footerText a:hover {
   gap: 25px;
 }
 .legendContainer .legend {
+  flex: 1 0 40%;
+  text-wrap: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1162,19 +1173,18 @@ footer .footerText a:hover {
   width: 100px;
 }
 .witnessesContainer.MC .short {
-  padding-inline: 20px;
-}
-@media screen and (min-width: 400px) {
-  .witnessesContainer.MC .short {
-    padding-inline: 8vw;
-  }
+  padding-inline: 10px;
 }
 
 #confirm .banner__image {
   -o-object-position: bottom;
      object-position: bottom;
 }
+#confirm .mainContent__title {
+  margin-bottom: 0;
+}
 #confirm .mainSection__text {
+  width: 100%;
   margin-bottom: 20px;
   padding-inline: 10px;
 }
@@ -1318,20 +1328,28 @@ footer .footerText a:hover {
 }
 
 .checkbox .checkboxContainer {
-  position: relative;
+  width: 100%;
 }
-.checkbox .checkboxContainer .heart-full,
-.checkbox .checkboxContainer .heart-empty {
+.checkbox .checkboxContainer .checkHeart {
+  display: flex;
+  gap: 15px;
+}
+.checkbox .checkboxContainer .checkHeart .heartBtn {
+  position: relative;
+  width: 20px;
+}
+.checkbox .checkboxContainer .checkHeart .heartBtn .heart-full,
+.checkbox .checkboxContainer .checkHeart .heartBtn .heart-empty {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 1.5rem;
 }
-.checkbox .checkboxContainer .heart-empty {
+.checkbox .checkboxContainer .checkHeart .heartBtn .heart-empty {
   color: #e32d73;
   transform: translate(-50%, -50%);
 }
-.checkbox .checkboxContainer .heart-full {
+.checkbox .checkboxContainer .checkHeart .heartBtn .heart-full {
   background: #e32d73;
   -webkit-background-clip: text;
           background-clip: text;
@@ -1342,15 +1360,8 @@ footer .footerText a:hover {
 .checkbox .checkboxContainer input[type=checkbox] {
   display: none;
 }
-.checkbox .checkboxContainer .checkHeart {
-  cursor: pointer;
-}
 .checkbox .checkboxContainer input[type=checkbox]:checked + .checkHeart .heart-full {
   animation: checkboxHeart 300ms ease-in-out forwards;
-}
-.checkbox .checkboxText {
-  margin-left: 15px;
-  flex: 1;
 }
 .checkbox .quantity {
   display: flex;
@@ -1526,7 +1537,7 @@ footer .footerText a:hover {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -60%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
 }
 .giftBanner::after {
@@ -1538,8 +1549,8 @@ footer .footerText a:hover {
   border: solid 2px #273a7c;
 }
 .giftBanner__text {
-  font-family: "Dancing Script", cursive;
-  font-size: 3.5vh;
+  font-size: 2.2vh;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -1548,6 +1559,9 @@ footer .footerText a:hover {
      object-position: center;
 }
 
+#places {
+  border: none;
+}
 #places .card {
   width: 100%;
   border-radius: 15px;
@@ -1757,6 +1771,12 @@ footer .footerText a:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+#program a {
+  color: #e32d73;
+}
+#program a:hover {
+  text-decoration: underline;
 }
 
 .daySection {

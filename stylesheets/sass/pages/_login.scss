@@ -44,11 +44,19 @@
             font-weight: 300;
         }
     }
-    &__submit {
-        color: $secondColor;
-        font-size: 1.2rem;
+
+    .visibility,
+    .submit {
         position: absolute;
-        right: 15px;
+    }
+    .visibility {
+        color: $mainColor-light;
+        left: 10px;
+        user-select: none;
+    }
+    .submit {
+        color: $secondColor;
+        right: 10px;
     }
 }
 

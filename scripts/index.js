@@ -1,11 +1,11 @@
-const versionning = "1.0.1";
+const versionning = "1.0.3";
 const dataPages = [
-    { page: "home", id: "home", scripts: ["home.js", "dataCarousel.js"] },
-    { page: "program", id: "program", scripts: ["program.js"] },
-    { page: "infos", id: "infos", scripts: ["infos.js"] },
-    { page: "dresscode", id: "dresscode", scripts: [] },
-    { page: "giftList", id: "giftList", scripts: [] },
-    { page: "confirm", id: "confirm", scripts: ["confirm.js"] },
+    { page: "home", id: "home", scripts: ["home.js", "dataCarousel.js"], popup: true},
+    { page: "program", id: "program", scripts: ["program.js"], popup: true},
+    { page: "infos", id: "infos", scripts: ["infos.js"], popup: true},
+    { page: "dresscode", id: "dresscode", scripts: [], popup: false},
+    { page: "giftList", id: "giftList", scripts: [], popup: false},
+    { page: "confirm", id: "confirm", scripts: ["confirm.js"], popup: false},
 ];
 
 // Construction du header
@@ -40,6 +40,30 @@ const headerBuild = () => {
     );
 };
 
+// Construction du pop-up
+const popupBuild = () => {
+    const body = document.querySelector("body");
+    body.insertAdjacentHTML(
+        "beforeend",
+        `
+    <aside class="popup" id="popup">
+        <div class="popup__container">
+            <div class="popup__container__text">
+                <h3>Pensez à confirmer votre venue avant le 1<sup>er</sup> avril&nbsp;!</h3>
+                <a href="./confirm.html" class="cta">
+                    <i class="fa-regular fa-paper-plane cta__icon"></i>
+                    <span class="cta__text">RSVP</span>
+                </a>
+            </div>
+            <span class="closeBtn" id="closePopup">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+        </div>
+    </aside>
+    `
+    );
+};
+
 // Ajout des datas propres à chaque page
 const dataPageBuild = () => {
     // Ajoute les datas propres à chaque page
@@ -60,6 +84,9 @@ const dataPageBuild = () => {
                     // scriptElement.defer = true;
                     document.head.appendChild(scriptElement);
                 }
+            }
+            if (page.popup) {
+                popupBuild();
             }
         };
         // Boucle à travers les données des pages
@@ -161,13 +188,13 @@ window.addEventListener("load", () => {
     let isLogged = false;
     isLogged = sessionStorage.getItem("isLogged");
 
-    if(isLogged) {
+    if (isLogged) {
         headerBuild();
         dataPageBuild();
         footerBuild();
         navbar();
         popupDisplay();
     } else {
-        window.location.href = "../index.html"
+        window.location.href = "../index.html";
     }
 });

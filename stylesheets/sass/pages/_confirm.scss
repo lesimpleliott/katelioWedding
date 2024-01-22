@@ -5,8 +5,13 @@
         }
     }
 
+    .mainContent__title {
+        margin-bottom: 0;
+    }
+
     .mainSection {
         &__text {
+            width: 100%;
             margin-bottom: 20px;
             padding-inline: 10px;
             &:not(:first-of-type) {
@@ -99,7 +104,6 @@
         flex-direction: row;
         justify-content: center;
 
-
         input[type="radio"] {
             display: none;
 
@@ -165,33 +169,38 @@
 
 .checkbox {
     .checkboxContainer {
-        position: relative;
+        width: 100%;
 
-        .heart-full,
-        .heart-empty {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            font-size: 1.5rem;
-        }
-        .heart-empty {
-            color: $secondColor;
-            transform: translate(-50%, -50%);
-        }
-        .heart-full {
-            background: $secondColor;
-            background-clip: text;
-            color: transparent;
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
+        .checkHeart {
+            display: flex;
+            gap: 15px;
+
+            .heartBtn {
+                position: relative;
+                width: 20px;
+                .heart-full,
+                .heart-empty {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    font-size: 1.5rem;
+                }
+                .heart-empty {
+                    color: $secondColor;
+                    transform: translate(-50%, -50%);
+                }
+                .heart-full {
+                    background: $secondColor;
+                    background-clip: text;
+                    color: transparent;
+                    transform: translate(-50%, -50%) scale(0);
+                    opacity: 0;
+                }
+            }
         }
 
         input[type="checkbox"] {
             display: none;
-        }
-
-        .checkHeart {
-            cursor: pointer;
         }
 
         input[type="checkbox"]:checked + .checkHeart {
@@ -199,12 +208,6 @@
                 animation: checkboxHeart 300ms ease-in-out forwards;
             }
         }
-    }
-
-    .checkboxText {
-        /////////// FAIRE MIEUX ????????? GAP ???? OU ???
-        margin-left: 15px;
-        flex: 1;
     }
 
     .quantity {
@@ -313,7 +316,6 @@
     min-height: 150px;
     padding: 15px;
     border-radius: 10px;
-    // border: solid 1px $mainColor;
     border: none;
     font-size: 0.9rem;
     color: $mainColor;

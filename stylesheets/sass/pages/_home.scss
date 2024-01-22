@@ -187,6 +187,8 @@
     gap: 25px;
 
     .legend {
+        flex: 1 0 40%;
+        text-wrap: nowrap;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -330,11 +332,7 @@
 
     &.MC {
         .short {
-            padding-inline: 20px;
-
-            @include responsive(400px) {
-                padding-inline: 8vw;
-            }
+            padding-inline: 10px;
         }
     }
 }

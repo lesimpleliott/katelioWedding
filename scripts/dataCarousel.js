@@ -5,7 +5,7 @@ export const carouselData = [
     {
         file: `${pathFolder}imgCarousel_skydive.jpg`,
         title: "Notre rencontre",
-        text: "C’est grâce au parachutisme qu’on s’est rencontré ! Point commun évident : le casque rose et la bêtise.",
+        text: "C’est grâce au parachutisme que nous nous sommes rencontrés ! Point commun évident : le casque rose et la bêtise.",
     },
     {
         file: `${pathFolder}imgCarousel_fun.jpg`,
@@ -29,17 +29,17 @@ export const carouselData = [
     },
     {
         file: `${pathFolder}imgCarousel_trip2.jpg`,
-        title: "Notre fierté ... bis",
-        text: "En passant par un road trip en Europe entre Venise, la Croatie et Prague",
+        title: "Notre fierté ... (suite)",
+        text: "En passant l'Europe entre Venise, la Croatie et Prague",
     },
     {
         file: `${pathFolder}imgCarousel_watata.jpg`,
         title: "Notre dernière lubie",
-        text: "La watata ! Mais promis on fait attention !",
+        text: "La watata ! Mais promis, on fait attention !",
     },
     {
         file: `${pathFolder}imgCarousel_love.jpg`,
         title: "Notre leitmotiv",
-        text: "Ne jamais oublier l’amour et un peu de chicanerie !",
+        text: "Toujours beaucoup d'amour et un peu de chicanerie !",
     },
 ];
