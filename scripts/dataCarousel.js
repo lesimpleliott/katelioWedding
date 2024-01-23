@@ -30,7 +30,7 @@ export const carouselData = [
     {
         file: `${pathFolder}imgCarousel_trip2.jpg`,
         title: "Notre fierté ... (suite)",
-        text: "En passant l'Europe entre Venise, la Croatie et Prague",
+        text: "En passant par l'Europe de Venise, à la Croatie et Prague",
     },
     {
         file: `${pathFolder}imgCarousel_watata.jpg`,

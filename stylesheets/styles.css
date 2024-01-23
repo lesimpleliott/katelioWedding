@@ -877,7 +877,7 @@ footer .footerText a:hover {
 }
 #home .bannerFullPage .bannerFullPage__content__draw {
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   max-height: 70vh;
   margin-inline: 5vw;
   -o-object-fit: cover;
@@ -1204,6 +1204,11 @@ footer .footerText a:hover {
 }
 #confirm .mainSection__text p {
   margin-bottom: 6px;
+}
+#confirm h4 {
+  color: #273a7c;
+  text-align: center;
+  margin-top: 15px;
 }
 
 #confirmForm {

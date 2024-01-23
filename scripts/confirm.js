@@ -152,10 +152,13 @@ const displayFullForm = (reponse) => {
     const meal = document.getElementById("meal");
     const message = document.getElementById("message");
     const messageSubtitle = document.getElementById("messageSubtitle");
+    const guestReminder = document.getElementById("guestReminder");
 
     // affiche les éléments du formYes ou formNo
     if (response) {
-        // affiche le bouton addGuest
+        // affiche le bouton addGuest + reminder
+        guestReminder.style = "none";
+        shakeButton(guestReminder);
         addGuestBtn.style = "none";
         shakeButton(addGuestBtn);
 
@@ -560,7 +563,7 @@ const sendEmail = (email, subject, body) => {
     }).then((message) => {
         if (message === "OK") {
             alert(emailSentMessage);
-            // redirection vers PROGRAMME 
+            // redirection vers PROGRAMME
             window.location.href = "./program.html";
         }
     });
@@ -662,4 +665,3 @@ Présence:Non
     // envoi de l'email -- A activer pour deploiement
     sendEmail(mainGuestEmail, subject, body);
 });
-

@@ -112,7 +112,7 @@ const carousel = () => {
     setInterval(() => {
         index === indexMax - 1 ? (index = 0) : index++;
         showPhoto();
-    }, 3000);
+    }, 10000);
 
     arrowNext.addEventListener("click", () => {
         index === indexMax - 1 ? (index = 0) : index++;
