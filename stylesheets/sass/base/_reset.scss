@@ -1,0 +1,42 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $bodyBgColor;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none; /* WebKit (Safari/Chrome) */
+        margin: 0; /* Supprime les marges par défaut */
+    }
+}
+

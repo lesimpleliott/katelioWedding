@@ -1,0 +1,22 @@
+// COULEURS
+$mainColor: #273a7c;
+$secondColor: #e32d73;
+$mainColor-light: #e1eefa; //#DFF0FF
+$secondColor-light: #ffa8e3;
+$bodyBgColor: $mainColor-light; 
+$mainBgColor: #fff;
+$warningColor: rgb(200,0,0);
+
+$boxShadow : 0.2px 0.2px 0.9px -7px rgba(0, 0, 0, 0.115),
+0.5px 0.5px 2.5px -7px rgba(0, 0, 0, 0.165),
+1.2px 1.2px 6px -7px rgba(0, 0, 0, 0.215),
+4px 4px 20px -7px rgba(0, 0, 0, 0.33);
+
+// SPACES
+$safeZone-sidePage: 5vw;
+$cardSpace: 25px; 
+
+// RESPONSIVE
+$tablet: 900px; 
+// $tablet: 768px; 
+$desktop: 1080px;
