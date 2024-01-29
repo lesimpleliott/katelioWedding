@@ -1,4 +1,4 @@
-const versionning = "1.1.1";
+const versionning = "v=1.1.2";
 const dataPages = [
     { page: "home", id: "home", scripts: ["home.js", "dataCarousel.js"], popup: true},
     { page: "program", id: "program", scripts: ["program.js"], popup: true},
