@@ -1,4 +1,4 @@
-const versionning = "v=1.1.2";
+const versionning = "v=1.2.0";
 const dataPages = [
     { page: "home", id: "home", scripts: ["home.js", "dataCarousel.js"], popup: true},
     { page: "program", id: "program", scripts: ["program.js"], popup: true},
@@ -27,7 +27,6 @@ const headerBuild = () => {
             <li class="navbar__links__link"><a href="./infos.html" id="infos">Infos</a></li>
             <li class="navbar__links__link"><a href="./dresscode.html" id="dresscode">Dress code</a></li>
             <li class="navbar__links__link"><a href="./giftList.html" id="giftList">Cadeaux</a></li>
-            <li class="navbar__links__link"><a href="./confirm.html" id="confirm">RSVP</a></li>
         </ul>   
         <button class="burger" id="burgerBtn">
             <span class="lines">
@@ -40,29 +39,29 @@ const headerBuild = () => {
     );
 };
 
-// Construction du pop-up
-const popupBuild = () => {
-    const body = document.querySelector("body");
-    body.insertAdjacentHTML(
-        "beforeend",
-        `
-    <aside class="popup" id="popup">
-        <div class="popup__container">
-            <div class="popup__container__text">
-                <h3>Pensez à confirmer votre venue avant le 1<sup>er</sup> avril&nbsp;!</h3>
-                <a href="./confirm.html" class="cta">
-                    <i class="fa-regular fa-paper-plane cta__icon"></i>
-                    <span class="cta__text">RSVP</span>
-                </a>
-            </div>
-            <span class="closeBtn" id="closePopup">
-                <i class="fa-solid fa-xmark"></i>
-            </span>
-        </div>
-    </aside>
-    `
-    );
-};
+// // Construction du pop-up
+// const popupBuild = () => {
+//     const body = document.querySelector("body");
+//     body.insertAdjacentHTML(
+//         "beforeend",
+//         `
+//     <aside class="popup" id="popup">
+//         <div class="popup__container">
+//             <div class="popup__container__text">
+//                 <h3>Pensez à confirmer votre venue avant le 1<sup>er</sup> avril&nbsp;!</h3>
+//                 <a href="./confirm.html" class="cta">
+//                     <i class="fa-regular fa-paper-plane cta__icon"></i>
+//                     <span class="cta__text">RSVP</span>
+//                 </a>
+//             </div>
+//             <span class="closeBtn" id="closePopup">
+//                 <i class="fa-solid fa-xmark"></i>
+//             </span>
+//         </div>
+//     </aside>
+//     `
+//     );
+// };
 
 // Ajout des datas propres à chaque page
 const dataPageBuild = () => {
@@ -112,6 +111,7 @@ const footerBuild = () => {
             <p class="footerText">Une question ? Contactez-nous : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
             <p class="footerText">© Katherine & Eliott <em>(Katherine a écrit les textes et Eliott a codé ce site)</em></p>
             <p class="footerText">Crédits images : <a href="https://fr.freepik.com/" target="_blank">Designed by Freepik</a></p>
+            <p class="footerText"><a href="./confirm.html">Si t'es du genre en retard mais observateur !</a></p>
             `
         );
     }
@@ -194,7 +194,7 @@ window.addEventListener("load", () => {
         dataPageBuild();
         footerBuild();
         navbar();
-        popupDisplay();
+        // popupDisplay();
     } else {
         window.location.href = "../index.html";
     }
