@@ -20,7 +20,7 @@ const messageNo = [
     "Katherine & Eliott",
 ];
 const emailSentMessage =
-    "Votre réponse a bien été envoyée. Nous reviendrons vers vous le plus rapidement possible avec la suite de informations.";
+    "Votre réponse a bien été envoyée. Nous reviendrons vers vous le plus rapidement possible avec la suite des informations.";
 
 // ******************************************************************************
 //  **************************** FONCTION USEFULL ****************************
