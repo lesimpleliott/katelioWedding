@@ -1,4 +1,3 @@
-const versionning = "v=1.2";
 const dataPages = [
   {
     page: "home",
@@ -84,7 +83,7 @@ const dataPageBuild = () => {
 
         for (const script of page.scripts) {
           const scriptElement = document.createElement("script");
-          scriptElement.src = `../scripts/${script}?v=${versionning}`;
+          scriptElement.src = `../scripts/${script}`;
           scriptElement.type = "module";
           // scriptElement.defer = true;
           document.head.appendChild(scriptElement);
