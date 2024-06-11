@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="./assets/icons/love-icon.svg">
-        <title>Katherine & Eliott</title>
-        <link rel="stylesheet" href="../stylesheets/styles.css?v=1.1.2">
-        <script src="./scripts/login.js?v=1.1.2" defer></script>
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/love-icon.svg" />
+    <title>Katherine & Eliott</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css?v=1.2" />
+    <script src="./scripts/login.js?v=1.2" defer></script>
+  </head>
 
-    <body> 
-        <div class="login">
-            <img src="./assets/images/bluesky.jpg" alt="background bluesky" class="login__background">
-            <img src="./assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg" alt="" class="logo">
-            <form id="loginForm" class="loginForm">
-                <button id="togglePwdBtn" type="button" value="hidden" class="visibility">
-                    <i class="fa-solid fa-eye" id="visibleIcon"></i>
-                </button>
-                <input type="password" id="passwordInput" class="loginForm__input" placeholder="Mot de passe"/>
-                <button type="submit" id="passwordSubmit" class="submit">
-                    <i class="fa-regular fa-paper-plane"></i>
-                </button>
-            </form>
-            <p class="logError"></p>
-        </div>
-
-    </body>
-
+  <body>
+    <div class="login">
+      <img
+        src="./assets/images/bluesky.jpg"
+        alt="background bluesky"
+        class="login__background"
+      />
+      <img
+        src="./assets/logos/LogoKE_WhitePink_NoDate_V2_RVB.svg"
+        alt=""
+        class="logo"
+      />
+      <form id="loginForm" class="loginForm">
+        <button
+          id="togglePwdBtn"
+          type="button"
+          value="hidden"
+          class="visibility"
+        >
+          <i class="fa-solid fa-eye" id="visibleIcon"></i>
+        </button>
+        <input
+          type="password"
+          id="passwordInput"
+          class="loginForm__input"
+          placeholder="Mot de passe"
+        />
+        <button type="submit" id="passwordSubmit" class="submit">
+          <i class="fa-regular fa-paper-plane"></i>
+        </button>
+      </form>
+      <p class="logError"></p>
+    </div>
+  </body>
 </html>

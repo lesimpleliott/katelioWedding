@@ -1,218 +1,352 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="../assets/icons/love-icon.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/icons/love-icon.svg"
+    />
     <title>K&E - Informations</title>
-    <link rel="stylesheet" href="../stylesheets/styles.css?v=1.1.2">
-    <script src="../scripts/index.js?v=1.1.2" defer></script>
-</head>
+    <link rel="stylesheet" href="../stylesheets/styles.css?v=1.2" />
+    <script src="../scripts/index.js?v=1.2" defer></script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <!-- JS injected -->
+      <!-- JS injected -->
     </header>
-    
-    <main id="infos">
-        <section class="banner">
-            <img class="banner__image" src="../assets/images/dunes-sable-herbe-plage.jpg" alt="dune de sable landaise">   
-            <h1 class="banner__title">Informations</h1>
-        </section>
 
-        <section class="mainContent">
-            <!-- <h2 class="mainContent__title">Lorem, ipsum dolor.</h2> -->
-            <!-- <div class="mainContent__subtitle">
+    <main id="infos">
+      <section class="banner">
+        <img
+          class="banner__image"
+          src="../assets/images/dunes-sable-herbe-plage.jpg"
+          alt="dune de sable landaise"
+        />
+        <h1 class="banner__title">Informations</h1>
+      </section>
+
+      <section class="mainContent">
+        <!-- <h2 class="mainContent__title">Lorem, ipsum dolor.</h2> -->
+        <!-- <div class="mainContent__subtitle">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quidem facere iusto sequi maxime distinctio?</p>
             </div> -->
 
-            <!-- LES LIEUX -->
-            <section class="mainSection" id="places">
-                <h2>Les lieux</h2>
-                <div class="mainSection__content">
-                    <!-- Château -->
-                    <article class="card" id="castle">
-                        <img class="card__image" src="../assets/images/belle-epoque.jpg" alt="Château Belle Époque">
-                        <i class="fa-solid fa-info card__icon"></i>
-                        <div class="card__content">
+        <!-- LES LIEUX -->
+        <section class="mainSection" id="places">
+          <h2>Les lieux</h2>
+          <div class="mainSection__content">
+            <!-- Château -->
+            <article class="card" id="castle">
+              <img
+                class="card__image"
+                src="../assets/images/belle-epoque.jpg"
+                alt="Château Belle Époque"
+              />
+              <i class="fa-solid fa-info card__icon"></i>
+              <div class="card__content">
+                <h3 class="card__content__title">Le château Belle Époque</h3>
 
-                            <h3 class="card__content__title">Le château Belle Époque</h3>
+                <span
+                  class="card__content__closeBtn js-closeCard"
+                  data-id="castle"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
 
-                            <span class="card__content__closeBtn js-closeCard" data-id="castle">
-                                <i class="fa-solid fa-xmark"></i>
-                            </span>
-
-                            <div class="card__content__description">
-                                <p>C’est là que nous allons passer tout le weekend ensemble&nbsp;!</p>
-                                <p>Vous trouverez également sur le domaine&nbsp;: un terrain de tennis et de pétanque ainsi qu'une piscine sécurisée.</p>
-                                <p>Et pour les plus téméraires, l'océan n'est pas loin&nbsp;!</p>
-                            </div>
-
-                            <div class="card__content__adress">
-                                <i class="fa-solid fa-location-dot position"></i>
-                                <a class="addressContainer" href="https://maps.app.goo.gl/X9AzhxY51NR9xn5V6" target="_blank">
-                                    <p class="text__adress">152 route Belle Époque - 40260 Linxe</p>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- GITES -->
-                    <article class="card" id="hosts">
-                        <img class="card__image" src="../assets/images/hebergements.jpg" alt="Hébérgement du Château Belle Époque">
-                        <i class="fa-solid fa-info card__icon"></i>
-                        <div class="card__content">
-                            <h3 class="card__content__title">Les hébérgements du château</h3>
-                            <span class="card__content__closeBtn js-closeCard" data-id="hosts">
-                                <i class="fa-solid fa-xmark"></i>
-                            </span>
-
-                            <div class="card__content__description">
-                                <p>Afin de faciliter les hébergements de tous, les gîtes se situent dans le domaine du Château.</p>
-                                <p>L’hébergement du week-end comprend les nuits de vendredi, samedi et dimanche et pour ceux qui le souhaitent, vous pouvez rallonger votre séjour en arrivant dès le jeudi et en repartant le mardi.
-                                </p>
-                                <p>Les détails de tous les tarifs vous seront fournis dans le formulaire de <a href="./confirm.html">RSVP</a>.</p>
-                            </div>
-
-                            <div class="card__content__adress">
-                                <i class="fa-solid fa-location-dot position"></i>
-                                <a class="addressContainer" href="https://maps.app.goo.gl/X9AzhxY51NR9xn5V6" target="_blank">
-                                    <p class="text__adress">152 route Belle Époque - 40260 Linxe</p>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-         
-                    <!-- MAIRIE -->
-                    <article class="card" id="cityHall">
-                        <img class="card__image" src="../assets/images/mairie.jpg" alt="La mairie de Linxe">
-                        <i class="fa-solid fa-info card__icon"></i>
-                        <div class="card__content">
-                            <h3 class="card__content__title">La Mairie</h3>
-                            <span class="card__content__closeBtn js-closeCard" data-id="cityHall">
-                                <i class="fa-solid fa-xmark"></i>
-                            </span>
-
-                            <div class="card__content__description">
-                                <p>Le mariage civil sera célébré samedi, dans la jolie petite mairie de Linxe.</p>
-                                <p>Elle se situe à quelques pas du Château <em>(distance talons friendly)</em>&nbsp;!</p> 
-                            </div>
-
-                            <div class="card__content__adress">
-                                <i class="fa-solid fa-location-dot position"></i>
-                                <a class="addressContainer" href="https://maps.app.goo.gl/GYeExVCVM2bsoqTW8" target="_blank">
-                                    <p class="text__adress">2 place de l’Eglise - 40260 Linxe</p>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PALPIC -->
-                    <article class="card" id="palpic">
-                        <img class="card__image" src="../assets/images/palpic2.jpg" alt="La mairie de Linxe">
-                        <i class="fa-solid fa-info card__icon"></i>
-                        <div class="card__content">
-                            <span class="card__content__closeBtn js-closeCard" data-id="palpic">
-                                <i class="fa-solid fa-xmark"></i>
-                            </span>
-                            <h3 class="card__content__title">Pool party & Diner</h3>
-                            <div class="card__content__description">
-                                <p>Pour finir en beauté, nous vous réservons une petite surprise pour dimanche soir&nbsp;!</p>
-                                <p>Pensez à prendre vos maillots de bains&nbsp;!!</p>
-                                <img src="../assets/icons/ICONS_swimmingPool.png" alt="">
-                            </div>
-
-                            <div class="card__content__adress">
-                                <i class="fa-solid fa-location-dot position"></i>
-                                <div class="text">
-                                    <p class="text__adress" style="text-decoration: none;">Palpic</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                <div class="card__content__description">
+                  <p>
+                    C’est là que nous allons passer tout le weekend
+                    ensemble&nbsp;!
+                  </p>
+                  <p>
+                    Vous trouverez également sur le domaine&nbsp;: un terrain de
+                    tennis et de pétanque ainsi qu'une piscine sécurisée.
+                  </p>
+                  <p>
+                    Et pour les plus téméraires, l'océan n'est pas loin&nbsp;!
+                  </p>
                 </div>
-            </section>
 
-            <!-- VOYAGE -->
-            <section class="mainSection" id="travel">
-                <h2>Organiser votre voyage</h2>
-                <div class="mainSection__content">
-                    <!-- PAR ROUTE -->
-                    <article class="travelCard"> 
-                        <div class="travelCard__content">
-                            <img class="travelCard__content__image" src="../assets/icons/ICONS_watata.png" alt="icone voiture et moto">
-                            <div class="travelCard__content__text">
-                                <h3>Par la route</h3>
-                                <p>Direction : Linxe</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
-                        </div>
-                        <div class="travelCard__description">
-                            <p>Demandez à votre GPS, il vous mènera à bon port&nbsp;!</p>
-                            <p>Parking sécurisé sur place.</p> 
-                            <p>Pour les globe-trotteurs détenteurs de van ou camping-car&nbsp;: le couchage sur place n’est malheureusement pas autorisé&nbsp;! Il vous sera possible de garer votre véhicule à proximité (toujours en sécurité) mais pas dans le parking.</p>
-                        </div>
-                    </article>
-
-                    <!-- EN TRAIN -->
-                    <article class="travelCard"> 
-                        <div class="travelCard__content">
-                            <img class="travelCard__content__image" src="../assets/icons/ICONS_train.png" alt="icone train">
-                            <div class="travelCard__content__text">
-                                <h3>En train</h3>
-                                <p>Direction : Gare de Dax</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
-                        </div>
-                        <div class="travelCard__description">
-                            <p>Le Château se situe à environ 30 minutes de route de la gare.</p>
-                            <p>Il vous est possible de louer une voiture sur place <em>(Avis, Europcar & Rent a Car).</em> </p>
-                            <p>Besoin d'aide pour vous rendre jusqu'au Château&nbsp;? Contactez-nous le plus rapidement possible afin de trouver une solution : <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
-                            
-                        </div>
-                    </article>
-
-                    <!-- EN AVION -->
-                    <article class="travelCard"> 
-                        <div class="travelCard__content">
-                            <img class="travelCard__content__image" src="../assets/icons/ICONS_plane.png" alt="icone avion">
-                            <div class="travelCard__content__text">
-                                <h3>En avion</h3>
-                                <p>Aéroport : Bordeaux-Mérignac ou Biarritz</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
-                        </div>
-                        <div class="travelCard__description">
-                            <p>Le Château se situe à environ 1h30 de route de Mérignac et 1h de Biarritz.</p>
-                            <p>Besoin d'aide pour vous rendre jusqu'au Château&nbsp;? Merci de nous prévenir au plus vite&nbsp;: nous essayerons de vous organiser un co-voiturage ou trouver une solution.</p> 
-                            <p>Contactez-nous par mail&nbsp;: <a href="mailto:contact@katelio.fr">contact@katelio.fr</a></p>
-                        </div>
-                    </article>
-
-                    <!-- EN PARACHUTE -->
-                    <article class="travelCard"> 
-                        <div class="travelCard__content">
-                            <img class="travelCard__content__image" src="../assets/icons/ICONS_skydive.png" alt="icone parachute">
-                            <div class="travelCard__content__text">
-                                <h3>En parachute !</h3>
-                                <p>Drop zone : Mimizan</p>
-                            </div>
-                            <i class="fa-solid fa-chevron-down travelCard__content__icon"></i>
-                        </div>
-                        <div class="travelCard__description">
-                            <p>Comptez 20-30 minutes pour rejoindre Linxe. Les éventuels frais de largage et location d'avion restent à votre charge !!</p>
-                        </div>
-                    </article>
+                <div class="card__content__adress">
+                  <i class="fa-solid fa-location-dot position"></i>
+                  <a
+                    class="addressContainer"
+                    href="https://maps.app.goo.gl/X9AzhxY51NR9xn5V6"
+                    target="_blank"
+                  >
+                    <p class="text__adress">
+                      152 route Belle Époque - 40260 Linxe
+                    </p>
+                  </a>
                 </div>
-            </section>
+              </div>
+            </article>
+
+            <!-- GITES -->
+            <article class="card" id="hosts">
+              <img
+                class="card__image"
+                src="../assets/images/hebergements.jpg"
+                alt="Hébérgement du Château Belle Époque"
+              />
+              <i class="fa-solid fa-info card__icon"></i>
+              <div class="card__content">
+                <h3 class="card__content__title">
+                  Les hébérgements du château
+                </h3>
+                <span
+                  class="card__content__closeBtn js-closeCard"
+                  data-id="hosts"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+
+                <div class="card__content__description">
+                  <p>
+                    Afin de faciliter les hébergements de tous, les gîtes se
+                    situent dans le domaine du Château.
+                  </p>
+                  <p>
+                    L’hébergement du week-end comprend les nuits de vendredi,
+                    samedi et dimanche et pour ceux qui le souhaitent, vous
+                    pouvez rallonger votre séjour en arrivant dès le jeudi et en
+                    repartant le mardi.
+                  </p>
+                  <p>
+                    Les détails de tous les tarifs vous seront fournis dans le
+                    formulaire de <a href="./confirm.html">RSVP</a>.
+                  </p>
+                </div>
+
+                <div class="card__content__adress">
+                  <i class="fa-solid fa-location-dot position"></i>
+                  <a
+                    class="addressContainer"
+                    href="https://maps.app.goo.gl/X9AzhxY51NR9xn5V6"
+                    target="_blank"
+                  >
+                    <p class="text__adress">
+                      152 route Belle Époque - 40260 Linxe
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- MAIRIE -->
+            <article class="card" id="cityHall">
+              <img
+                class="card__image"
+                src="../assets/images/mairie.jpg"
+                alt="La mairie de Linxe"
+              />
+              <i class="fa-solid fa-info card__icon"></i>
+              <div class="card__content">
+                <h3 class="card__content__title">La Mairie</h3>
+                <span
+                  class="card__content__closeBtn js-closeCard"
+                  data-id="cityHall"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+
+                <div class="card__content__description">
+                  <p>
+                    Le mariage civil sera célébré samedi, dans la jolie petite
+                    mairie de Linxe.
+                  </p>
+                  <p>
+                    Elle se situe à quelques pas du Château
+                    <em>(distance talons friendly)</em>&nbsp;!
+                  </p>
+                </div>
+
+                <div class="card__content__adress">
+                  <i class="fa-solid fa-location-dot position"></i>
+                  <a
+                    class="addressContainer"
+                    href="https://maps.app.goo.gl/GYeExVCVM2bsoqTW8"
+                    target="_blank"
+                  >
+                    <p class="text__adress">
+                      2 place de l’Eglise - 40260 Linxe
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PALPIC -->
+            <article class="card" id="palpic">
+              <img
+                class="card__image"
+                src="../assets/images/palpic2.jpg"
+                alt="La mairie de Linxe"
+              />
+              <i class="fa-solid fa-info card__icon"></i>
+              <div class="card__content">
+                <span
+                  class="card__content__closeBtn js-closeCard"
+                  data-id="palpic"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </span>
+                <h3 class="card__content__title">Pool party & Diner</h3>
+                <div class="card__content__description">
+                  <p>
+                    Pour finir en beauté, nous vous réservons une petite
+                    surprise pour dimanche soir&nbsp;!
+                  </p>
+                  <p>Pensez à prendre vos maillots de bains&nbsp;!!</p>
+                  <img src="../assets/icons/ICONS_swimmingPool.png" alt="" />
+                </div>
+
+                <div class="card__content__adress">
+                  <i class="fa-solid fa-location-dot position"></i>
+                  <div class="text">
+                    <p class="text__adress" style="text-decoration: none">
+                      Palpic
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </section>
+
+        <!-- VOYAGE -->
+        <section class="mainSection" id="travel">
+          <h2>Organiser votre voyage</h2>
+          <div class="mainSection__content">
+            <!-- PAR ROUTE -->
+            <article class="travelCard">
+              <div class="travelCard__content">
+                <img
+                  class="travelCard__content__image"
+                  src="../assets/icons/ICONS_watata.png"
+                  alt="icone voiture et moto"
+                />
+                <div class="travelCard__content__text">
+                  <h3>Par la route</h3>
+                  <p>Direction : Linxe</p>
+                </div>
+                <i
+                  class="fa-solid fa-chevron-down travelCard__content__icon"
+                ></i>
+              </div>
+              <div class="travelCard__description">
+                <p>Demandez à votre GPS, il vous mènera à bon port&nbsp;!</p>
+                <p>Parking sécurisé sur place.</p>
+                <p>
+                  Pour les globe-trotteurs détenteurs de van ou
+                  camping-car&nbsp;: le couchage sur place n’est malheureusement
+                  pas autorisé&nbsp;! Il vous sera possible de garer votre
+                  véhicule à proximité (toujours en sécurité) mais pas dans le
+                  parking.
+                </p>
+              </div>
+            </article>
+
+            <!-- EN TRAIN -->
+            <article class="travelCard">
+              <div class="travelCard__content">
+                <img
+                  class="travelCard__content__image"
+                  src="../assets/icons/ICONS_train.png"
+                  alt="icone train"
+                />
+                <div class="travelCard__content__text">
+                  <h3>En train</h3>
+                  <p>Direction : Gare de Dax</p>
+                </div>
+                <i
+                  class="fa-solid fa-chevron-down travelCard__content__icon"
+                ></i>
+              </div>
+              <div class="travelCard__description">
+                <p>
+                  Le Château se situe à environ 30 minutes de route de la gare.
+                </p>
+                <p>
+                  Il vous est possible de louer une voiture sur place
+                  <em>(Avis, Europcar & Rent a Car).</em>
+                </p>
+                <p>
+                  Besoin d'aide pour vous rendre jusqu'au Château&nbsp;?
+                  Contactez-nous le plus rapidement possible afin de trouver une
+                  solution :
+                  <a href="mailto:contact@katelio.fr">contact@katelio.fr</a>
+                </p>
+              </div>
+            </article>
+
+            <!-- EN AVION -->
+            <article class="travelCard">
+              <div class="travelCard__content">
+                <img
+                  class="travelCard__content__image"
+                  src="../assets/icons/ICONS_plane.png"
+                  alt="icone avion"
+                />
+                <div class="travelCard__content__text">
+                  <h3>En avion</h3>
+                  <p>Aéroport : Bordeaux-Mérignac ou Biarritz</p>
+                </div>
+                <i
+                  class="fa-solid fa-chevron-down travelCard__content__icon"
+                ></i>
+              </div>
+              <div class="travelCard__description">
+                <p>
+                  Le Château se situe à environ 1h30 de route de Mérignac et 1h
+                  de Biarritz.
+                </p>
+                <p>
+                  Besoin d'aide pour vous rendre jusqu'au Château&nbsp;? Merci
+                  de nous prévenir au plus vite&nbsp;: nous essayerons de vous
+                  organiser un co-voiturage ou trouver une solution.
+                </p>
+                <p>
+                  Contactez-nous par mail&nbsp;:
+                  <a href="mailto:contact@katelio.fr">contact@katelio.fr</a>
+                </p>
+              </div>
+            </article>
+
+            <!-- EN PARACHUTE -->
+            <article class="travelCard">
+              <div class="travelCard__content">
+                <img
+                  class="travelCard__content__image"
+                  src="../assets/icons/ICONS_skydive.png"
+                  alt="icone parachute"
+                />
+                <div class="travelCard__content__text">
+                  <h3>En parachute !</h3>
+                  <p>Drop zone : Mimizan</p>
+                </div>
+                <i
+                  class="fa-solid fa-chevron-down travelCard__content__icon"
+                ></i>
+              </div>
+              <div class="travelCard__description">
+                <p>
+                  Comptez 20-30 minutes pour rejoindre Linxe. Les éventuels
+                  frais de largage et location d'avion restent à votre charge !!
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
     </main>
 
     <footer>
-        <!-- JS injected -->
+      <!-- JS injected -->
     </footer>
-
-</body>
-
+  </body>
 </html>
