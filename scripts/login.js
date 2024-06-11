@@ -25,7 +25,7 @@ loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (pwdInput.value === "pinktouch") {
-        window.location.href = "../pages/home.html";
+        window.location.href = "./pages/home.html";
         sessionStorage.setItem("isLogged", true);
     } else {
         loginForm.classList.add("shake");
